@@ -13,7 +13,7 @@ const user = {
 };
 
 const Navbar = () => {
-  const [isMenuOpen, setMenuOpen] = useState(false);
+  const [isMenuOpen, setMenuOpen] = useState(true);
   const pathname = usePathname();
   console.log(pathname);
 
