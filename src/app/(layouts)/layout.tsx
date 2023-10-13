@@ -7,10 +7,7 @@ import { Layout } from "antd";
 const AdminLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <Layout hasSider>
-      <div className="absolute lg:static">
-        <SideBar />
-      </div>
-
+      <SideBar />
       <Contents>{children}</Contents>
     </Layout>
   );
