@@ -6,14 +6,14 @@ import { useState } from "react";
 
 import Image from "next/image";
 
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 const user = {
   _id: 1,
 };
 
 const Navbar = () => {
-  const [isMenuOpen, setMenuOpen] = useState(true);
+  const [isMenuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
   console.log(pathname);
 
