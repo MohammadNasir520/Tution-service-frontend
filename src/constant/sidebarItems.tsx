@@ -29,6 +29,10 @@ export const sidebarItems = (role: string) => {
           label: <Link href={`/${role}/admin`}>Edit Admin</Link>,
           key: `/${role}/admin`,
         },
+        {
+          label: <Link href={`/${role}/admin`}>Create Admin</Link>,
+          key: `/${role}/Create Admin`,
+        },
       ],
     },
   ];

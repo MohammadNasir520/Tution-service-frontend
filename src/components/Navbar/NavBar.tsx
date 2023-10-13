@@ -123,10 +123,10 @@ const Navbar = () => {
                 <Link
                   onClick={() => setMenuOpen(false)}
                   href={navItem?.href}
-                  className={`  hover:underline border-b-2 border-[#c0c2c7]
+                  className={`  hover:border-b-2 border-[#c0c2c7]
                                          ${
                                            pathname === navItem.href
-                                             ? "text-teal-500 border-b-2 underline  border-[#c0c2c7] font-semibold "
+                                             ? "text-teal-500 border-b-2   border-[#c0c2c7] font-semibold "
                                              : `${
                                                  isMenuOpen
                                                    ? "lg:block p-4 text-lg font-sans font-semibold text-white hover:bg-blue-50  rounded"

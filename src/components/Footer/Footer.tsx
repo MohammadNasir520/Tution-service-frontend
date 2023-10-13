@@ -6,11 +6,6 @@ import { AiFillInstagram, AiOutlineMail } from "react-icons/ai";
 import { FiPhoneCall } from "react-icons/fi";
 import Link from "next/link";
 
-import youtube from "../../images/youtube.png";
-import facebook from "../../images/facebook.png";
-import instagram from "../../images/instagram (1).png";
-import linkedIn from "../../images/linkedin.png";
-import tweeter from "../../images/Twitter-new-logo.jpeg";
 import { BsFacebook, BsLinkedin, BsTwitter, BsYoutube } from "react-icons/bs";
 
 const Footer = () => {
