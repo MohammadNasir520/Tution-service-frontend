@@ -7,7 +7,7 @@ import { store } from "@/redux/store";
 const Providers = ({ children }: { children: React.ReactNode }) => {
   return (
     <Provider store={store}>
-      <StyledComponentsRegistry>{children}</StyledComponentsRegistry>;
+      <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
     </Provider>
   );
 };

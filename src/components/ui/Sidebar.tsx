@@ -54,7 +54,7 @@ const SideBar = () => {
               padding: "10px 0px",
             }}
           >
-            Tuition-service
+            Tuition-Media
           </div>
           <div onClick={() => dispatch(closeSidebar())}>
             <AiOutlineArrowLeft className="h-5 w-5 text-white lg:hidden" />
