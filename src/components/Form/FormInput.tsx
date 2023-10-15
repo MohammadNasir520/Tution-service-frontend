@@ -29,15 +29,25 @@ const FormInput = ({
       <Controller
         control={control}
         name={name}
-        render={({ field }) => (
-          <Input
-            {...field}
-            type={type}
-            size={size}
-            placeholder={placeHolder}
-            value={value ? value : field.value}
-          />
-        )}
+        render={({ field }) =>
+          type === "password" ? (
+            <Input.Password
+              {...field}
+              type={type}
+              size={size}
+              placeholder={placeHolder}
+              value={value ? value : field.value}
+            />
+          ) : (
+            <Input
+              {...field}
+              type={type}
+              size={size}
+              placeholder={placeHolder}
+              value={value ? value : field.value}
+            />
+          )
+        }
       />
     </>
   );
