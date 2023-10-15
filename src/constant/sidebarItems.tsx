@@ -11,7 +11,7 @@ export const sidebarItems = (role: string) => {
       children: [
         {
           label: <Link href={`/${role}`}>Edit Profile</Link>,
-          key: `/${role}/profile`,
+          key: `/${role}/edit`,
         },
       ],
     },
@@ -26,12 +26,12 @@ export const sidebarItems = (role: string) => {
 
       children: [
         {
-          label: <Link href={`/${role}/admin`}>Edit Admin</Link>,
-          key: `/${role}/admin`,
+          label: <Link href={`/${role}/create`}>Create Admin</Link>,
+          key: `/${role}/create`,
         },
         {
-          label: <Link href={`/${role}/admin`}>Create Admin</Link>,
-          key: `/${role}/Create Admin`,
+          label: <Link href={`/${role}/admin`}>Edit Admin</Link>,
+          key: `/${role}/admin`,
         },
       ],
     },
@@ -40,17 +40,17 @@ export const sidebarItems = (role: string) => {
     ...defaultSidebarItems,
 
     {
-      label: "Manage admin",
-      key: "manage-admin",
+      label: "Manage user",
+      key: "manage-user",
 
       children: [
         {
-          label: <Link href={`/${role}/admin`}>Edit Admin</Link>,
-          key: `/${role}/admin`,
+          label: <Link href={`/${role}/user`}>Edit user</Link>,
+          key: `/${role}/user`,
         },
         {
-          label: <Link href={`/${role}/admin`}>Create Admin</Link>,
-          key: `/${role}/Create Admin`,
+          label: <Link href={`/${role}/user`}>Create user</Link>,
+          key: `/${role}/Create user`,
         },
       ],
     },
@@ -59,17 +59,17 @@ export const sidebarItems = (role: string) => {
     ...defaultSidebarItems,
 
     {
-      label: "Manage admin",
-      key: "manage-admin",
+      label: "Manage booking",
+      key: "manage-booking",
 
       children: [
         {
-          label: <Link href={`/${role}/admin`}>Edit Admin</Link>,
-          key: `/${role}/admin`,
+          label: <Link href={`/${role}/booking`}>Edit booking</Link>,
+          key: `/${role}/booking`,
         },
         {
-          label: <Link href={`/${role}/admin`}>Create Admin</Link>,
-          key: `/${role}/Create Admin`,
+          label: <Link href={`/${role}/booking`}>Create booking</Link>,
+          key: `/${role}/Create booking`,
         },
       ],
     },

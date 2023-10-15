@@ -16,7 +16,7 @@ const SideBar = () => {
   const { role } = getUserInfo() as any;
   console.log(role);
   const sidebarStatus = useAppSelector((state) => state.sidebar.open);
-  console.log(sidebarStatus);
+
   const dispatch = useAppDispatch();
 
   const drawerStyles: DrawerStyles = {
