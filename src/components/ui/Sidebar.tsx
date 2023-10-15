@@ -8,14 +8,16 @@ import { AiOutlineArrowLeft } from "react-icons/ai";
 import { closeSidebar } from "@/redux/features/sideBarslice";
 import { DrawerClassNames, DrawerStyles } from "antd/es/drawer/DrawerPanel";
 import Link from "next/link";
+import { getUserInfo } from "@/services/authServices";
 
 const { Sider } = Layout;
 
 const SideBar = () => {
+  const { role } = getUserInfo() as any;
+  console.log(role);
   const sidebarStatus = useAppSelector((state) => state.sidebar.open);
   console.log(sidebarStatus);
   const dispatch = useAppDispatch();
-  const role = "super_admin";
 
   const drawerStyles: DrawerStyles = {
     mask: {
