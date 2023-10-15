@@ -28,14 +28,15 @@ const Login = () => {
   };
   return (
     <div>
-      <Row justify={"center"} align={"middle"} className="h-screen">
+      <Row justify={"center"} align={"middle"} className="h-screen ">
         <Col sm={12} md={16} lg={10}>
-          Image
+          <div className="lg:block hidden">Image</div>
         </Col>
         <Col sm={12} md={16} lg={10}>
           <div>
+            <h1 className="text-2xl text-center">Login Here</h1>
             <Form submitHandler={onSubmit}>
-              <div className="px-8 ">
+              <div className="px-8 w-full ">
                 <FormInput
                   name="email"
                   type="text"
@@ -48,9 +49,15 @@ const Login = () => {
                   size="large"
                   label="password"
                 />
-                <Button type="primary" htmlType="submit" className="mt-2">
-                  Login
-                </Button>
+                <div className="w-full flex justify-center">
+                  <Button
+                    type="primary"
+                    htmlType="submit"
+                    className="mt-2 w-1/2 "
+                  >
+                    Login
+                  </Button>
+                </div>
               </div>
             </Form>
           </div>

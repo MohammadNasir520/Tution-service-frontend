@@ -1,6 +1,5 @@
 "use client";
 import { Layout } from "antd";
-
 import Header from "./Header";
 
 const { Content } = Layout;

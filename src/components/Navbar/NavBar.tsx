@@ -7,12 +7,11 @@ import { useState } from "react";
 import Image from "next/image";
 
 import { usePathname } from "next/navigation";
-
-const user = {
-  _id: 1,
-};
+import { useAppSelector } from "@/redux/hooks";
 
 const Navbar = () => {
+  const user = useAppSelector((state) => state.user.accessToken);
+  console.log(user);
   const [isMenuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
   console.log(pathname);
@@ -33,13 +32,13 @@ const Navbar = () => {
     },
     {
       title: "DashBoard",
-      href: "/dashboard",
+      href: "/admin",
     },
   ];
 
   const signOption = (
     <div className=" lg:flex">
-      {user?._id ? (
+      {user ? (
         <Link
           href={"/"}
           className={`${
@@ -81,24 +80,13 @@ const Navbar = () => {
     <div className="sticky inset-0 z-50 shadow-sm">
       <div className=" bg-black w-full text-white ">
         <nav className=" py-2  w-full flex justify-between items-center">
-          <div className="flex items-center gap-2  ml-3">
-            <div className="rounded-full border-4 border-blue-gray-600">
-              <Image
-                src={"/"}
-                height={50}
-                width={50}
-                alt="pp"
-                className="rounded-full  object-cover object-center"
-              ></Image>
-            </div>
-
+          <div>
             <Link href={"/"} className="text-xl font-semibold leading-none">
               <h4 className=" block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
-                Nasir
+                Tuition Media
               </h4>
             </Link>
           </div>
-
           <div
             onClick={() => setMenuOpen(!isMenuOpen)}
             className={`${isMenuOpen ? "hidden" : "block"}  lg:hidden`}
@@ -116,7 +104,7 @@ const Navbar = () => {
           </div>
 
           {/* large screen Navbar options............... */}
-          <div></div>
+
           <div className="hidden  flex-1  flex justify-center items-center  text-white lg:flex lg:items-center lg:w-auto lg:space-x-4 text-lg font-sans  font-semibold ">
             {navItems?.map((navItem, i) => (
               <div key={i}>
@@ -141,6 +129,17 @@ const Navbar = () => {
           </div>
           <div className="hidden lg:block  text-lg font-sans font-semibold">
             {signOption}
+          </div>
+          <div className="flex items-center gap-2  ml-3">
+            <div className="rounded-full border-4 border-blue-gray-600">
+              <Image
+                src={"/"}
+                height={50}
+                width={50}
+                alt="pp"
+                className="rounded-full  object-cover object-center"
+              ></Image>
+            </div>
           </div>
         </nav>
         <div

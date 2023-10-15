@@ -1,47 +1,99 @@
-import { Avatar, Button, Dropdown, Layout, MenuProps, Row, Space } from "antd";
+"use client";
+import {
+  Avatar,
+  Button,
+  Drawer,
+  Dropdown,
+  Layout,
+  Menu,
+  MenuProps,
+  Row,
+  Space,
+} from "antd";
 import { UserOutlined } from "@ant-design/icons";
-import { AiOutlineArrowRight } from "react-icons/ai";
+import { AiOutlineMenuFold, AiOutlineMenuUnfold } from "react-icons/ai";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { showSideBar } from "@/redux/features/sideBarslice";
-
+import { closeSidebar, showSideBar } from "@/redux/features/sideBarslice";
+import { DrawerStyles } from "antd/es/drawer/DrawerPanel";
+import Link from "next/link";
+import { headerItems } from "@/constant/headerItems";
+import { usePathname } from "next/navigation";
 const { Header: AntHeader } = Layout;
 
 const Header = () => {
   const dispatch = useAppDispatch();
   const sideBarStatus = useAppSelector((state) => state.sidebar.open);
-  console.log(sideBarStatus);
-  const items: MenuProps["items"] = [
-    {
-      key: "0",
-      label: (
-        <Button type="text" danger>
-          Logout
-        </Button>
-      ),
-    },
-  ];
+  const role = "user";
+  const NavItems = headerItems(role);
 
-  const name = "Nasir";
+  const pathName = usePathname();
+
+  const drawerStyles: DrawerStyles = {
+    body: {
+      background: "black",
+      color: "white",
+    },
+  };
+
   return (
-    <AntHeader className="bg-black ">
-      <Row justify="space-between" align="middle" className="h-full w-full ">
-        <Space onClick={() => dispatch(showSideBar())}>
-          <AiOutlineArrowRight
-            className={`${
-              sideBarStatus === true ? "hidden" : ""
-            } w-10 h-8  text-white lg:hidden`}
-          />
-        </Space>
-        <Space>
-          <p className="text-white">{name}</p>
-          <Dropdown menu={{ items }}>
-            <Space wrap size={16}>
-              <Avatar size="large" icon={<UserOutlined />} />
-            </Space>
-          </Dropdown>
-        </Space>
-      </Row>
-    </AntHeader>
+    <>
+      <AntHeader>
+        <Row justify="space-between" align="middle" className="h-full w-full ">
+          {/* for sidbar open button */}
+          <Space onClick={() => dispatch(showSideBar())}>
+            <AiOutlineMenuUnfold
+              className={`${
+                sideBarStatus === true ? "hidden" : ""
+              } w-10 h-8  text-white lg:hidden`}
+            />
+          </Space>
+
+          <Menu
+            className="lg:block hidden"
+            disabledOverflow
+            theme="dark"
+            mode="horizontal"
+            selectedKeys={[pathName]}
+          >
+            {NavItems?.map((item) => (
+              <Menu.Item key={item.href}>
+                <Link href={item.href}>{item.label}</Link>
+              </Menu.Item>
+            ))}
+          </Menu>
+
+          {/* navbar drawer button */}
+          <div className="lg:hidden" onClick={() => dispatch(showSideBar())}>
+            <AiOutlineMenuFold
+              className={`${
+                sideBarStatus === true ? "hidden" : ""
+              } w-10 h-8  text-white lg:hidden`}
+            />
+          </div>
+        </Row>
+
+        {/* drawer */}
+        <div className="lg:hidden">
+          <Drawer
+            title="Dashboard"
+            placement="right"
+            onClose={() => {
+              dispatch(closeSidebar());
+            }}
+            open={sideBarStatus}
+            styles={drawerStyles}
+          >
+            <Menu
+              theme="dark"
+              defaultSelectedKeys={["1"]}
+              mode="inline"
+              items={headerItems(role)}
+              className="h-full"
+            />
+          </Drawer>
+        </div>
+      </AntHeader>
+    </>
   );
 };
 

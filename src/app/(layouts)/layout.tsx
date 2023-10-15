@@ -1,4 +1,3 @@
-import Navbar from "@/components/Navbar/NavBar";
 import Contents from "@/components/ui/Content";
 import SideBar from "@/components/ui/Sidebar";
 import { useAppSelector } from "@/redux/hooks";

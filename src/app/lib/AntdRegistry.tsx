@@ -15,17 +15,17 @@ const StyledComponentsRegistry = ({ children }: React.PropsWithChildren) => {
     />
   ));
   return (
-    <ConfigProvider
-      theme={{
-        token: {
-          colorPrimary: "#000000",
-        },
-      }}
-    >
-      <StyleProvider hashPriority="high" cache={cache}>
-        {children}
-      </StyleProvider>
-    </ConfigProvider>
+    // <ConfigProvider
+    //   theme={{
+    //     token: {
+    //       colorPrimary: "#000000",
+    //     },
+    //   }}
+    // >
+    <StyleProvider hashPriority="high" cache={cache}>
+      {children}
+    </StyleProvider>
+    // </ConfigProvider>
   );
 };
 

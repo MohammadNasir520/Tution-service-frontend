@@ -7,6 +7,7 @@ import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { closeSidebar } from "@/redux/features/sideBarslice";
 import { DrawerClassNames, DrawerStyles } from "antd/es/drawer/DrawerPanel";
+import Link from "next/link";
 
 const { Sider } = Layout;
 
@@ -54,7 +55,9 @@ const SideBar = () => {
               padding: "10px 0px",
             }}
           >
-            Tuition-Media
+            <Link href={"/"}>
+              <span className="text-white"> Tuition-Media</span>
+            </Link>
           </div>
           <div onClick={() => dispatch(closeSidebar())}>
             <AiOutlineArrowLeft className="h-5 w-5 text-white lg:hidden" />

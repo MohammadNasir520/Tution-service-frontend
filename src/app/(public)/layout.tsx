@@ -1,17 +1,15 @@
 import Footer from "@/components/Footer/Footer";
 import Navbar from "@/components/Navbar/NavBar";
-
-import Spinner from "@/components/Spinner/Spinner";
 import Header from "@/components/ui/Header";
-import ClientReview from "@/components/ui/Slider/Slider";
-import Button from "antd/es/button";
 
-export default function Home() {
+const layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
       <Navbar></Navbar>
-      <ClientReview></ClientReview>
+      {children}
       <Footer></Footer>
     </div>
   );
-}
+};
+
+export default layout;
