@@ -128,17 +128,19 @@ const Navbar = () => {
             {signOption}
           </div>
           <div className="flex items-center gap-2  ml-3">
-            <div className="rounded-full border-4 border-blue-gray-600">
+            <div className="rounded-full border-2 border-blue-gray-600">
               <Image
                 src={"/"}
-                height={50}
-                width={50}
+                height={40}
+                width={40}
                 alt="pp"
                 className="rounded-full  object-cover object-center"
               ></Image>
             </div>
           </div>
         </nav>
+
+        {/* small screen................................ */}
         <div
           className={`navbar-menu  relative z-50  ${
             isMenuOpen ? "" : "hidden"
@@ -148,11 +150,11 @@ const Navbar = () => {
           <nav className="fixed bg-black top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 border-r overflow-y-auto ">
             <div className="flex items-center mb-8">
               <div className="flex items-center gap-2  ml-3">
-                <div className="rounded-full border-4 border-blue-gray-600">
+                <div className="rounded-full border-2 border-blue-gray-600">
                   <Image
                     src={""}
-                    height={50}
-                    width={50}
+                    height={30}
+                    width={30}
                     alt="pp"
                     className="rounded-full  object-cover object-center"
                   ></Image>
