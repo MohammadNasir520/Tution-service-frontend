@@ -9,7 +9,6 @@ import Button from "antd/es/button";
 export default function Home() {
   return (
     <div>
-      <Navbar></Navbar>
       <ClientReview></ClientReview>
       <Footer></Footer>
     </div>

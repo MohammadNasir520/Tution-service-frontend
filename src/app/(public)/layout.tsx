@@ -5,7 +5,6 @@ import Header from "@/components/ui/Header";
 const layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
-      <Navbar></Navbar>
       {children}
       <Footer></Footer>
     </div>

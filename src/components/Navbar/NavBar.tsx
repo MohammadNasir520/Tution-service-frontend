@@ -7,11 +7,8 @@ import { useState } from "react";
 import Image from "next/image";
 
 import { usePathname } from "next/navigation";
-import { useAppSelector } from "@/redux/hooks";
-
+const user = "adj";
 const Navbar = () => {
-  const user = useAppSelector((state) => state.user.accessToken);
-  console.log(user);
   const [isMenuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
   console.log(pathname);
