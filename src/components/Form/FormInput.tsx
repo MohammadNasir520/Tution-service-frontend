@@ -9,6 +9,7 @@ type IInput = {
   id?: string;
   placeHolder?: string;
   validation?: object;
+  label?: string;
 };
 
 const FormInput = ({
@@ -19,14 +20,26 @@ const FormInput = ({
   id,
   placeHolder,
   validation,
+  label,
 }: IInput) => {
   const { control } = useFormContext();
   return (
-    <Controller
-      control={control}
-      name="ReactDatepicker"
-      render={({ field: { onChange, onBlur, value, ref } }) => <Input></Input>}
-    />
+    <>
+      {label ? label : null}
+      <Controller
+        control={control}
+        name={name}
+        render={({ field }) => (
+          <Input
+            {...field}
+            type={type}
+            size={size}
+            placeholder={placeHolder}
+            value={value ? value : field.value}
+          />
+        )}
+      />
+    </>
   );
 };
 
