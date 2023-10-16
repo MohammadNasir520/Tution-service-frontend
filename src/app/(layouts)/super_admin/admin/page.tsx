@@ -1,5 +1,12 @@
-const page = () => {
-  return <div>manage admin page of super admin</div>;
+"use client";
+
+import { useGetAllAdminQuery } from "@/redux/api/adminApi/adminApi";
+
+const Admin = () => {
+  const { data } = useGetAllAdminQuery(undefined);
+  console.log("admins", data);
+
+  return <div>manage admin Admin of super admin</div>;
 };
 
-export default page;
+export default Admin;

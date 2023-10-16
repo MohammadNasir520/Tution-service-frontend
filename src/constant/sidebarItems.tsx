@@ -1,3 +1,4 @@
+"use client";
 import type { MenuProps } from "antd";
 
 import Link from "next/link";
@@ -26,16 +27,21 @@ export const sidebarItems = (role: string) => {
 
       children: [
         {
+          label: <Link href={`/${role}/admin`}>All Admin</Link>,
+          key: `/${role}/admin`,
+        },
+        {
           label: <Link href={`/${role}/create`}>Create Admin</Link>,
           key: `/${role}/create`,
         },
-        {
-          label: <Link href={`/${role}/admin`}>Edit Admin</Link>,
-          key: `/${role}/admin`,
-        },
+        // {
+        //   label: <Link href={`/${role}/admin`}>Edit Admin</Link>,
+        //   key: `/${role}/admin`,
+        // },
       ],
     },
   ];
+
   const adminSidebarItems: MenuProps["items"] = [
     ...defaultSidebarItems,
 
@@ -75,10 +81,13 @@ export const sidebarItems = (role: string) => {
     },
   ];
 
-  if (role === "super_admin") return super_adminSidebarItems;
-  else if (role === "admin") return adminSidebarItems;
-  else if (role === "user") return userSidebarItems;
-  else {
+  if (role === "super_admin") {
+    return super_adminSidebarItems;
+  } else if (role === "admin") {
+    return adminSidebarItems;
+  } else if (role === "user") {
+    return userSidebarItems;
+  } else {
     return defaultSidebarItems;
   }
 };

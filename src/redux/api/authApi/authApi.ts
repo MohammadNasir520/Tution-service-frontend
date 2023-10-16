@@ -10,7 +10,6 @@ const authApi = api.injectEndpoints({
                 url:`${authUrl}/signin`,
                 method:"POST",
                 body:data,
-
             })
         })
     }),

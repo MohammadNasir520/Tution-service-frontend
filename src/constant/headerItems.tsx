@@ -5,24 +5,8 @@ export const headerItems = (role: string) => {
   const defaultItems = [
     {
       key: "1",
-      label:
-        role === "a" ? (
-          <Button className="" type="primary">
-            Logout
-          </Button>
-        ) : (
-          <div
-            className="space-x-2 flex flex-col
-          "
-          >
-            <Button className="" type="primary">
-              signIn
-            </Button>
-            <Button className="" type="primary" danger>
-              signOut
-            </Button>
-          </div>
-        ),
+      label: "login",
+
       href: "/s",
     },
   ];

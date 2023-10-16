@@ -1,29 +1,38 @@
 "use client";
 import FormInput from "@/components/Form/FormInput";
 import Form from "@/components/Form/page";
-import { authKey } from "@/constant/storage-key";
 import { useLoginMutation } from "@/redux/api/authApi/authApi";
+import { loginSchema } from "@/schemas/login";
 import { storeUserInfo } from "@/services/authServices";
+import { yupResolver } from "@hookform/resolvers/yup";
 
-import { Button, Col, Row } from "antd";
+import { Button, Col, Row, message } from "antd";
+import { useRouter } from "next/navigation";
 import { SubmitHandler } from "react-hook-form";
 
 type FormValues = {
   name: string;
-
   password: string;
 };
 
 const Login = () => {
-  const [login, { data, isLoading, isError }] = useLoginMutation();
+  const [login, { data, isLoading, isError, error }] = useLoginMutation();
+  const router = useRouter();
+
+  if (error) {
+    // @ts-ignore
+    message.error(error?.data.message);
+  }
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     try {
-      console.log(data);
       const res = await login({ ...data }).unwrap();
       console.log(res);
-      storeUserInfo({ accessToken: res?.data?.accessToken });
-      console.log("res", res.data.accessToken);
+      if (res.success) {
+        message.success(res.message);
+        storeUserInfo({ accessToken: res?.data?.accessToken });
+        router.push("/profile");
+      }
     } catch (error) {}
   };
   return (
@@ -35,7 +44,7 @@ const Login = () => {
         <Col sm={12} md={16} lg={10}>
           <div>
             <h1 className="text-2xl text-center">Login Here</h1>
-            <Form submitHandler={onSubmit}>
+            <Form submitHandler={onSubmit} resolver={yupResolver(loginSchema)}>
               <div className="px-8 w-full ">
                 <FormInput
                   name="email"
@@ -43,12 +52,14 @@ const Login = () => {
                   size="large"
                   label="email"
                 />
-                <FormInput
-                  name="password"
-                  type="password"
-                  size="large"
-                  label="password"
-                />
+                <div className="my-1">
+                  <FormInput
+                    name="password"
+                    type="password"
+                    size="large"
+                    label="password"
+                  />
+                </div>
                 <div className="w-full flex justify-center">
                   <Button
                     type="primary"

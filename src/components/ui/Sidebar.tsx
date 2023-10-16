@@ -9,6 +9,7 @@ import { closeSidebar } from "@/redux/features/sideBarslice";
 import { DrawerClassNames, DrawerStyles } from "antd/es/drawer/DrawerPanel";
 import Link from "next/link";
 import { getUserInfo } from "@/services/authServices";
+import dynamic from "next/dynamic";
 
 const { Sider } = Layout;
 
@@ -43,7 +44,7 @@ const SideBar = () => {
   return (
     <>
       <Sider
-        width={280}
+        width={270}
         className={`hidden lg:block sticky h-screen overflow-auto left-0 top-0 bottom-0`}
       >
         <div className="flex items-center justify-between">
@@ -57,9 +58,7 @@ const SideBar = () => {
               padding: "10px 0px",
             }}
           >
-            <Link href={"/"}>
-              <span className="text-white"> Tuition-Media</span>
-            </Link>
+            Tuition Media
           </div>
           <div onClick={() => dispatch(closeSidebar())}>
             <AiOutlineArrowLeft className="h-5 w-5 text-white lg:hidden" />
@@ -97,4 +96,6 @@ const SideBar = () => {
   );
 };
 
-export default SideBar;
+export default dynamic(() => Promise.resolve(SideBar), { ssr: false });
+
+// export default SideBar;
