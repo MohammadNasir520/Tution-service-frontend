@@ -6,6 +6,8 @@ import {
   useGetAllAdminQuery,
 } from "@/redux/api/adminApi/adminApi";
 import { Button, message } from "antd";
+import Image from "next/image";
+import Link from "next/link";
 
 interface DataType {
   key: React.Key;
@@ -31,6 +33,22 @@ const Admin = () => {
   };
   const columns = [
     {
+      title: "Image",
+      render: function (data: any) {
+        console.log(data.profileImg);
+        return (
+          <>
+            <Image
+              width={60}
+              height={60}
+              src={data.profileImg}
+              alt="pic"
+            ></Image>
+          </>
+        );
+      },
+    },
+    {
       title: "Name",
       dataIndex: "name",
     },
@@ -47,7 +65,9 @@ const Admin = () => {
       render: function (data: any) {
         return (
           <div className="space-x-2">
-            <Button onClick={() => console.log(data)}>edit</Button>
+            <Link href={`/super_admin/admin/edit/${data.id}`}>
+              <Button onClick={() => console.log(data)}>edit</Button>
+            </Link>
             <Button
               onClick={() => handleDelete(data?.id)}
               type="primary"
