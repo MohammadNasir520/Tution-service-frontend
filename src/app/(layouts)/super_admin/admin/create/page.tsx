@@ -1,15 +1,21 @@
 "use client";
 import FormInput from "@/components/Form/FormInput";
 import Form from "@/components/Form/page";
+import { useCreateAdminMutation } from "@/redux/api/adminApi/adminApi";
 import { adminSchema } from "@/schemas/admin";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Button, Col, Row } from "antd";
 import React from "react";
 
 const CreateAdmin = () => {
+  const [createAdmin, { error }] = useCreateAdminMutation();
+  console.log(error);
+
   const onSubmit = async (data: any) => {
     try {
-      console.log(data);
+      const res = await createAdmin(data);
+
+      console.log(res);
     } catch (error) {
       console.log(error);
     }

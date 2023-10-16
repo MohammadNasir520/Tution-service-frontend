@@ -1,6 +1,7 @@
 import { getFromLocalStorage } from "@/utils/Local-storage";
-import { api } from "../apiSlice";
+import { api } from "../baseApi";
 import { authKey } from "@/constant/storage-key";
+import { tagsType } from "@/redux/tagsType";
 
 const adminUrl = "/admins";
 const token = getFromLocalStorage(authKey);
@@ -16,7 +17,20 @@ const authApi = api.injectEndpoints({
           Authorization: token ? `${token}` : '',
           'Content-Type': 'application/json',
         }),
+        
       }),
+      invalidatesTags:[tagsType.admin]
+    }),
+    deleteAdmin: builder.mutation({
+      query: (id) => ({
+        url: `${adminUrl}/${id}`,
+        method: "DELETE",
+        headers: new Headers({
+          Authorization: token ? `${token}` : '',
+          'Content-Type': 'application/json',
+        }),
+      }),
+      invalidatesTags:[tagsType.admin]
     }),
     getAllAdmin: builder.query({
       query: (data) => ({
@@ -27,8 +41,9 @@ const authApi = api.injectEndpoints({
           'Content-Type': 'application/json',
         }),
       }),
+      providesTags:[tagsType.admin]
     }),
   }),
 });
 
-export const { useCreateAdminMutation ,useGetAllAdminQuery} = authApi;
+export const { useCreateAdminMutation ,useGetAllAdminQuery,useDeleteAdminMutation} = authApi;

@@ -1,8 +1,11 @@
 "use client";
 
 import Table from "@/components/ui/Table/Table";
-import { useGetAllAdminQuery } from "@/redux/api/adminApi/adminApi";
-import { Button } from "antd";
+import {
+  useDeleteAdminMutation,
+  useGetAllAdminQuery,
+} from "@/redux/api/adminApi/adminApi";
+import { Button, message } from "antd";
 
 interface DataType {
   key: React.Key;
@@ -14,8 +17,18 @@ interface DataType {
 
 const Admin = () => {
   const { data } = useGetAllAdminQuery(undefined);
-  console.log("admins", data.data);
+  console.log("admins", data?.data);
   const admins = data?.data;
+
+  const [deleteAdmin, { error }] = useDeleteAdminMutation();
+
+  const handleDelete = (id: string) => {
+    deleteAdmin(id);
+    if (error) {
+      // @ts-ignore
+      message.error(error?.data?.message);
+    }
+  };
   const columns = [
     {
       title: "Name",
@@ -32,7 +45,18 @@ const Admin = () => {
     {
       title: "Action",
       render: function (data: any) {
-        return <Button onClick={() => console.log(data)}>edit</Button>;
+        return (
+          <div className="space-x-2">
+            <Button onClick={() => console.log(data)}>edit</Button>
+            <Button
+              onClick={() => handleDelete(data?.id)}
+              type="primary"
+              danger
+            >
+              Delete
+            </Button>
+          </div>
+        );
       },
     },
   ];
