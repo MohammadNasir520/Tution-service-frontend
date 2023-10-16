@@ -21,6 +21,9 @@ const CreateAdmin = () => {
             <FormInput name="name" type="text" size="large"></FormInput>
           </Col>
           <Col className="gutter-row mb-2" span={20} lg={8}>
+            <FormInput name="profileImg" type="text" size="large"></FormInput>
+          </Col>
+          <Col className="gutter-row mb-2" span={20} lg={8}>
             <FormInput name="email" type="text" size="large"></FormInput>
           </Col>
           <Col className="gutter-row mb-2" span={20} lg={8}>
@@ -28,9 +31,6 @@ const CreateAdmin = () => {
           </Col>
           <Col className="gutter-row mb-2" span={20} lg={8}>
             <FormInput name="contactNo" type="text" size="large"></FormInput>
-          </Col>
-          <Col className="gutter-row mb-2" span={20} lg={8}>
-            <FormInput name="ProfileImg" type="text" size="large"></FormInput>
           </Col>
         </Row>
 
