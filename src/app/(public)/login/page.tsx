@@ -18,6 +18,7 @@ type FormValues = {
 const Login = () => {
   const [login, { data, isLoading, isError, error }] = useLoginMutation();
   const router = useRouter();
+  console.log(error);
 
   if (error) {
     // @ts-ignore
@@ -28,9 +29,9 @@ const Login = () => {
     try {
       const res = await login({ ...data }).unwrap();
       console.log(res);
-      if (res.success) {
-        message.success(res.message);
-        storeUserInfo({ accessToken: res?.data?.accessToken });
+      if (res.accessToken) {
+        message.success("login successful");
+        storeUserInfo({ accessToken: res?.accessToken });
         router.push("/profile");
       }
     } catch (error) {}

@@ -45,7 +45,7 @@ const authApi = api.injectEndpoints({
           'Content-Type': 'application/json',
         }),
       }),
-      invalidatesTags:[tagsType.admin]
+    invalidatesTags:[tagsType.admin]
     }),
     // get single
      getSingleAdmin: builder.query({
@@ -57,7 +57,7 @@ const authApi = api.injectEndpoints({
           'Content-Type': 'application/json',
         }),
       }),
-      providesTags:[tagsType.admin]
+     providesTags:[tagsType.admin]
     }),
     
 

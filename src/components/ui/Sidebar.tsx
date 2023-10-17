@@ -96,6 +96,6 @@ const SideBar = () => {
   );
 };
 
-export default dynamic(() => Promise.resolve(SideBar), { ssr: false });
+// export default dynamic(() => Promise.resolve(SideBar), { ssr: false });
 
-// export default SideBar;
+export default SideBar;
