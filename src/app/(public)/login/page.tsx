@@ -16,14 +16,8 @@ type FormValues = {
 };
 
 const Login = () => {
-  const [login, { data, isLoading, isError, error }] = useLoginMutation();
+  const [login, { data }] = useLoginMutation();
   const router = useRouter();
-  console.log(error);
-
-  if (error) {
-    // @ts-ignore
-    message.error(error?.data.message);
-  }
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     try {
@@ -34,7 +28,11 @@ const Login = () => {
         storeUserInfo({ accessToken: res?.accessToken });
         router.push("/profile");
       }
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+      // @ts-ignore
+      message.error(error?.data.message);
+    }
   };
   return (
     <div>
