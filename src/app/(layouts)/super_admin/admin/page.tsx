@@ -25,17 +25,22 @@ const Admin = () => {
   const [deleteAdmin, { error }] = useDeleteAdminMutation();
   const [updateSingleAdmin, { isLoading }] = useUpdateSingleAdminMutation();
 
-  const handleDelete = (id: string) => {
-    deleteAdmin(id);
+  const handleDelete = async (id: string) => {
+    const res = await deleteAdmin(id);
+    if (res) {
+      message.success("deleted successfully");
+    }
     if (error) {
       // @ts-ignore
       message.error(error?.data?.message);
     }
   };
-  const handleUpdateRole = (value: string, id: string) => {
+  const handleUpdateRole = async (value: string, id: string) => {
     console.log(value, id);
-    updateSingleAdmin({ data: { role: value }, id });
-
+    const res = await updateSingleAdmin({ data: { role: value }, id });
+    if (res) {
+      message.success("role updated success fully");
+    }
     if (error) {
       // @ts-ignore
       message.error(error?.data?.message);

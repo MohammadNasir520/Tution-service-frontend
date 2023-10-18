@@ -42,7 +42,6 @@ const EditPage = ({ params }: any) => {
     email: admin?.email || "",
     contactNo: admin?.contactNo || "",
     profileImg: admin?.profileImg || "",
-    password: admin?.password || "",
   };
   return (
     <div>

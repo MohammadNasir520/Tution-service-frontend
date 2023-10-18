@@ -15,9 +15,7 @@ const ProfileDetails = () => {
   const { data, isLoading } = useGetProfileQuery(userId);
 
   const { role } = getUserInfo() as any;
-  // if (isLoading) {
-  //   return <SmallSpinner />;
-  // }
+
   return (
     <div>
       <div className="h-full ">

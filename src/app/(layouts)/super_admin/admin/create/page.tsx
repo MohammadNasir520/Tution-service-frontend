@@ -4,21 +4,28 @@ import Form from "@/components/Form/page";
 import { useCreateAdminMutation } from "@/redux/api/adminApi/adminApi";
 import { adminSchema } from "@/schemas/admin";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Button, Col, Row } from "antd";
+import { Button, Col, Row, message } from "antd";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 const CreateAdmin = () => {
   const [createAdmin, { error }] = useCreateAdminMutation();
-  console.log(error);
+  const router = useRouter();
 
   const onSubmit = async (data: any) => {
     console.log(data);
     try {
+      message.loading("creating");
       const res = await createAdmin(data);
-
+      if (res) {
+        message.success("admin created successfully");
+        router.push("/super_admin/admin");
+      }
       console.log(res);
     } catch (error) {
       console.log(error);
+      // @ts-ignore
+      message.error(error?.data?.message);
     }
   };
   return (
