@@ -4,6 +4,7 @@ import Table from "@/components/ui/Table/Table";
 import { categoryOptions, statusOptions } from "@/constant/options";
 import { useUpdateSingleAdminMutation } from "@/redux/api/adminApi/adminApi";
 import {
+  useDeleteServiceMutation,
   useGetAllServiceQuery,
   useGetSingleServiceQuery,
   useUpdateSingleServiceMutation,
@@ -29,11 +30,12 @@ const Admin = () => {
   const ServiceData = data?.data;
   const meta = data?.meta;
   // console.log(data);
-  const [deleteUser, { error }] = useDeleteUserMutation();
+  const [deleteService, { error }] = useDeleteServiceMutation();
   const [updateSingleService, { isLoading }] = useUpdateSingleServiceMutation();
 
   const handleDelete = async (id: string) => {
-    const res = await deleteUser(id);
+    const res = await deleteService(id);
+    console.log(res);
     if (res) {
       message.success("deleted successfully");
     }
@@ -45,6 +47,7 @@ const Admin = () => {
   const handleUpdateCategory = async (value: string, id: string) => {
     console.log(value, id);
     const res = await updateSingleService({ data: { category: value }, id });
+    console.log(res);
     if (res) {
       message.success("Category updated successfully");
     }
