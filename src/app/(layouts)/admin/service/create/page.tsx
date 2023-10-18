@@ -1,26 +1,27 @@
 "use client";
 import FormInput from "@/components/Form/FormInput";
+import FormSelectField from "@/components/Form/FormSelectField";
 import Form from "@/components/Form/page";
-import { useCreateAdminMutation } from "@/redux/api/adminApi/adminApi";
-import { useCreateUserMutation } from "@/redux/api/authApi/authApi";
-
-import { adminSchema } from "@/schemas/admin";
+import { categoryOptions } from "@/constant/options";
+import { useCreateServiceMutation } from "@/redux/api/serviceApi/serviceApi";
+import { serviceSchema } from "@/schemas/service";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Button, Col, Row, message } from "antd";
 import { useRouter } from "next/navigation";
 import React from "react";
 
 const CreateAdmin = () => {
-  const [createUser, { error }] = useCreateUserMutation();
+  const [createService, { error }] = useCreateServiceMutation();
   const router = useRouter();
 
   const onSubmit = async (data: any) => {
     try {
       message.loading("creating");
-      const res = await createUser(data);
+      const res = await createService(data);
+      console.log("resService", res);
       if (res) {
-        message.success("user created successfully");
-        router.push("/admin/user");
+        message.success("service created successfully");
+        router.push("/admin/service");
       }
     } catch (error) {
       console.log(error);
@@ -28,51 +29,52 @@ const CreateAdmin = () => {
       message.error(error?.data?.message);
     }
   };
+
   return (
     <div>
-      create Admin Page
-      <Form submitHandler={onSubmit} resolver={yupResolver(adminSchema)}>
+      <h1 className="text-2xl font-bold">create Service</h1>
+      <Form submitHandler={onSubmit} resolver={yupResolver(serviceSchema)}>
         <Row gutter={{ xs: 8, sm: 16, md: 24 }}>
           <Col className="gutter-row mb-2" span={20} lg={8}>
             <FormInput
-              name="name"
+              name="title"
               type="text"
               size="large"
-              label="Name"
+              label="Title of Service"
             ></FormInput>
           </Col>
 
           <Col className="gutter-row mb-2" span={20} lg={8}>
             <FormInput
-              name="email"
-              type="text"
+              name="price"
+              type="Number"
               size="large"
-              label="Email"
+              label="Price"
             ></FormInput>
           </Col>
           <Col className="gutter-row mb-2" span={20} lg={8}>
             <FormInput
-              name="password"
-              type="password"
+              name="description"
+              type="text"
               size="large"
-              label="Set Password"
+              label="Set description"
             ></FormInput>
           </Col>
           <Col className="gutter-row mb-2" span={20} lg={8}>
             <FormInput
-              name="contactNo"
+              name="image"
               type="text"
               size="large"
-              label="Contact No"
+              label="image"
             ></FormInput>
           </Col>
-          <Col className="gutter-row mb-2" span={20} lg={8}>
-            <FormInput
-              name="profileImg"
-              type="text"
+          <Col className="min-w-[40px]">
+            <FormSelectField
+              options={categoryOptions}
+              name="category"
               size="large"
-              label="Profile Image"
-            ></FormInput>
+              label="category"
+            ></FormSelectField>
           </Col>
         </Row>
 

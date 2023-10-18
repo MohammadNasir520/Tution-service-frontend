@@ -15,8 +15,6 @@ const EditPage = ({ params }: any) => {
   const router = useRouter();
   const { data: admin, isLoading } = useGetSingleAdminQuery(params?.id);
 
-  console.log("get:", admin);
-
   const [updateSingleAdmin, { error }] = useUpdateSingleAdminMutation();
 
   const onSubmit = async (data: any) => {

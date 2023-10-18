@@ -1,3 +1,4 @@
+import { tagsType } from "@/redux/tagsType";
 import { api } from "../baseApi";
 
 
@@ -28,12 +29,22 @@ export const authApi = api.injectEndpoints({
         query: (data) => ({
             url:`${ AUTH_URL}/signin`,
             method: "POST",
-            data: data
+            data: data,
+            
         }),
-        
+        invalidatesTags:[tagsType.user]
+    }),
+    createUser: build.mutation({
+        query: (data) => ({
+            url:`${ AUTH_URL}/signup`,
+            method: "POST",
+            data: data,
+            
+        }),
+        invalidatesTags:[tagsType.user]
     }),
   }),
   
 })
 
-export const { useLoginMutation } = authApi
+export const { useLoginMutation,useCreateUserMutation } = authApi

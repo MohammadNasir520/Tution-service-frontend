@@ -1,12 +1,13 @@
 "use client";
 
-import FormSelectField from "@/components/Form/FormSelectField";
 import Table from "@/components/ui/Table/Table";
+import { categoryOptions, statusOptions } from "@/constant/options";
+import { useUpdateSingleAdminMutation } from "@/redux/api/adminApi/adminApi";
 import {
-  useDeleteAdminMutation,
-  useGetAllAdminQuery,
-  useUpdateSingleAdminMutation,
-} from "@/redux/api/adminApi/adminApi";
+  useGetAllServiceQuery,
+  useGetSingleServiceQuery,
+  useUpdateSingleServiceMutation,
+} from "@/redux/api/serviceApi/serviceApi";
 import {
   useDeleteUserMutation,
   useGetAllUserQuery,
@@ -24,10 +25,12 @@ interface DataType {
 }
 
 const Admin = () => {
-  const { data: admins } = useGetAllUserQuery(undefined);
-
+  const { data: data } = useGetAllServiceQuery({});
+  const ServiceData = data?.data;
+  const meta = data?.meta;
+  // console.log(data);
   const [deleteUser, { error }] = useDeleteUserMutation();
-  const [updateSingleAdmin, { isLoading }] = useUpdateSingleAdminMutation();
+  const [updateSingleService, { isLoading }] = useUpdateSingleServiceMutation();
 
   const handleDelete = async (id: string) => {
     const res = await deleteUser(id);
@@ -39,11 +42,22 @@ const Admin = () => {
       message.error(error?.data?.message);
     }
   };
-  const handleUpdateRole = async (value: string, id: string) => {
+  const handleUpdateCategory = async (value: string, id: string) => {
     console.log(value, id);
-    const res = await updateSingleAdmin({ data: { role: value }, id });
+    const res = await updateSingleService({ data: { category: value }, id });
     if (res) {
-      message.success("role updated successfully");
+      message.success("Category updated successfully");
+    }
+    if (error) {
+      // @ts-ignore
+      message.error(error?.data?.message);
+    }
+  };
+  const handleUpdateStatus = async (value: string, id: string) => {
+    console.log(value, id);
+    const res = await updateSingleService({ data: { status: value }, id });
+    if (res) {
+      message.success("status updated successfully");
     }
     if (error) {
       // @ts-ignore
@@ -62,40 +76,52 @@ const Admin = () => {
       render: function (data: any) {
         return (
           <>
-            <Image
-              width={60}
-              height={60}
-              src={data.profileImg}
-              alt="pic"
-            ></Image>
+            <Image width={60} height={60} src={data.image} alt="pic"></Image>
           </>
         );
       },
     },
     {
-      title: "Name",
-      dataIndex: "name",
+      title: "title",
+      dataIndex: "title",
     },
     {
-      title: "Email",
-      dataIndex: "email",
+      title: "price",
+      dataIndex: "price",
     },
+    // {
+    //   title: "description",
+    //   dataIndex: "description",
+    // },
     {
-      title: "Contact No",
-      dataIndex: "contactNo",
-    },
-    {
-      title: "Manage Role",
+      title: "Manage Category",
       render: function (data: any) {
         console.log(data);
         return (
           <div className="">
             <Select
-              onChange={(value) => handleUpdateRole(value, data?.id)}
-              defaultValue={data.role}
+              onChange={(value) => handleUpdateCategory(value, data?.id)}
+              defaultValue={data?.category}
               style={{ width: 120 }}
               loading={isLoading}
-              options={SelectOptions}
+              options={categoryOptions}
+            />
+          </div>
+        );
+      },
+    },
+    {
+      title: "Manage status",
+      render: function (data: any) {
+        console.log(data);
+        return (
+          <div className="">
+            <Select
+              onChange={(value) => handleUpdateStatus(value, data?.id)}
+              defaultValue={data?.status}
+              style={{ width: 120 }}
+              loading={isLoading}
+              options={statusOptions}
             />
           </div>
         );
@@ -106,7 +132,7 @@ const Admin = () => {
       render: function (data: any) {
         return (
           <div className="space-x-2">
-            <Link href={`/admin/user/edit/${data.id}`}>
+            <Link href={`/admin/service/edit/${data.id}`}>
               <Button onClick={() => console.log(data)}>edit</Button>
             </Link>
             <Button
@@ -146,7 +172,7 @@ const Admin = () => {
     },
   ];
 
-  return <Table columns={columns} dataSource={admins}></Table>;
+  return <Table columns={columns} dataSource={ServiceData}></Table>;
 };
 
 export default Admin;
