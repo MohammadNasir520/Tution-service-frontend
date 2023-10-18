@@ -19,7 +19,7 @@ const profileApi = api.injectEndpoints({
     }),
       //update single
      updateProfile: builder.mutation({
-      query: ({data,id}) => ({
+      query: ({data}) => ({
         url: `${profileApiUrl}`,
        method:"PATCH",
        data:data,

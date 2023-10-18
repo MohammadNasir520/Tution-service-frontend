@@ -7,12 +7,17 @@ import Link from "next/link";
 import React from "react";
 import { AiOutlineMail } from "react-icons/ai";
 import { FiPhoneCall } from "react-icons/fi";
+import SmallSpinner from "../Spinner/SmallSpinner";
+import { useGetProfileQuery } from "@/redux/api/profleApi/profileApi";
 
 const ProfileDetails = () => {
   const { userId } = getUserInfo() as any;
-  const { data } = useGetSingleAdminQuery(userId);
-  const { role } = getUserInfo() as any;
+  const { data, isLoading } = useGetProfileQuery(userId);
 
+  const { role } = getUserInfo() as any;
+  // if (isLoading) {
+  //   return <SmallSpinner />;
+  // }
   return (
     <div>
       <div className="h-full ">

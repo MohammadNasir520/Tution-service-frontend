@@ -8,11 +8,9 @@ import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import React from "react";
 
 const SuperAdmin = () => {
-  const { data, isLoading } = useGetAllUserQuery(undefined);
+  // const sideBarStatus = useAppSelector((state) => state.sidebar?.open);
 
-  const sideBarStatus = useAppSelector((state) => state.sidebar?.open);
-
-  const dispatch = useAppDispatch();
+  // const dispatch = useAppDispatch();
 
   return (
     <div className="w-full">

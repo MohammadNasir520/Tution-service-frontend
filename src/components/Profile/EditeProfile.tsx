@@ -30,7 +30,7 @@ const EditProfilePage = () => {
 
       if (res) {
         message.success("profile updated successfully");
-        router.push(`/profile`);
+        router.push(`/${role}`);
       }
     } catch (error) {
       console.log(error);
