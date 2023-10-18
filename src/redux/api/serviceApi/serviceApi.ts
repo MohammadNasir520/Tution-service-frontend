@@ -19,9 +19,10 @@ const serviceApi = api.injectEndpoints({
     }),
     // get all
      getAllService: builder.query({
-      query: () => ({
+      query: (arg: Record<string, any>) => ({
         url: `${serviceUrl}`,
-        method:"GET"
+        method:"GET",
+        params:arg
       }),
       providesTags:[tagsType.service]
     }),

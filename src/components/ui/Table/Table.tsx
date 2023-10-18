@@ -26,10 +26,6 @@ const Table = ({
   onTableChange,
   showSizeChanger,
 }: TableProps) => {
-  const tableStyle = {
-    background: "transparent", // Set the background to transparent
-  };
-
   const paginationConfig = showPagination
     ? {
         pageSize: pageSize,
@@ -42,7 +38,6 @@ const Table = ({
 
   return (
     <AntdTable
-      style={tableStyle}
       dataSource={dataSource}
       columns={columns}
       pagination={paginationConfig}
