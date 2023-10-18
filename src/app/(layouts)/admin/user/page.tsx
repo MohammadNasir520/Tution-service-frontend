@@ -7,6 +7,7 @@ import {
   useGetAllAdminQuery,
   useUpdateSingleAdminMutation,
 } from "@/redux/api/adminApi/adminApi";
+import { useGetAllUserQuery } from "@/redux/api/userApi/userApi";
 import { Button, Select, message } from "antd";
 import Image from "next/image";
 import Link from "next/link";
@@ -20,7 +21,7 @@ interface DataType {
 }
 
 const Admin = () => {
-  const { data: admins } = useGetAllAdminQuery(undefined);
+  const { data: admins } = useGetAllUserQuery(undefined);
 
   const [deleteAdmin, { error }] = useDeleteAdminMutation();
   const [updateSingleAdmin, { isLoading }] = useUpdateSingleAdminMutation();

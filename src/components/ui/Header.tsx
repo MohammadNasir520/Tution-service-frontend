@@ -31,7 +31,11 @@ const Header = () => {
   const NavItems = [
     {
       key: "1",
-      label: <Button onClick={() => removeUserInfo(authKey)}>Logout</Button>,
+      label: (
+        <Button type="primary" onClick={() => removeUserInfo(authKey)}>
+          Logout
+        </Button>
+      ),
 
       href: "/login",
     },
@@ -47,8 +51,8 @@ const Header = () => {
   };
 
   return (
-    <>
-      <AntHeader>
+    <div>
+      <AntHeader style={{ position: "sticky" }}>
         <Row justify="space-between" align="middle" className="h-full w-full ">
           {/* for sidbar open button */}
           <Space onClick={() => dispatch(showSideBar())}>
@@ -104,7 +108,7 @@ const Header = () => {
           </Drawer>
         </div> */}
       </AntHeader>
-    </>
+    </div>
   );
 };
 

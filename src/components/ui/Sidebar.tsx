@@ -45,7 +45,8 @@ const SideBar = () => {
     <>
       <Sider
         width={270}
-        className={`hidden lg:block sticky h-screen overflow-auto left-0 top-0 bottom-0`}
+        style={{ position: "sticky" }}
+        className={`hidden lg:block  h-screen overflow-auto left-0 top-0 bottom-0`}
       >
         <div className="flex items-center justify-between">
           <div

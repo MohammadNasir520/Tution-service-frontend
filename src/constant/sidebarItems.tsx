@@ -42,6 +42,7 @@ export const sidebarItems = (role: string) => {
     },
   ];
 
+  // admin sidebar
   const adminSidebarItems: MenuProps["items"] = [
     ...defaultSidebarItems,
 
@@ -51,12 +52,12 @@ export const sidebarItems = (role: string) => {
 
       children: [
         {
-          label: <Link href={`/${role}/user`}>Edit user</Link>,
+          label: <Link href={`/${role}/user`}>All user</Link>,
           key: `/${role}/user`,
         },
         {
-          label: <Link href={`/${role}/user`}>Create user</Link>,
-          key: `/${role}/Create user`,
+          label: <Link href={`/${role}/user/create`}>Create user</Link>,
+          key: `/${role}/user/create`,
         },
       ],
     },
