@@ -3,7 +3,7 @@ import FormInput from "@/components/Form/FormInput";
 import Form from "@/components/Form/page";
 import { useLoginMutation } from "@/redux/api/authApi/authApi";
 import { loginSchema } from "@/schemas/login";
-import { storeUserInfo } from "@/services/authServices";
+import { getUserInfo, storeUserInfo } from "@/services/authServices";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import { Button, Col, Row, message } from "antd";
@@ -26,7 +26,7 @@ const Login = () => {
       if (res.accessToken) {
         message.success("login successful");
         storeUserInfo({ accessToken: res?.accessToken });
-        router.push("/profile");
+        router.push(`/profile`);
       }
     } catch (error) {
       console.log(error);
@@ -35,6 +35,7 @@ const Login = () => {
       console.log(error);
     }
   };
+  const { role } = getUserInfo() as any;
   return (
     <div>
       <Row justify={"center"} align={"middle"} className="h-screen ">

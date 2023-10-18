@@ -7,11 +7,13 @@ import { useState } from "react";
 import Image from "next/image";
 
 import { usePathname } from "next/navigation";
+import { getUserInfo } from "@/services/authServices";
 const user = "adj";
 const Navbar = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
-  console.log(pathname);
+
+  const { role } = getUserInfo() as any;
 
   const navItems = [
     {
@@ -29,7 +31,7 @@ const Navbar = () => {
     },
     {
       title: "DashBoard",
-      href: "/admin",
+      href: `${role}`,
     },
   ];
 

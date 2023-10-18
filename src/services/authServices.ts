@@ -6,6 +6,11 @@ export const storeUserInfo = ({ accessToken }: { accessToken: string }) => {
   return setToLocalStorage(authKey, accessToken as string);
 };
 
+export const removeUserInfo = (key: string) => {
+  return localStorage.removeItem(key);
+};
+
+
 export const getUserInfo =()=>{
   const authToken = getFromLocalStorage(authKey)
   if(authToken){

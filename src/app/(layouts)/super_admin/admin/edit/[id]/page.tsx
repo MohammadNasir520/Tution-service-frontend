@@ -46,7 +46,7 @@ const EditPage = ({ params }: any) => {
   };
   return (
     <div>
-      Update Admin Information
+      <h1 className="text-xl font-medium"> Update Admin Information</h1>
       <Form submitHandler={onSubmit} defaultValues={defaultValues}>
         <Row gutter={{ xs: 8, sm: 16, md: 24 }}>
           <Col className="gutter-row mb-2" span={20} lg={8}>

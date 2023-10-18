@@ -7,32 +7,35 @@ import {
   useGetSingleAdminQuery,
   useUpdateSingleAdminMutation,
 } from "@/redux/api/adminApi/adminApi";
+import {
+  useGetProfileQuery,
+  useUpdateProfileMutation,
+} from "@/redux/api/profleApi/profileApi";
 import { getUserInfo } from "@/services/authServices";
 import { Button, Col, Row, message } from "antd";
 import { useRouter } from "next/navigation";
 import React from "react";
 
 const EditProfilePage = () => {
-  const { userId } = getUserInfo() as any;
+  const { userId, role } = getUserInfo() as any;
 
   const router = useRouter();
-  const { data: admin, isLoading } = useGetSingleAdminQuery(userId);
+  const { data: admin, isLoading } = useGetProfileQuery(undefined);
 
-  console.log("get:", admin);
-
-  const [updateSingleAdmin, { error }] = useUpdateSingleAdminMutation();
+  const [updateProfile, { error }] = useUpdateProfileMutation();
 
   const onSubmit = async (data: any) => {
     try {
-      const res = await updateSingleAdmin({ data, id: userId });
+      const res = await updateProfile({ data, id: userId }).unwrap();
 
       if (res) {
-        // @ts-ignore
-        message.success(res?.data.message);
-        // router.push("/super_admin/admin");
+        message.success("profile updated successfully");
+        router.push(`/profile`);
       }
     } catch (error) {
       console.log(error);
+      //@ts-ignore
+      message.error(error.message);
     }
   };
 
@@ -45,7 +48,6 @@ const EditProfilePage = () => {
     email: admin?.email || "",
     contactNo: admin?.contactNo || "",
     profileImg: admin?.profileImg || "",
-    password: admin?.password || "",
   };
   return (
     <div>

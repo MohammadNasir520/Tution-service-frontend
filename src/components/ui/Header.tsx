@@ -18,13 +18,24 @@ import { DrawerStyles } from "antd/es/drawer/DrawerPanel";
 import Link from "next/link";
 import { headerItems } from "@/constant/headerItems";
 import { usePathname } from "next/navigation";
+import { removeUserInfo } from "@/services/authServices";
+import { authKey } from "@/constant/storage-key";
 const { Header: AntHeader } = Layout;
 
 const Header = () => {
   const dispatch = useAppDispatch();
   const sideBarStatus = useAppSelector((state) => state.sidebar.open);
   const role = "user";
-  const NavItems = headerItems(role);
+  // const NavItems = headerItems(role);
+
+  const NavItems = [
+    {
+      key: "1",
+      label: <Button onClick={() => removeUserInfo(authKey)}>Logout</Button>,
+
+      href: "/login",
+    },
+  ];
 
   const pathName = usePathname();
 
@@ -62,18 +73,18 @@ const Header = () => {
             ))}
           </Menu>
 
-          {/* navbar drawer button */}
+          {/* navbar drawer button
           <div className="lg:hidden" onClick={() => dispatch(showSideBar())}>
             <AiOutlineMenuFold
               className={`${
                 sideBarStatus === true ? "hidden" : ""
               } w-10 h-8  text-white lg:hidden`}
             />
-          </div>
+          </div> */}
         </Row>
 
         {/* drawer */}
-        <div className="lg:hidden">
+        {/* <div className="lg:hidden">
           <Drawer
             title="Dashboard"
             placement="right"
@@ -91,7 +102,7 @@ const Header = () => {
               className="h-full"
             />
           </Drawer>
-        </div>
+        </div> */}
       </AntHeader>
     </>
   );
