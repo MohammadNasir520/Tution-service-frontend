@@ -10,6 +10,7 @@ import {
 import {
   useDeleteUserMutation,
   useGetAllUserQuery,
+  useUpdateSingleUserMutation,
 } from "@/redux/api/userApi/userApi";
 import { Button, Select, message } from "antd";
 import Image from "next/image";
@@ -27,7 +28,7 @@ const Admin = () => {
   const { data: admins } = useGetAllUserQuery(undefined);
 
   const [deleteUser, { error }] = useDeleteUserMutation();
-  const [updateSingleAdmin, { isLoading }] = useUpdateSingleAdminMutation();
+  const [updateSingleUser, { isLoading }] = useUpdateSingleUserMutation();
 
   const handleDelete = async (id: string) => {
     const res = await deleteUser(id);
@@ -41,7 +42,7 @@ const Admin = () => {
   };
   const handleUpdateRole = async (value: string, id: string) => {
     console.log(value, id);
-    const res = await updateSingleAdmin({ data: { role: value }, id });
+    const res = await updateSingleUser({ data: { role: value }, id });
     if (res) {
       message.success("role updated successfully");
     }

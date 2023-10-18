@@ -7,19 +7,46 @@ type TableProps = {
   loading?: boolean;
   columns: any;
   dataSource: any;
+  pageSize?: number;
+  totalPages?: number;
+  showSizeChanger?: boolean;
+  onPaginationChange?: (page: number, pageSize: number) => void;
+  onTableChange?: (pagination: any, filter: any, sorter: any) => void;
+  showPagination?: boolean;
 };
 
-const Table = ({ columns, dataSource }: TableProps) => {
+const Table = ({
+  columns,
+  dataSource,
+  loading,
+  pageSize,
+  totalPages,
+  showPagination,
+  onPaginationChange,
+  onTableChange,
+  showSizeChanger,
+}: TableProps) => {
   const tableStyle = {
     background: "transparent", // Set the background to transparent
   };
+
+  const paginationConfig = showPagination
+    ? {
+        pageSize: pageSize,
+        total: totalPages,
+        pageSizeOptions: [5, 10, 15],
+        showSizeChanger: showSizeChanger,
+        onChange: onPaginationChange,
+      }
+    : false;
 
   return (
     <AntdTable
       style={tableStyle}
       dataSource={dataSource}
       columns={columns}
-      className="bg-transparent"
+      pagination={paginationConfig}
+      onChange={onTableChange}
     ></AntdTable>
   );
 };

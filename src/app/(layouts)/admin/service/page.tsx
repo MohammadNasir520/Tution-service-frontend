@@ -1,21 +1,15 @@
 "use client";
-
 import Table from "@/components/ui/Table/Table";
 import { categoryOptions, statusOptions } from "@/constant/options";
-import { useUpdateSingleAdminMutation } from "@/redux/api/adminApi/adminApi";
 import {
   useDeleteServiceMutation,
   useGetAllServiceQuery,
-  useGetSingleServiceQuery,
   useUpdateSingleServiceMutation,
 } from "@/redux/api/serviceApi/serviceApi";
-import {
-  useDeleteUserMutation,
-  useGetAllUserQuery,
-} from "@/redux/api/userApi/userApi";
 import { Button, Select, message } from "antd";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 interface DataType {
   key: React.Key;
@@ -26,10 +20,19 @@ interface DataType {
 }
 
 const Admin = () => {
-  const { data: data } = useGetAllServiceQuery({});
+  const query: Record<string, any> = {};
+
+  const [page, setPage] = useState<number>(1);
+  const [size, setSize] = useState<number>(10);
+  console.log(page, size);
+  const { data: data } = useGetAllServiceQuery({ ...query });
   const ServiceData = data?.data;
   const meta = data?.meta;
-  // console.log(data);
+  console.log(data, meta);
+
+  query["size"] = size;
+  query["page"] = page;
+
   const [deleteService, { error }] = useDeleteServiceMutation();
   const [updateSingleService, { isLoading }] = useUpdateSingleServiceMutation();
 
@@ -68,11 +71,6 @@ const Admin = () => {
     }
   };
 
-  const SelectOptions = [
-    { label: "admin", value: "admin" },
-    { label: "user", value: "user" },
-  ];
-
   const columns = [
     {
       title: "Image",
@@ -92,14 +90,10 @@ const Admin = () => {
       title: "price",
       dataIndex: "price",
     },
-    // {
-    //   title: "description",
-    //   dataIndex: "description",
-    // },
+
     {
       title: "Manage Category",
       render: function (data: any) {
-        console.log(data);
         return (
           <div className="">
             <Select
@@ -116,7 +110,6 @@ const Admin = () => {
     {
       title: "Manage status",
       render: function (data: any) {
-        console.log(data);
         return (
           <div className="">
             <Select
@@ -151,31 +144,22 @@ const Admin = () => {
     },
   ];
 
-  const tableData: DataType[] = [
-    {
-      key: "1",
-      name: "John",
-      email: "Brown",
-      contactNo: 32,
-      profileImg: "New York No. 1 Lake Park",
-    },
-    {
-      key: "2",
-      name: "John",
-      email: "Brown",
-      contactNo: 32,
-      profileImg: "New York No. 1 Lake Park",
-    },
-    {
-      key: "3",
-      name: "John",
-      email: "Brown",
-      contactNo: 32,
-      profileImg: "New York No. 1 Lake Park",
-    },
-  ];
+  const onPaginationChange = (page: number, pageSize: number) => {
+    console.log("Page:", page, "PageSize:", pageSize);
+    setPage(page);
+    setSize(pageSize);
+  };
 
-  return <Table columns={columns} dataSource={ServiceData}></Table>;
+  return (
+    <Table
+      columns={columns}
+      dataSource={ServiceData}
+      showPagination={true}
+      totalPages={meta?.total}
+      onPaginationChange={onPaginationChange}
+      showSizeChanger={true}
+    ></Table>
+  );
 };
 
 export default Admin;
