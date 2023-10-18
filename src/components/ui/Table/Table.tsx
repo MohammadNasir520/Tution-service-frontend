@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { Table as AntdTable } from "antd";
+import "./table.css";
 
 type TableProps = {
   loading?: boolean;
@@ -9,7 +10,18 @@ type TableProps = {
 };
 
 const Table = ({ columns, dataSource }: TableProps) => {
-  return <AntdTable dataSource={dataSource} columns={columns}></AntdTable>;
+  const tableStyle = {
+    background: "transparent", // Set the background to transparent
+  };
+
+  return (
+    <AntdTable
+      style={tableStyle}
+      dataSource={dataSource}
+      columns={columns}
+      className="bg-transparent"
+    ></AntdTable>
+  );
 };
 
 export default Table;

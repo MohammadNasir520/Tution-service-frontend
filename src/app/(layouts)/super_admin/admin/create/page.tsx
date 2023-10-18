@@ -12,6 +12,7 @@ const CreateAdmin = () => {
   console.log(error);
 
   const onSubmit = async (data: any) => {
+    console.log(data);
     try {
       const res = await createAdmin(data);
 

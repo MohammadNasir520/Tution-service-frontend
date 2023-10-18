@@ -6,13 +6,17 @@ import Link from "next/link";
 export const sidebarItems = (role: string) => {
   const defaultSidebarItems: MenuProps["items"] = [
     {
-      label: "Profile",
-      key: "profile",
+      label: "Manage Profile",
+      key: "Manage Profile",
 
       children: [
         {
-          label: <Link href={`/${role}`}>Edit Profile</Link>,
-          key: `/${role}/edit`,
+          label: <Link href={`/${role}`}>Profile</Link>,
+          key: `/${role}/profile`,
+        },
+        {
+          label: <Link href={`/${role}/editProfile`}>Edit Profile</Link>,
+          key: `/${role}/Edit profile`,
         },
       ],
     },

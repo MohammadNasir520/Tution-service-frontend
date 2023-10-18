@@ -1,9 +1,13 @@
+
 import { api } from "../baseApi";
 
 const userApi = api.injectEndpoints({
     endpoints: (builder) => ({
         getAllUser: builder.query({
-            query: () => "/users"
+            query: () =>({
+                url:"/users",
+                method:"GET"
+            })
         })
     }),
 })

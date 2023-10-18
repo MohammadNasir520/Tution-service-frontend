@@ -7,13 +7,16 @@ import {
   useGetSingleAdminQuery,
   useUpdateSingleAdminMutation,
 } from "@/redux/api/adminApi/adminApi";
+import { getUserInfo } from "@/services/authServices";
 import { Button, Col, Row, message } from "antd";
 import { useRouter } from "next/navigation";
 import React from "react";
 
-const EditPage = ({ params }: any) => {
+const EditProfilePage = () => {
+  const { userId } = getUserInfo() as any;
+
   const router = useRouter();
-  const { data: admin, isLoading } = useGetSingleAdminQuery(params?.id);
+  const { data: admin, isLoading } = useGetSingleAdminQuery(userId);
 
   console.log("get:", admin);
 
@@ -21,7 +24,7 @@ const EditPage = ({ params }: any) => {
 
   const onSubmit = async (data: any) => {
     try {
-      const res = await updateSingleAdmin({ data, id: params?.id });
+      const res = await updateSingleAdmin({ data, id: userId });
 
       if (res) {
         // @ts-ignore
@@ -93,4 +96,4 @@ const EditPage = ({ params }: any) => {
   );
 };
 
-export default EditPage;
+export default EditProfilePage;

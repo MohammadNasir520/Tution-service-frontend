@@ -32,6 +32,7 @@ const Login = () => {
       console.log(error);
       // @ts-ignore
       message.error(error?.data.message);
+      console.log(error);
     }
   };
   return (

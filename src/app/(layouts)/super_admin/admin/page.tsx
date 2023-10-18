@@ -1,11 +1,13 @@
 "use client";
 
+import FormSelectField from "@/components/Form/FormSelectField";
 import Table from "@/components/ui/Table/Table";
 import {
   useDeleteAdminMutation,
   useGetAllAdminQuery,
+  useUpdateSingleAdminMutation,
 } from "@/redux/api/adminApi/adminApi";
-import { Button, message } from "antd";
+import { Button, Select, message } from "antd";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -18,11 +20,10 @@ interface DataType {
 }
 
 const Admin = () => {
-  const { data } = useGetAllAdminQuery(undefined);
-  console.log("admins", data?.data);
-  const admins = data?.data;
+  const { data: admins } = useGetAllAdminQuery(undefined);
 
   const [deleteAdmin, { error }] = useDeleteAdminMutation();
+  const [updateSingleAdmin, { isLoading }] = useUpdateSingleAdminMutation();
 
   const handleDelete = (id: string) => {
     deleteAdmin(id);
@@ -31,11 +32,25 @@ const Admin = () => {
       message.error(error?.data?.message);
     }
   };
+  const handleUpdateRole = (value: string, id: string) => {
+    console.log(value, id);
+    updateSingleAdmin({ data: { role: value }, id });
+
+    if (error) {
+      // @ts-ignore
+      message.error(error?.data?.message);
+    }
+  };
+
+  const SelectOptions = [
+    { label: "admin", value: "admin" },
+    { label: "user", value: "user" },
+  ];
+
   const columns = [
     {
       title: "Image",
       render: function (data: any) {
-        console.log(data.profileImg);
         return (
           <>
             <Image
@@ -59,6 +74,23 @@ const Admin = () => {
     {
       title: "Contact No",
       dataIndex: "contactNo",
+    },
+    {
+      title: "Manage Role",
+      render: function (data: any) {
+        console.log(data);
+        return (
+          <div className="">
+            <Select
+              onChange={(value) => handleUpdateRole(value, data?.id)}
+              defaultValue={data.role}
+              style={{ width: 120 }}
+              loading={isLoading}
+              options={SelectOptions}
+            />
+          </div>
+        );
+      },
     },
     {
       title: "Action",
