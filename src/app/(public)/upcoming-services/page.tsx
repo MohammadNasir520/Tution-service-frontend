@@ -16,7 +16,7 @@ const AvailableServices = () => {
 
   const { data, isLoading } = useGetAllServiceQuery({
     ...query,
-    status: "available",
+    status: "upComing",
   });
 
   const services = data?.data;

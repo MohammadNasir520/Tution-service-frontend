@@ -22,7 +22,7 @@ const Services = () => {
           })}
         </div>
 
-        <Link className="flex justify-end md:ml-7" href={"/availableServices"}>
+        <Link className="flex justify-center md:ml-7" href={"/services"}>
           <Button type="primary">See All</Button>
         </Link>
       </div>
