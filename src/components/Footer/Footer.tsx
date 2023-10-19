@@ -36,8 +36,7 @@ const Footer = () => {
                     </div> */}
           <div>
             <p className="my-2 flex items-center gap-2 font-sans  font-semibold text-lg ">
-              <AiOutlineMail className="w-10 h-w-10" />{" "}
-              mdnasiruddin5201@gmail.com
+              <AiOutlineMail className="w-10 h-w-10" /> TutionMedia@gmail.com
             </p>
             <p className="flex items-center gap-2 font-sans font-semibold text-lg">
               <FiPhoneCall className="w-10 h-w-10" />
@@ -63,25 +62,20 @@ const Footer = () => {
             href="#Award&Achivements"
             className="link link-hover no-underline text-white  block font-sans text-xl font-semibold tracking-normal text-blue-gray-900 antialiased"
           >
-            Award & Achivements
+            Our Award & Achivements
           </Link>
           <Link
             href="#Award&Achivements"
             className="link link-hover no-underline  text-white block font-sans text-xl font-semibold tracking-normal text-blue-gray-900 antialiased"
           >
-            Extra-curricular Activities
+            our Extra-curricular Activities
           </Link>
-          <Link
-            href="#Award&Achivements"
-            className="link link-hover no-underline text-white  block font-sans text-xl font-semibold tracking-normal text-blue-gray-900 "
-          >
-            Skills
-          </Link>
+
           <Link
             href="#Award&Achivements"
             className="link link-hover no-underline  text-white  block font-sans text-xl font-semibold tracking-normal text-blue-gray-900 antialiased"
           >
-            MY Courses
+            Services
           </Link>
         </div>
 
@@ -118,11 +112,6 @@ const Footer = () => {
 
         <div className="">
           <div className="lg:mx-auto mt-6 flex flex-col  ">
-            <Link href={"/#contact"}>
-              <button className="w-44 font-sans font-bold p-3 border rounded bg-[#6597FF] mb-4">
-                Contact me
-              </button>
-            </Link>
             <button className="w-44 p-3 border rounded font-sans font-semibold">
               Contact
             </button>

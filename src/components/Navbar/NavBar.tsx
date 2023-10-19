@@ -7,7 +7,8 @@ import { useState } from "react";
 import Image from "next/image";
 
 import { usePathname } from "next/navigation";
-import { getUserInfo } from "@/services/authServices";
+import { getUserInfo, removeUserInfo } from "@/services/authServices";
+import { authKey } from "@/constant/storage-key";
 const user = "adj";
 const Navbar = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -21,14 +22,10 @@ const Navbar = () => {
       href: "/",
     },
     {
-      title: " About",
-      href: "/#about",
+      title: " Available services",
+      href: "/services",
     },
 
-    {
-      title: "Contact",
-      href: "/#contact",
-    },
     {
       title: "DashBoard",
       href: `/profile`,
@@ -37,9 +34,10 @@ const Navbar = () => {
 
   const signOption = (
     <div className=" lg:flex">
-      {user ? (
+      {role ? (
         <Link
           href={"/"}
+          onClick={() => removeUserInfo(authKey)}
           className={`${
             isMenuOpen
               ? "block px-1 py-1 mb-2 leading-loose text-center text-white  bg-blue-600 hover:bg-blue-700  rounded-xl  text-base font-sans font-semibold"
@@ -51,21 +49,23 @@ const Navbar = () => {
       ) : (
         <>
           <Link
-            href={"/pages/Login"}
+            href={"/login"}
+            onClick={() => removeUserInfo(authKey)}
             className={`${
               isMenuOpen
-                ? "block px-4 py-3 mb-3 text-gray-900   text-center font-semibold leading-none bg-gray-50 hover:bg-gray-100 rounded-xl"
-                : "hidden  text-xl lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-gray-900 font-semibold  rounded-xl transition duration-200 "
+                ? "block px-1 py-1 mb-2 leading-loose text-center text-white  bg-blue-600 hover:bg-blue-700  rounded-xl  text-base font-sans font-semibold"
+                : "  font-sans  hidden lg:inline-block py-1 px-1 bg-blue-500 hover:bg-blue-600  text-white font-semibold rounded-sm transition duration-200 "
             }`}
           >
-            Sign In
+            SignIn
           </Link>
           <Link
-            href={"/pages/SignUp"}
+            href={"/"}
+            onClick={() => removeUserInfo(authKey)}
             className={`${
               isMenuOpen
-                ? "block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-blue-600 hover:bg-blue-700  rounded-xl"
-                : "hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-xl transition duration-200 text-xl"
+                ? "block mx-3  px-1 py-1 mb-2 leading-loose text-center text-white  bg-blue-600 hover:bg-blue-700  rounded-xl  text-base font-sans font-semibold"
+                : "  font-sans  mx-3 hidden lg:inline-block py-1 px-1 bg-blue-500 hover:bg-blue-600  text-white font-semibold rounded-sm transition duration-200 "
             }`}
           >
             SignUp
@@ -129,7 +129,7 @@ const Navbar = () => {
           <div className="hidden lg:block  text-lg font-sans font-semibold">
             {signOption}
           </div>
-          <div className="flex items-center gap-2  ml-3">
+          {/* <div className="flex items-center gap-2  ml-3">
             <div className="rounded-full border-2 border-blue-gray-600">
               <Image
                 src={"/"}
@@ -139,7 +139,7 @@ const Navbar = () => {
                 className="rounded-full  object-cover object-center"
               ></Image>
             </div>
-          </div>
+          </div> */}
         </nav>
 
         {/* small screen................................ */}

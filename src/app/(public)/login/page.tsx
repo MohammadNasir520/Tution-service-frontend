@@ -7,6 +7,7 @@ import { getUserInfo, storeUserInfo } from "@/services/authServices";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import { Button, Col, Row, message } from "antd";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { SubmitHandler } from "react-hook-form";
 
@@ -40,9 +41,6 @@ const Login = () => {
     <div>
       <Row justify={"center"} align={"middle"} className="h-screen ">
         <Col sm={12} md={16} lg={10}>
-          <div className="lg:block hidden">Image</div>
-        </Col>
-        <Col sm={12} md={16} lg={10}>
           <div>
             <h1 className="text-2xl text-center">Login Here</h1>
             <Form submitHandler={onSubmit} resolver={yupResolver(loginSchema)}>
@@ -69,6 +67,11 @@ const Login = () => {
                   >
                     Login
                   </Button>
+                </div>
+                <div className="flex space-x-2 justify-center items-center mt-2">
+                  {" "}
+                  <h1>Have no account? </h1>{" "}
+                  <Link href={"/signup"}>SignUp</Link>
                 </div>
               </div>
             </Form>

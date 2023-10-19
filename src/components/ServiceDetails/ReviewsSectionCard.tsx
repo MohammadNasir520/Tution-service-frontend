@@ -45,12 +45,15 @@ const ReviewsSection = ({ params }: any) => {
     }
     const rate = Number(rating);
     console.log(rate);
+    if (rate < 1) {
+      return message.error("select rating first");
+    }
     const res = await createReview({
       serviceId: params?.id,
       reviewText,
       rating: rate,
     });
-    console.log(userId, reviewText, params?.id);
+
     // @ts-ignore
     if (res?.data?.id) {
       message.success("review added");
@@ -58,7 +61,6 @@ const ReviewsSection = ({ params }: any) => {
     event.target.elements.review.value = "";
     // console.log(res);
   };
-  // console.log("post revview2");
 
   const isBooked = service?.bookings?.filter((bookedService: any) => {
     // bookedService.userId = userId;
