@@ -10,18 +10,19 @@ import {
 import { useState } from "react";
 
 const ReviewsSection = ({ params }: any) => {
+  const { userId } = getUserInfo() as any;
   const [rating, setRating] = useState(0);
-  console.log("rating", rating);
+
   const [createReview, { error: createReviewError }] =
     useCreateReviewMutation();
-  console.log(createReviewError);
-  const { userId } = getUserInfo() as any;
+  // console.log(createReviewError);
 
   const { data: reviews, error } = useGetAllReviewQuery({});
-  // console.log("review", reviews);
+  console.log("review", reviews);
 
   const handleRatingChange = (event: any) => {
     setRating(event.target.value);
+    event.target.value = 0;
   };
 
   const handleSubmit = async (event: any) => {
@@ -42,6 +43,11 @@ const ReviewsSection = ({ params }: any) => {
       rating: rate,
     });
     console.log(userId, reviewText, params?.id);
+    // @ts-ignore
+    if (res?.data?.id) {
+      message.success("review added");
+    }
+    event.target.elements.review.value = "";
     console.log(res);
   };
   console.log("post revview2");
@@ -131,8 +137,8 @@ const ReviewsSection = ({ params }: any) => {
       </form>
 
       {/* review show card  */}
-      {reviews?.data?.length > 0 ? (
-        reviews?.data?.map((review: any, i: number) => {
+      {reviews?.length > 0 ? (
+        reviews?.map((review: any, i: number) => {
           return <SingleReviewCard key={i} review={review}></SingleReviewCard>;
         })
       ) : (

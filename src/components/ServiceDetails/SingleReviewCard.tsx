@@ -8,22 +8,24 @@ const SingleReviewCard = ({ review }: any) => {
         {/* reviews */}
         <div className="flex-col w-full py-4 mx-auto mt-3 bg-white border-b-2 border-r-2 border-gray-200 sm:px-4 sm:py-4 md:px-4 sm:rounded-lg sm:shadow-sm md:w-2/3">
           <div className="flex flex-row md-10">
-            {/* <img
-              className="w-12 h-12 border-2 border-gray-300 rounded-full"
+            <img
+              className="w-12 h-12 border-1 border-gray-300 rounded-full"
               alt="Anonymous's avatar"
-              src={image}
-            /> */}
+              src={review?.user?.profileImg}
+            />
             <div className="flex-col mt-1">
-              <div className="flex items-center flex-1 px-4 font-bold leading-tight">
-                {fullname}
-                {/* <span className="ml-2 text-xs font-normal text-gray-500">3 days ago</span> */}
+              <div className="flex items-center flex-1 px-4  leading-tight">
+                {review?.user?.name}
+                <span className="ml-2 text-xs font-bold">
+                  Rating: {review?.rating}
+                </span>
               </div>
               <div className="flex-1 px-2 ml-2 text-sm font-medium leading-loose text-gray-600">
                 {review?.reviewText}
               </div>
 
               {/* share and like button */}
-              <button className="inline-flex items-center px-1 pt-2 ml-1 flex-column">
+              {/* <button className="inline-flex items-center px-1 pt-2 ml-1 flex-column">
                 <svg
                   className="w-5 h-5 ml-2 text-gray-600 cursor-pointer fill-current hover:text-gray-900"
                   viewBox="0 0 95 78"
@@ -34,8 +36,8 @@ const SingleReviewCard = ({ review }: any) => {
                     fillRule="nonzero"
                   />
                 </svg>
-              </button>
-              <button className="inline-flex items-center px-1 -ml-1 flex-column">
+              </button> */}
+              {/* <button className="inline-flex items-center px-1 -ml-1 flex-column">
                 <svg
                   className="w-5 h-5 text-gray-600 cursor-pointer hover:text-gray-700"
                   fill="none"
@@ -50,7 +52,7 @@ const SingleReviewCard = ({ review }: any) => {
                     d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"
                   ></path>
                 </svg>
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
