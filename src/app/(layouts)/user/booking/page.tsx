@@ -1,23 +1,16 @@
 "use client";
 
-import DateTimePicker from "@/components/Form/DteTimePicker/DateTimePicker";
-import FormSelectField from "@/components/Form/FormSelectField";
 import SingleDateTimePicker from "@/components/Form/SingleDateTimePicker/SingleDateTimePicker";
 
 import Table from "@/components/ui/Table/Table";
-import { useUpdateSingleAdminMutation } from "@/redux/api/adminApi/adminApi";
 import {
   useDeleteBookingMutation,
   useGetAllBookingQuery,
   useUpdateSingleBookingMutation,
 } from "@/redux/api/bookingApi/bookingApi";
-import {
-  useDeleteUserMutation,
-  useGetAllUserQuery,
-} from "@/redux/api/userApi/userApi";
+
 import { Button, Select, message } from "antd";
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 
 const Admin = () => {
@@ -28,7 +21,14 @@ const Admin = () => {
 
   console.log(bookingData);
 
-  const { data: bookings } = useGetAllBookingQuery(undefined);
+  const { data: bookings, error: allBookingError } =
+    useGetAllBookingQuery(undefined);
+
+  if (allBookingError) {
+    console.log(allBookingError);
+    // @ts-ignore
+    message.error(allBookingError?.data?.message);
+  }
   const [updateSingleBooking, { isLoading }] = useUpdateSingleBookingMutation();
   const [deleteBooking, { error }] = useDeleteBookingMutation();
 
@@ -66,7 +66,7 @@ const Admin = () => {
 
   const columns = [
     {
-      title: "User ",
+      title: "Services",
       render: function (data: any) {
         return (
           <>
@@ -76,7 +76,7 @@ const Admin = () => {
               src={data?.user?.profileImg}
               alt="pic"
             ></Image>
-            <p className="text-center">{data.user.name}</p>
+            <p className="text-center">{data?.service?.title}</p>
           </>
         );
       },
@@ -146,22 +146,10 @@ const Admin = () => {
     },
 
     {
-      title: "Manage status",
+      title: "Booking status",
       render: function (data: any) {
         console.log(data);
-        return (
-          <div className="">
-            <Select
-              onChange={(value) =>
-                handleUpdateBookingPendingStatus(value, data?.id)
-              }
-              defaultValue={data?.status}
-              style={{ width: 120 }}
-              loading={isLoading}
-              options={SelectOptions}
-            />
-          </div>
-        );
+        return <div className="">{data?.status}</div>;
       },
     },
     {
@@ -174,7 +162,7 @@ const Admin = () => {
               type="primary"
               danger
             >
-              Delete
+              Cancel
             </Button>
           </div>
         );

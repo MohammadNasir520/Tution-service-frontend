@@ -1,4 +1,3 @@
-
 import { api } from "../baseApi";
 import { tagsType } from "@/redux/tagsType";
 
@@ -12,50 +11,52 @@ const serviceApi = api.injectEndpoints({
         url: `${serviceUrl}/`,
         method: "POST",
         data: data,
-       
-        
       }),
-      invalidatesTags:[tagsType.service]
+      invalidatesTags: [tagsType.service],
     }),
     // get all
-     getAllService: builder.query({
+    getAllService: builder.query({
       query: (arg: Record<string, any>) => ({
         url: `${serviceUrl}`,
-        method:"GET",
-        params:arg
+        method: "GET",
+        params: arg,
       }),
-      providesTags:[tagsType.service]
-    }),
-  
-    // get single
-     getSingleService: builder.query({
-      query: (id) => ({
-        url: `${serviceUrl}/${id}`,
-        method:"GET"
-      }),
-     providesTags:[tagsType.service]
-    }),
-      //update single
-     updateSingleService: builder.mutation({
-      query: ({data,id}) => ({
-        url: `${serviceUrl}/${id}`,
-       method:"PATCH",
-       data:data,
-        
-      }),
-    invalidatesTags:[tagsType.service]
+      providesTags: [tagsType.service, tagsType.booking],
     }),
 
-    //delete 
-      deleteService: builder.mutation({
+    // get single
+    getSingleService: builder.query({
+      query: (id) => ({
+        url: `${serviceUrl}/${id}`,
+        method: "GET",
+      }),
+      providesTags: [tagsType.service],
+    }),
+    //update single
+    updateSingleService: builder.mutation({
+      query: ({ data, id }) => ({
+        url: `${serviceUrl}/${id}`,
+        method: "PATCH",
+        data: data,
+      }),
+      invalidatesTags: [tagsType.service],
+    }),
+
+    //delete
+    deleteService: builder.mutation({
       query: (id) => ({
         url: `${serviceUrl}/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags:[tagsType.service]
+      invalidatesTags: [tagsType.service],
     }),
-    
   }),
 });
 
-export const { useCreateServiceMutation ,useGetAllServiceQuery,useDeleteServiceMutation,useGetSingleServiceQuery,useUpdateSingleServiceMutation} = serviceApi;
+export const {
+  useCreateServiceMutation,
+  useGetAllServiceQuery,
+  useDeleteServiceMutation,
+  useGetSingleServiceQuery,
+  useUpdateSingleServiceMutation,
+} = serviceApi;

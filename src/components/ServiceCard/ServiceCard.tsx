@@ -81,10 +81,22 @@ const ServiceCard = ({ service }: any) => {
             </div>
           ) : (
             <div className="h-5">
-              {isBooked[0]?.status === "pending" ? (
-                <p className="text-center text-cyan-500">booking on Pending</p>
-              ) : (
+              {isBooked[0]?.status === "accepted" ? (
                 <p className="text-green-600 text-center">Already booked</p>
+              ) : (
+                <div>
+                  {isBooked[0]?.status === "pending" ? (
+                    <p className="text-center text-cyan-500">
+                      your booking on {isBooked[0]?.status}
+                    </p>
+                  ) : (
+                    <div>
+                      <p className="text-center text-base text-red-500">
+                        Your booking {isBooked[0]?.status}
+                      </p>
+                    </div>
+                  )}
+                </div>
               )}
             </div>
           )}

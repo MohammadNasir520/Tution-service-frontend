@@ -92,22 +92,24 @@ export const sidebarItems = (role: string) => {
       ],
     },
   ];
+
+  // user sidebar
   const userSidebarItems: MenuProps["items"] = [
     ...defaultSidebarItems,
 
     {
-      label: "Manage booking",
-      key: "manage-booking",
+      label: "My bookings",
+      key: "My bookings",
 
       children: [
         {
-          label: <Link href={`/${role}/booking`}>Edit booking</Link>,
+          label: <Link href={`/${role}/booking`}>Handle booking</Link>,
           key: `/${role}/booking`,
         },
-        {
-          label: <Link href={`/${role}/booking`}>Create booking</Link>,
-          key: `/${role}/Create booking`,
-        },
+        // {
+        //   label: <Link href={`/${role}/booking`}>Create booking</Link>,
+        //   key: `/${role}/Create booking`,
+        // },
       ],
     },
   ];

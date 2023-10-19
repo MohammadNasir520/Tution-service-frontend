@@ -49,18 +49,21 @@ const SideBar = () => {
         className={`hidden lg:block  h-screen overflow-auto left-0 top-0 bottom-0`}
       >
         <div className="flex items-center justify-between">
-          <div
-            style={{
-              color: "white",
-              fontSize: "2rem",
-              textAlign: "center",
-              fontWeight: "bold",
-              marginBottom: ".5rem",
-              padding: "10px 0px",
-            }}
-          >
-            Tuition Media
-          </div>
+          <Link href={"/"}>
+            {" "}
+            <div
+              style={{
+                color: "white",
+                fontSize: "2rem",
+                textAlign: "center",
+                fontWeight: "bold",
+                marginBottom: ".5rem",
+                padding: "10px 0px",
+              }}
+            >
+              Tuition Media
+            </div>
+          </Link>
           <div onClick={() => dispatch(closeSidebar())}>
             <AiOutlineArrowLeft className="h-5 w-5 text-white lg:hidden" />
           </div>
