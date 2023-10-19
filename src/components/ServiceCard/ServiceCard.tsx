@@ -1,11 +1,21 @@
+import { getUserInfo } from "@/services/authServices";
 import Image from "next/image";
 import Link from "next/link";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { TbCurrencyTaka } from "react-icons/tb";
 
 const ServiceCard = ({ service }: any) => {
-  const { image, title, price, description, id, category } = service;
+  const { userId } = getUserInfo() as any;
+  console.log(userId);
+  const { image, title, price, description, id, category, bookings } = service;
+  console.log("bookings", bookings);
 
+  const isBooked = bookings?.filter((bookedService: any) => {
+    // bookedService.userId = userId;
+    return bookedService.userId == userId && bookedService.serviceId == id;
+  });
+
+  console.log(isBooked[0]?.status);
   return (
     <div>
       <div className="px-2 ">
@@ -35,8 +45,12 @@ const ServiceCard = ({ service }: any) => {
               </h5>
             </div>
             <hr />
-            <div className="px-2">
-              <h4> {description}</h4>
+            <div className="px-2 h-5 mb-2">
+              <h4>
+                {" "}
+                {description.slice(0, 50)}{" "}
+                {description.length > 50 ? ".... " : ""}
+              </h4>
             </div>
             <div className="my-4 flex gap-2 items-center justify-start mx-5">
               <h5 className="block flex  justify-center items-center gap- font-sans text-base font-semibold leading-snug tracking-normal text-black antialiased">
@@ -56,13 +70,24 @@ const ServiceCard = ({ service }: any) => {
               </button>
             </Link>
           </div>
-          <div className="mx-5 flex justify-center items-center">
-            <Link href={`/Booking/${id}`}>
-              <button className="w-60 flex gap-2 justify-center items-center  font-sans font-semibold p-1   bg-white text-black hover:bg-blue-600 border border-blue-500 rounded-md hover:text-white mb-4">
-                Go For Booking
-              </button>
-            </Link>
-          </div>
+
+          {isBooked.length <= 0 ? (
+            <div className="mx-5 flex justify-center items-center">
+              <Link href={`/Booking/${id}`}>
+                <button className="w-60 flex gap-2 justify-center items-center  font-sans font-semibold p-1   bg-white text-black hover:bg-blue-600 border border-blue-500 rounded-md hover:text-white mb-4">
+                  Go For Booking
+                </button>
+              </Link>
+            </div>
+          ) : (
+            <div className="h-5">
+              {isBooked[0]?.status === "pending" ? (
+                <p className="text-center text-cyan-500">booking on Pending</p>
+              ) : (
+                <p className="text-green-600 text-center">Already booked</p>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </div>
