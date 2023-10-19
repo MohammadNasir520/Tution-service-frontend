@@ -6,13 +6,15 @@ import { useState } from "react";
 
 import Image from "next/image";
 
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { getUserInfo, removeUserInfo } from "@/services/authServices";
 import { authKey } from "@/constant/storage-key";
-const user = "adj";
+import dynamic from "next/dynamic";
+
 const Navbar = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
 
   const { role } = getUserInfo() as any;
 
@@ -37,7 +39,10 @@ const Navbar = () => {
       {role ? (
         <Link
           href={"/"}
-          onClick={() => removeUserInfo(authKey)}
+          onClick={() => {
+            removeUserInfo(authKey);
+            router.push("/signup");
+          }}
           className={`${
             isMenuOpen
               ? "block px-1 py-1 mb-2 leading-loose text-center text-white  bg-blue-600 hover:bg-blue-700  rounded-xl  text-base font-sans font-semibold"
@@ -57,10 +62,10 @@ const Navbar = () => {
                 : "  font-sans  hidden lg:inline-block py-1 px-1 bg-blue-500 hover:bg-blue-600  text-white font-semibold rounded-sm transition duration-200 "
             }`}
           >
-            SignIn
+            login
           </Link>
           <Link
-            href={"/"}
+            href={"/signup"}
             onClick={() => removeUserInfo(authKey)}
             className={`${
               isMenuOpen
@@ -226,4 +231,5 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+// export default Navbar;
+export default dynamic(() => Promise.resolve(Navbar), { ssr: false });
