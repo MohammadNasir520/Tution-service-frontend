@@ -76,6 +76,21 @@ export const sidebarItems = (role: string) => {
         },
       ],
     },
+    {
+      label: "Mange Bookings",
+      key: "Mange Bookings",
+
+      children: [
+        {
+          label: <Link href={`/admin/booking`}>Bookings</Link>,
+          key: `/admin/booking`,
+        },
+        // {
+        //   label: <Link href={`/admin/service/create`}>Create services</Link>,
+        //   key: `/admin/service/create`,
+        // },
+      ],
+    },
   ];
   const userSidebarItems: MenuProps["items"] = [
     ...defaultSidebarItems,

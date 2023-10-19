@@ -2,11 +2,11 @@
 
 import FormSelectField from "@/components/Form/FormSelectField";
 import Table from "@/components/ui/Table/Table";
+import { useUpdateSingleAdminMutation } from "@/redux/api/adminApi/adminApi";
 import {
-  useDeleteAdminMutation,
-  useGetAllAdminQuery,
-  useUpdateSingleAdminMutation,
-} from "@/redux/api/adminApi/adminApi";
+  useGetAllBookingQuery,
+  useUpdateSingleBookingMutation,
+} from "@/redux/api/bookingApi/bookingApi";
 import {
   useDeleteUserMutation,
   useGetAllUserQuery,
@@ -24,10 +24,10 @@ interface DataType {
 }
 
 const Admin = () => {
-  const { data: admins } = useGetAllUserQuery(undefined);
+  const { data: bookings } = useGetAllBookingQuery(undefined);
 
   const [deleteUser, { error }] = useDeleteUserMutation();
-  const [updateSingleAdmin, { isLoading }] = useUpdateSingleAdminMutation();
+  const [updateSingleBooking, { isLoading }] = useUpdateSingleBookingMutation();
 
   const handleDelete = async (id: string) => {
     const res = await deleteUser(id);
@@ -39,11 +39,14 @@ const Admin = () => {
       message.error(error?.data?.message);
     }
   };
-  const handleUpdateRole = async (value: string, id: string) => {
+  const handleUpdateBookingPendingStatus = async (
+    value: string,
+    id: string
+  ) => {
     console.log(value, id);
-    const res = await updateSingleAdmin({ data: { role: value }, id });
+    const res = await updateSingleBooking({ data: { status: value }, id });
     if (res) {
-      message.success("role updated successfully");
+      message.success("status updated successfully");
     }
     if (error) {
       // @ts-ignore
@@ -51,21 +54,26 @@ const Admin = () => {
     }
   };
 
+  // pending;
+  // accepted;
+  // rejected;
+
   const SelectOptions = [
-    { label: "admin", value: "admin" },
-    { label: "user", value: "user" },
+    { label: "pending", value: "pending" },
+    { label: "accepted", value: "accepted" },
+    { label: "rejected", value: "rejected" },
   ];
 
   const columns = [
     {
-      title: "Image",
+      title: "User Pic",
       render: function (data: any) {
         return (
           <>
             <Image
               width={60}
               height={60}
-              src={data.profileImg}
+              src={data?.user?.profileImg}
               alt="pic"
             ></Image>
           </>
@@ -73,26 +81,40 @@ const Admin = () => {
       },
     },
     {
-      title: "Name",
-      dataIndex: "name",
+      title: "user",
+      render: function (data: any) {
+        return (
+          <>
+            <p>{data.user.name}</p>
+          </>
+        );
+      },
     },
     {
-      title: "Email",
-      dataIndex: "email",
+      title: "Service",
+      render: function (data: any) {
+        return (
+          <>
+            <p>{data.service.title}</p>
+          </>
+        );
+      },
     },
     {
       title: "Contact No",
       dataIndex: "contactNo",
     },
     {
-      title: "Manage Role",
+      title: "Manage status",
       render: function (data: any) {
         console.log(data);
         return (
           <div className="">
             <Select
-              onChange={(value) => handleUpdateRole(value, data?.id)}
-              defaultValue={data.role}
+              onChange={(value) =>
+                handleUpdateBookingPendingStatus(value, data?.id)
+              }
+              defaultValue={data?.status}
               style={{ width: 120 }}
               loading={isLoading}
               options={SelectOptions}
@@ -146,7 +168,7 @@ const Admin = () => {
     },
   ];
 
-  return <Table columns={columns} dataSource={admins}></Table>;
+  return <Table columns={columns} dataSource={bookings}></Table>;
 };
 
 export default Admin;
