@@ -4,7 +4,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { TbCurrencyTaka } from "react-icons/tb";
 
 const ServiceCard = ({ service }: any) => {
-  const { image, title, price, description, id } = service;
+  const { image, title, price, description, id, category } = service;
 
   return (
     <div>
@@ -31,7 +31,7 @@ const ServiceCard = ({ service }: any) => {
               </h5>
 
               <h5 className="block  font-sans text-base font-semibold leading-snug tracking-normal text-black antialiased">
-                <span className="hover:text-blue-500"> {title} </span>
+                <span className="hover:text-blue-500"> {category} </span>
               </h5>
             </div>
             <hr />
@@ -52,7 +52,14 @@ const ServiceCard = ({ service }: any) => {
           <div className="mx-5 flex justify-center items-center">
             <Link href={`/serviceDetails/${id}`}>
               <button className="w-60 flex gap-2 justify-center items-center  font-sans font-semibold p-1   bg-white text-black hover:bg-blue-600 border border-blue-500 rounded-md hover:text-white mb-4">
-                Go For Purchase
+                Go For Details
+              </button>
+            </Link>
+          </div>
+          <div className="mx-5 flex justify-center items-center">
+            <Link href={`/Booking/${id}`}>
+              <button className="w-60 flex gap-2 justify-center items-center  font-sans font-semibold p-1   bg-white text-black hover:bg-blue-600 border border-blue-500 rounded-md hover:text-white mb-4">
+                Go For Booking
               </button>
             </Link>
           </div>
