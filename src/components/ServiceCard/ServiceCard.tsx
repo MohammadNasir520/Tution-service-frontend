@@ -6,9 +6,9 @@ import { TbCurrencyTaka } from "react-icons/tb";
 
 const ServiceCard = ({ service }: any) => {
   const { userId } = getUserInfo() as any;
-  console.log(userId);
+  // console.log(userId);
   const { image, title, price, description, id, category, bookings } = service;
-  console.log("bookings", bookings);
+  // console.log("bookings", bookings);
 
   const isBooked = bookings?.filter((bookedService: any) => {
     // bookedService.userId = userId;
