@@ -3,13 +3,26 @@ import { message } from "antd";
 import SingleReviewCard from "./SingleReviewCard";
 
 import { getUserInfo } from "@/services/authServices";
-import { useGetAllReviewQuery } from "@/redux/api/reviewApi/reviewApi";
+import {
+  useCreateReviewMutation,
+  useGetAllReviewQuery,
+} from "@/redux/api/reviewApi/reviewApi";
+import { useState } from "react";
 
 const ReviewsSection = ({ params }: any) => {
+  const [rating, setRating] = useState(0);
+  console.log("rating", rating);
+  const [createReview, { error: createReviewError }] =
+    useCreateReviewMutation();
+  console.log(createReviewError);
   const { userId } = getUserInfo() as any;
 
   const { data: reviews, error } = useGetAllReviewQuery({});
-  console.log("review", reviews);
+  // console.log("review", reviews);
+
+  const handleRatingChange = (event: any) => {
+    setRating(event.target.value);
+  };
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
@@ -21,12 +34,24 @@ const ReviewsSection = ({ params }: any) => {
     if (!reviewText) {
       return message.error("please type your review to review");
     }
+    const rate = Number(rating);
+    console.log(rate);
+    const res = await createReview({
+      serviceId: params?.id,
+      reviewText,
+      rating: rate,
+    });
+    console.log(userId, reviewText, params?.id);
+    console.log(res);
   };
   console.log("post revview2");
   return (
     <div className="mt-7">
       {/* create reviews */}
-      <form onSubmit={handleSubmit} className="flex justify-center">
+      <form
+        onSubmit={handleSubmit}
+        className="flex justify-center flex-col  items-center "
+      >
         <div className="flex items-center">
           {/* text area */}
           <div className="w-[60%]  lg:w-96  ">
@@ -49,6 +74,60 @@ const ReviewsSection = ({ params }: any) => {
             </span>
           </button>
         </div>
+        {/* rating Star */}
+
+        <div className="mb-4 flex space-x-4">
+          <label className="block mb-1">Your Rating</label>
+          <div className="flex items-center space-x-2">
+            <input
+              type="radio"
+              name="rating"
+              id="rating1"
+              value={1}
+              className="focus:outline-none focus:ring-2 focus:ring-blue-500"
+              onChange={handleRatingChange}
+            />
+            <label htmlFor="rating1">1</label>
+            <input
+              type="radio"
+              name="rating"
+              id="rating2"
+              value={2}
+              className="focus:outline-none focus:ring-2 focus:ring-blue-500"
+              onChange={handleRatingChange}
+            />
+            <label htmlFor="rating2">2</label>
+            <input
+              type="radio"
+              name="rating"
+              id="rating3"
+              value={3}
+              className="focus:outline-none focus:ring-2 focus:ring-blue-500"
+              onChange={handleRatingChange}
+            />
+            <label htmlFor="rating3">3</label>
+            <input
+              type="radio"
+              name="rating"
+              id="rating4"
+              value={4}
+              className="focus:outline-none focus:ring-2 focus:ring-blue-500"
+              onChange={handleRatingChange}
+            />
+            <label htmlFor="rating4">4</label>
+            <input
+              type="radio"
+              name="rating"
+              id="rating5"
+              value={5}
+              className="focus:outline-none focus:ring-2 focus:ring-blue-500"
+              onChange={handleRatingChange}
+            />
+            <label htmlFor="rating5">5</label>
+          </div>
+        </div>
+
+        {/* ....... */}
       </form>
 
       {/* review show card  */}

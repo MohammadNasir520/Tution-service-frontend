@@ -40,8 +40,11 @@ const ServiceCard = ({ service }: any) => {
                 {title}
               </h5>
 
-              <h5 className="block  font-sans text-base font-semibold leading-snug tracking-normal text-black antialiased">
-                <span className="hover:text-blue-500"> {category} </span>
+              <h5 className="block  my-1 font-sans text-base font-semibold leading-snug tracking-normal text-black antialiased">
+                <span className="hover:text-blue-500">
+                  {" "}
+                  Category : {category}{" "}
+                </span>
               </h5>
             </div>
             <hr />
