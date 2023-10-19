@@ -1,5 +1,6 @@
 import Services from "@/components/AvailableServices/Services";
 import AvailableServices from "@/components/AvailableServices/Services";
+import Banner from "@/components/Banner/Banner";
 import Faq from "@/components/Faq/Faq";
 import Footer from "@/components/Footer/Footer";
 import Navbar from "@/components/Navbar/NavBar";
@@ -10,6 +11,7 @@ export default function Home() {
   return (
     <>
       <Navbar></Navbar>
+      <Banner></Banner>
       <div className="px-3 lg:px-5">
         <Services></Services>
         <UpcomingServices></UpcomingServices>

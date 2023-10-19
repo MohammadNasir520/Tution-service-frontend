@@ -24,8 +24,12 @@ const Navbar = () => {
       href: "/",
     },
     {
-      title: "services",
+      title: "Available-services",
       href: "/services",
+    },
+    {
+      title: "Upcoming-services",
+      href: "/upcoming-services",
     },
 
     {
@@ -169,7 +173,7 @@ const Navbar = () => {
 
                 <Link href={"/"} className="text-xl font-semibold leading-none">
                   <h4 className=" block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
-                    MD Nasir Uddin
+                    Tuition Media
                   </h4>
                 </Link>
               </div>

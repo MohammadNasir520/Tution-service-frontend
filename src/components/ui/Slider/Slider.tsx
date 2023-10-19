@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
 import Link from "next/link";
+import { useGetAllReviewQuery } from "@/redux/api/reviewApi/reviewApi";
 
 function Arrow(props: any) {
   const { className, style, onClick } = props;
@@ -19,6 +20,9 @@ function Arrow(props: any) {
 }
 
 const ClientReview = () => {
+  const { data: Allreview, error } = useGetAllReviewQuery({});
+  console.log(Allreview);
+
   const settings = {
     dots: true,
     infinite: true,
@@ -115,19 +119,19 @@ const ClientReview = () => {
       </div>
 
       <Slider {...settings}>
-        {reviews?.map((review, i) => (
+        {Allreview?.map((review: any, i: number) => (
           <div key={i} className="px-2 ">
             <div className="relative flex w-full max-w-[22rem] flex-col rounded-xl bg-transparent bg-clip-border text-gray-700 shadow-none">
               <div className="relative mx-0 mt-4 flex items-center gap-4 overflow-hidden rounded-xl bg-transparent bg-clip-border pt-0 pb-8 text-gray-700 shadow-none">
                 <img
-                  src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1480&amp;q=80"
+                  src={review?.user?.profileImg}
                   alt="tania andrew"
                   className="relative inline-block h-[58px] w-[58px] !rounded-full object-cover object-center"
                 />
-                <div className="flex w-full flex-col gap-4">
+                {/* <div className="flex w-full flex-col gap-4">
                   <div className="flex items-center justify-between">
                     <h5 className="block font-sans text-lg font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
-                      Tania Andrew
+                      {review?.user?.name}
                     </h5>
                     <div className="5 flex items-center gap-0">
                       <svg
@@ -200,13 +204,12 @@ const ClientReview = () => {
                   <p className="block font-sans text-base font-light leading-relaxed text-blue-gray-900 antialiased">
                     Frontend Lead @ Google
                   </p>
-                </div>
+                </div> */}
+                <p>Rating: {review?.rating}</p>
               </div>
               <div className="mb-6 p-0">
                 <p className="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
-                  I found solution to all my design needs from Creative Tim. I
-                  use them as a freelancer in my hobby projects for fun! And its
-                  really affordable, very humble guys !!!
+                  {review?.reviewText}
                 </p>
               </div>
             </div>
