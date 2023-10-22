@@ -8,6 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useGetAllReviewQuery } from "@/redux/api/reviewApi/reviewApi";
 import { MdStarRate } from "react-icons/md";
+import SmallSpinner from "@/components/Spinner/SmallSpinner";
 
 function Arrow(props: any) {
   const { className, style, onClick } = props;
@@ -21,7 +22,12 @@ function Arrow(props: any) {
 }
 
 const ClientReview = () => {
-  const { data: Allreview, error } = useGetAllReviewQuery({});
+  const { data: Allreview, isLoading, error } = useGetAllReviewQuery({});
+
+  if (isLoading) {
+    return <SmallSpinner></SmallSpinner>;
+  }
+
   console.log(Allreview);
 
   const settings = {
