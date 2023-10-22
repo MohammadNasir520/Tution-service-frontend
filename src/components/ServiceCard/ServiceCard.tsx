@@ -21,10 +21,10 @@ const ServiceCard = ({ service }: any) => {
       <div className="px-2 ">
         <div
           id="skills"
-          className="relative flex w-full md:min-h-[350px] my-3  md:max-w-[18rem] lg:max-w-[20rem]  lg:min-h-[450px] flex-col rounded-lg bg-gray-50 bg-clip-border text-gray-700 shadow-lg border"
+          className="relative flex w-full md:min-h-[350px] my-3  md:max-w-[18rem] lg:max-w-[20rem]  lg:min-h-[450px] flex-col rounded-lg bg-gray-100 border text-gray-700  "
         >
-          <div className="relative    overflow-hidden rounded bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
-            <div className="flex justify-center  rounded h-[200px] w-full">
+          <div className="relative    overflow-hidden  bg-blue-gray-500 bg-clip-border text-white  ">
+            <div className="flex justify-center   h-[200px] w-full">
               <Image
                 src={image}
                 width={200}
@@ -68,7 +68,7 @@ const ServiceCard = ({ service }: any) => {
           </div>
           <div className="mx-5 flex justify-center items-center">
             <Link href={`/serviceDetails/${id}`}>
-              <button className="w-60 flex gap-2 justify-center items-center  font-sans font-semibold p-1   bg-white text-black hover:bg-blue-600 border border-blue-500 rounded-md hover:text-white mb-4">
+              <button className="w-60 flex gap-2 justify-center items-center  font-sans font-semibold p-1   bg-white text-black hover:bg-blue-600 border border-blue-500 rounded hover:text-white mb-4">
                 Go For Details
               </button>
             </Link>
