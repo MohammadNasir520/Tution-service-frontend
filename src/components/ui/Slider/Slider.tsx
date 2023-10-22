@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
 import Link from "next/link";
 import { useGetAllReviewQuery } from "@/redux/api/reviewApi/reviewApi";
+import { MdStarRate } from "react-icons/md";
 
 function Arrow(props: any) {
   const { className, style, onClick } = props;
@@ -66,44 +67,25 @@ const ClientReview = () => {
     ],
   };
 
-  const reviews = [
-    {
-      id: 1,
-      title: "This organization has best tutor",
-      image: "",
-      href: "/",
-    },
-    {
-      id: 2,
-      title: "This organization has best tutor",
-      image: "",
-      href: "/",
-    },
-    {
-      id: 3,
-      title: "This organization has best tutor",
-      image: "",
-      href: "/",
-    },
-    {
-      id: 4,
-      title: "This organization has best tutor",
-      image: "",
-      href: "/",
-    },
-    {
-      id: 5,
-      title: "This organization has best tutor",
-      image: "",
-      href: "/",
-    },
-    {
-      id: 6,
-      title: "This organization has best tutor",
-      image: "",
-      href: "/",
-    },
-  ];
+  const renderStars = (rating: number) => {
+    const fullStars = Math.floor(rating);
+    const hasHalfStar = rating % 1 !== 0;
+    const starArray = [];
+
+    for (let i = 0; i < fullStars; i++) {
+      starArray.push(
+        <MdStarRate key={i} className="h-5 w-5 text-yellow-600" />
+      );
+    }
+
+    if (hasHalfStar) {
+      starArray.push(
+        <MdStarRate key="half" className="h-5 w-4 text-yellow-600" />
+      );
+    }
+
+    return starArray;
+  };
   return (
     <div id="reviews" className="mx-10 py-24">
       <div className="flex flex-col justify-center items-center my-5 ">
@@ -132,7 +114,9 @@ const ClientReview = () => {
                 />
               </div>
               <div className="mb-6 p-0  border-l-2 border-[#c0c2c7] px-2">
+                <div className="flex">{renderStars(review?.rating)}</div>
                 <p>Rating: {review?.rating}</p>
+
                 <p className="block  text-base font-normal  leading-relaxed antialiased">
                   {review?.reviewText}
                 </p>
