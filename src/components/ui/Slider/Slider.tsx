@@ -103,23 +103,25 @@ const ClientReview = () => {
       <Slider {...settings}>
         {Allreview?.map((review: any, i: number) => (
           <div key={i} className="px-2 cursor-pointer">
-            <div className="relative flex w-full max-w-[22rem] items-center gap-5  rounded-xl bg-transparent bg-clip-border text-gray-700 shadow-none">
-              <div className="relative mx-0 mt-4 flex items-center gap-4 overflow-hidden rounded-xl bg-transparent bg-clip-border pt-0 pb-8 text-gray-700 shadow-none">
+            <div className=" flex w-full  max-w-[22rem] items-center gap-3  rounded-xl bg-transparent bg-clip-border text-gray-700 shadow-none">
+              <div className=" mx-0 mt-4  flex  items-center gap-4 overflow-hidden rounded-xl bg-transparent bg-clip-border pt-0  text-gray-700 shadow-none">
                 <Image
                   width={40}
                   height={40}
                   src={review?.user?.profileImg}
-                  alt="tania andrew"
-                  className="relative inline-block h-[58px] w-[58px] !rounded-full object-cover object-center"
+                  alt="pic"
+                  className=" inline-block h-[58px] w-[58px] !rounded-full object-cover object-center"
                 />
               </div>
-              <div className="mb-6 p-0  border-l-2 border-[#c0c2c7] px-2">
+              <div className="border-l-2  min-h-[50px] border-[#c0c2c7]"></div>
+              <div className=" p-0 min-h-[60px]   ">
                 <div className="flex">{renderStars(review?.rating)}</div>
-                <p>Rating: {review?.rating}</p>
 
-                <p className="block  text-base font-normal  leading-relaxed antialiased">
+                <p className="block  text-sm font-normal  leading-relaxed antialiased">
                   {review?.reviewText}
                 </p>
+
+                <small>{review?.user?.name}</small>
               </div>
             </div>
           </div>
