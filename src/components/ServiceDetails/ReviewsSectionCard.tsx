@@ -85,7 +85,7 @@ const ReviewsSection = ({ params }: any) => {
             <div className="w-[60%]  lg:w-96  ">
               <div className="relative w-full min-w-[200px]">
                 <textarea
-                  className="peer h-[35px]  w-full resize-none rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-gray-300 focus:border-t-transparent focus:outline-0 disabled:resize-none disabled:border-0 disabled:bg-blue-gray-50"
+                  className="peer h-[35px]  w-full resize-none rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5   text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-gray-300 focus:border-t-transparent focus:outline-0 disabled:resize-none disabled:border-0 disabled:bg-blue-gray-50"
                   placeholder=" "
                   name="review"
                 ></textarea>
@@ -170,7 +170,7 @@ const ReviewsSection = ({ params }: any) => {
             isBooked[0]?.status != "pending" && (
               <div className="mx-5 flex justify-center items-center">
                 <Link href={`/Booking/${params?.id}`}>
-                  <button className="w-60 flex gap-2 justify-center items-center  font-sans font-semibold p-1   bg-white text-black hover:bg-blue-600 border border-blue-500 rounded-md hover:text-white mb-4">
+                  <button className="w-60 flex gap-2 justify-center items-center    font-semibold p-1   bg-white text-black hover:bg-blue-600 border border-blue-500 rounded-md hover:text-white mb-4">
                     Go For Booking
                   </button>
                 </Link>
@@ -185,7 +185,7 @@ const ReviewsSection = ({ params }: any) => {
           return <SingleReviewCard key={i} review={review}></SingleReviewCard>;
         })
       ) : (
-        <div className=" flex justify-center mt-5 text-2xl font-sans font-bold">
+        <div className=" flex justify-center mt-5 text-2xl   font-bold">
           <h1>No Review Yet, Please add</h1>
         </div>
       )}

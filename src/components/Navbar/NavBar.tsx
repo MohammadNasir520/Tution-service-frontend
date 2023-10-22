@@ -49,8 +49,8 @@ const Navbar = () => {
           }}
           className={`${
             isMenuOpen
-              ? "block px-1 py-1 mb-2 leading-loose text-center text-white  bg-blue-600 hover:bg-blue-700  rounded-xl  text-base font-sans font-semibold"
-              : "  font-sans  hidden lg:inline-block py-1 px-1 bg-blue-500 hover:bg-blue-600  text-white font-semibold rounded-sm transition duration-200 "
+              ? "block px-1 py-1 mb-2 leading-loose text-center text-white  bg-blue-600 hover:bg-blue-700  rounded-xl  text-base   font-semibold"
+              : "     hidden lg:inline-block py-1 px-1 bg-blue-500 hover:bg-blue-600  text-white font-semibold rounded-sm transition duration-200 "
           }`}
         >
           SignOut
@@ -62,8 +62,8 @@ const Navbar = () => {
             onClick={() => removeUserInfo(authKey)}
             className={`${
               isMenuOpen
-                ? "block px-1 py-1 mb-2 leading-loose text-center text-white  bg-blue-600 hover:bg-blue-700  rounded-xl  text-base font-sans font-semibold"
-                : "  font-sans  hidden lg:inline-block py-1 px-1 bg-blue-500 hover:bg-blue-600  text-white font-semibold rounded-sm transition duration-200 "
+                ? "block px-1 py-1 mb-2 leading-loose text-center text-white  bg-blue-600 hover:bg-blue-700  rounded-xl  text-base   font-semibold"
+                : "     hidden lg:inline-block py-1 px-1 bg-blue-500 hover:bg-blue-600  text-white font-semibold rounded-sm transition duration-200 "
             }`}
           >
             login
@@ -73,8 +73,8 @@ const Navbar = () => {
             onClick={() => removeUserInfo(authKey)}
             className={`${
               isMenuOpen
-                ? "block mx-3  px-1 py-1 mb-2 leading-loose text-center text-white  bg-blue-600 hover:bg-blue-700  rounded-xl  text-base font-sans font-semibold"
-                : "  font-sans  mx-3 hidden lg:inline-block py-1 px-1 bg-blue-500 hover:bg-blue-600  text-white font-semibold rounded-sm transition duration-200 "
+                ? "block mx-3  px-1 py-1 mb-2 leading-loose text-center text-white  bg-blue-600 hover:bg-blue-700  rounded-xl  text-base   font-semibold"
+                : "     mx-3 hidden lg:inline-block py-1 px-1 bg-blue-500 hover:bg-blue-600  text-white font-semibold rounded-sm transition duration-200 "
             }`}
           >
             SignUp
@@ -90,7 +90,7 @@ const Navbar = () => {
         <nav className=" py-2  w-full flex justify-between items-center">
           <div>
             <Link href={"/"} className="text-xl font-semibold leading-none">
-              <h4 className=" block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+              <h4 className=" block   text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
                 Tuition Media
               </h4>
             </Link>
@@ -113,7 +113,7 @@ const Navbar = () => {
 
           {/* large screen Navbar options............... */}
 
-          <div className="hidden  flex-1  flex justify-center items-center  text-white lg:flex lg:items-center lg:w-auto lg:space-x-4 text-lg font-sans  font-semibold ">
+          <div className="hidden  flex-1  flex justify-center items-center  text-white lg:flex lg:items-center lg:w-auto lg:space-x-4 text-lg    font-semibold ">
             {navItems?.map((navItem, i) => (
               <div key={i}>
                 <Link
@@ -125,8 +125,8 @@ const Navbar = () => {
                                              ? "text-teal-500 border-b-2   border-[#c0c2c7] font-semibold "
                                              : `${
                                                  isMenuOpen
-                                                   ? "lg:block p-4 text-lg font-sans font-semibold text-white hover:bg-blue-50  rounded"
-                                                   : "font-sans text-white  "
+                                                   ? "lg:block p-4 text-lg   font-semibold text-white hover:bg-blue-50  rounded"
+                                                   : "  text-white  "
                                                }  `
                                          }`}
                 >
@@ -135,7 +135,7 @@ const Navbar = () => {
               </div>
             ))}
           </div>
-          <div className="hidden lg:block  text-lg font-sans font-semibold">
+          <div className="hidden lg:block  text-lg   font-semibold">
             {signOption}
           </div>
           {/* <div className="flex items-center gap-2  ml-3">
@@ -172,7 +172,7 @@ const Navbar = () => {
                 </div>
 
                 <Link href={"/"} className="text-xl font-semibold leading-none">
-                  <h4 className=" block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+                  <h4 className=" block   text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
                     Tuition Media
                   </h4>
                 </Link>
@@ -203,7 +203,7 @@ const Navbar = () => {
             </div>
             <div>
               {/* small screen navbar options........................................... */}
-              <ul className=" text-base font-sans font-semibold ">
+              <ul className=" text-base   font-semibold ">
                 {navItems?.map((navItem, i) => (
                   <li key={i}>
                     <Link
@@ -214,8 +214,8 @@ const Navbar = () => {
                           ? "text-teal-500 font-semibold p-4"
                           : `${
                               isMenuOpen
-                                ? "block p-2 text-lg font-sans font-semibold text-white hover:bg-blue-50 hover:text-black rounded"
-                                : "text-lg font-sans text-white hover:text-gray-500 "
+                                ? "block p-2 text-lg   font-semibold text-white hover:bg-blue-50 hover:text-black rounded"
+                                : "text-lg   text-white hover:text-gray-500 "
                             }  `
                       }
                     >

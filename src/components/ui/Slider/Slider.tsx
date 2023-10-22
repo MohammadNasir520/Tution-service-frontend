@@ -107,12 +107,12 @@ const ClientReview = () => {
   return (
     <div id="reviews" className="mx-10 py-24">
       <div className="flex flex-col justify-center items-center my-5 ">
-        <h6 className="font-sans  text-black text-3xl font-bold uppercase mb-0  ">
+        <h6 className="   text-black text-3xl font-bold uppercase mb-0  ">
           Students Review
         </h6>
         <h6
           style={{ lineHeight: "12px" }}
-          className="font-sans  text-green-700 text-lg font-bold mt-0  "
+          className="   text-green-700 text-lg font-bold mt-0  "
         >
           Here are Students Reviews
         </h6>
@@ -121,7 +121,7 @@ const ClientReview = () => {
       <Slider {...settings}>
         {Allreview?.map((review: any, i: number) => (
           <div key={i} className="px-2 cursor-pointer">
-            <div className="relative flex w-full max-w-[22rem] flex-col rounded-xl bg-transparent bg-clip-border text-gray-700 shadow-none">
+            <div className="relative flex w-full max-w-[22rem] items-center gap-5  rounded-xl bg-transparent bg-clip-border text-gray-700 shadow-none">
               <div className="relative mx-0 mt-4 flex items-center gap-4 overflow-hidden rounded-xl bg-transparent bg-clip-border pt-0 pb-8 text-gray-700 shadow-none">
                 <Image
                   width={40}
@@ -130,10 +130,10 @@ const ClientReview = () => {
                   alt="tania andrew"
                   className="relative inline-block h-[58px] w-[58px] !rounded-full object-cover object-center"
                 />
-                <p>Rating: {review?.rating}</p>
               </div>
-              <div className="mb-6 p-0">
-                <p className="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
+              <div className="mb-6 p-0  border-l-2 border-[#c0c2c7] px-2">
+                <p>Rating: {review?.rating}</p>
+                <p className="block  text-base font-normal  leading-relaxed antialiased">
                   {review?.reviewText}
                 </p>
               </div>

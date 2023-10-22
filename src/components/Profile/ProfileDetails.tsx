@@ -56,7 +56,7 @@ const ProfileDetails = () => {
 
                     <div className="">
                       <Link href={`/${role}/editProfile`}>
-                        <button className="w-36 font-sans font-bold p-1   bg-white mb-4">
+                        <button className="w-36   font-bold p-1   bg-white mb-4">
                           EDIT
                         </button>
                       </Link>

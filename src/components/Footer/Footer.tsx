@@ -26,23 +26,23 @@ const Footer = () => {
                         </Image>
 
                         <div>
-                            <h4 className=" block font-sans text-lg font-semibold tracking-normal text-blue-gray-900 antialiased">
+                            <h4 className=" block   text-lg font-semibold tracking-normal text-blue-gray-900 antialiased">
                                 RAHATUL GONI
                             </h4>
-                            <h4 className="mb-2 block font-sans text-lg md:text-xl font-semibold tracking-normal text-blue-gray-900 antialiased">
+                            <h4 className="mb-2 block   text-lg md:text-xl font-semibold tracking-normal text-blue-gray-900 antialiased">
                                 BSC in Chemistry, HSTU
                             </h4>
                         </div>
                     </div> */}
           <div>
-            <p className="my-2 flex items-center gap-2 font-sans  font-semibold text-lg ">
+            <p className="my-2 flex items-center gap-2    font-semibold text-lg ">
               <AiOutlineMail className="w-10 h-w-10" /> TutionMedia@gmail.com
             </p>
-            <p className="flex items-center gap-2 font-sans font-semibold text-lg">
+            <p className="flex items-center gap-2   font-semibold text-lg">
               <FiPhoneCall className="w-10 h-w-10" />
               01729678295
             </p>
-            <p className="mt-2 flex items-center gap-2 font-sans font-semibold text-lg ml-[6px]">
+            <p className="mt-2 flex items-center gap-2   font-semibold text-lg ml-[6px]">
               <MdLocationPin className="w-8 h-8" />
               Dinajpur , Bangladesh
             </p>
@@ -54,26 +54,26 @@ const Footer = () => {
         <div className="flex space-y-3 text-white flex-col items-start gap-3 hidden lg:block">
           <Link
             href="#Award&Achivements"
-            className=" link-hover no-underline text-white  block font-sans text-xl font-semibold tracking-normal text-blue-gray-900 antialiased"
+            className=" link-hover no-underline text-white  block   text-xl font-semibold tracking-normal text-blue-gray-900 antialiased"
           >
             About
           </Link>
           <Link
             href="#Award&Achivements"
-            className="link link-hover no-underline text-white  block font-sans text-xl font-semibold tracking-normal text-blue-gray-900 antialiased"
+            className="link link-hover no-underline text-white  block   text-xl font-semibold tracking-normal text-blue-gray-900 antialiased"
           >
             Our Award & Achivements
           </Link>
           <Link
             href="#Award&Achivements"
-            className="link link-hover no-underline  text-white block font-sans text-xl font-semibold tracking-normal text-blue-gray-900 antialiased"
+            className="link link-hover no-underline  text-white block   text-xl font-semibold tracking-normal text-blue-gray-900 antialiased"
           >
             our Extra-curricular Activities
           </Link>
 
           <Link
             href="#Award&Achivements"
-            className="link link-hover no-underline  text-white  block font-sans text-xl font-semibold tracking-normal text-blue-gray-900 antialiased"
+            className="link link-hover no-underline  text-white  block   text-xl font-semibold tracking-normal text-blue-gray-900 antialiased"
           >
             Services
           </Link>
@@ -112,7 +112,7 @@ const Footer = () => {
 
         <div className="">
           <div className="lg:mx-auto mt-6 flex flex-col  ">
-            <button className="w-44 p-3 border rounded font-sans font-semibold">
+            <button className="w-44 p-3 border rounded   font-semibold">
               Contact
             </button>
           </div>

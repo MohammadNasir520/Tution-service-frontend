@@ -25,17 +25,17 @@ const ServiceDetailsCard = ({ params }: any) => {
           </div>
           <div className="p-6 flex flex-col justify-center w-full">
             {/* service name */}
-            <h4 className="mb-2 block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+            <h4 className="mb-2 block   text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
               {service?.title}
             </h4>
 
             <div className=" flex ">
-              <h3 className="mb-1 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+              <h3 className="mb-1 block   text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
                 {service?.price}
               </h3>
               <TbCurrencyTaka className="w-6 h-6 " /> / month
             </div>
-            <h4 className="mb-2 block font-sans text-base font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+            <h4 className="mb-2 block   text-base font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
               {service?.category}
             </h4>
           </div>
@@ -45,7 +45,7 @@ const ServiceDetailsCard = ({ params }: any) => {
       </div>
       <div className="min-h-[50px] bg-gray-100 text-center lg:w-1/2 mx-auto py-3">
         {
-          <h4 className=" block font-sans text-base font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+          <h4 className=" block   text-base font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
             {service?.description}
           </h4>
         }

@@ -36,11 +36,11 @@ const ServiceCard = ({ service }: any) => {
           </div>
           <div className="">
             <div className="my-2 flex flex-col items-center justify-center">
-              <h5 className="block hover:text-blue-500 font-sans text-xl font-bold leading-snug tracking-normal text-black antialiased">
+              <h5 className="block hover:text-blue-500   text-xl font-bold leading-snug tracking-normal text-black antialiased">
                 {title}
               </h5>
 
-              <h5 className="block  my-1 font-sans text-base font-semibold leading-snug tracking-normal text-black antialiased">
+              <h5 className="block  my-1   text-base font-semibold leading-snug tracking-normal text-black antialiased">
                 <span className="hover:text-blue-500">
                   {" "}
                   Category : {category}{" "}
@@ -56,7 +56,7 @@ const ServiceCard = ({ service }: any) => {
               </h4>
             </div>
             <div className="my-4 flex gap-2 items-center justify-start mx-5">
-              <h5 className="block flex  justify-center items-center gap- font-sans text-base font-semibold leading-snug tracking-normal text-black antialiased">
+              <h5 className="block flex  justify-center items-center gap-   text-base font-semibold leading-snug tracking-normal text-black antialiased">
                 <span className="hover:text-blue-500"> {price} </span>{" "}
                 <TbCurrencyTaka className="w-5 h-5 " /> / month
               </h5>
@@ -68,7 +68,7 @@ const ServiceCard = ({ service }: any) => {
           </div>
           <div className="mx-5 flex justify-center items-center">
             <Link href={`/serviceDetails/${id}`}>
-              <button className="w-60 flex gap-2 justify-center items-center  font-sans font-semibold p-1   bg-white text-black hover:bg-blue-600 border border-blue-500 rounded hover:text-white mb-4">
+              <button className="w-60 flex gap-2 justify-center items-center    font-semibold p-1   bg-white text-black hover:bg-blue-600 border border-blue-500 rounded hover:text-white mb-4">
                 Go For Details
               </button>
             </Link>
@@ -77,7 +77,7 @@ const ServiceCard = ({ service }: any) => {
           {isBooked.length <= 0 ? (
             <div className="mx-5 flex justify-center items-center">
               <Link href={`/Booking/${id}`}>
-                <button className="w-60 flex gap-2 justify-center items-center  font-sans font-semibold p-1   bg-white text-black hover:bg-blue-600 border border-blue-500 rounded-md hover:text-white mb-4">
+                <button className="w-60 flex gap-2 justify-center items-center    font-semibold p-1   bg-white text-black hover:bg-blue-600 border border-blue-500 rounded-md hover:text-white mb-4">
                   Go For Booking
                 </button>
               </Link>

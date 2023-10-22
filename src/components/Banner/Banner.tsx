@@ -33,7 +33,7 @@ const Banner = () => {
                   Get started
                 </a>
                 <a
-                  className="inline-block font-sans font-semibold text-white rounded px-12 pt-4 pb-3.5 text-sm  uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:bg-neutral-500 hover:bg-opacity-10 hover:text-neutral-200 focus:text-neutral-200 focus:outline-none focus:ring-0 active:text-neutral-300"
+                  className="inline-block   font-semibold text-white rounded px-12 pt-4 pb-3.5 text-sm  uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:bg-neutral-500 hover:bg-opacity-10 hover:text-neutral-200 focus:text-neutral-200 focus:outline-none focus:ring-0 active:text-neutral-300"
                   data-te-ripple-init
                   data-te-ripple-color="light"
                   href="#!"
