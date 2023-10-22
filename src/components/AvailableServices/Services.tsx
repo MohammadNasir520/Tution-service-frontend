@@ -1,7 +1,7 @@
 "use client";
 import { useGetAllServiceQuery } from "@/redux/api/serviceApi/serviceApi";
 import ServiceCard from "../ServiceCard/ServiceCard";
-import { Button } from "antd";
+import { Button, Pagination } from "antd";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 

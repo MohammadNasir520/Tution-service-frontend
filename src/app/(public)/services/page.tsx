@@ -3,6 +3,7 @@
 import ServiceCard from "@/components/ServiceCard/ServiceCard";
 import SmallSpinner from "@/components/Spinner/SmallSpinner";
 import { useGetAllServiceQuery } from "@/redux/api/serviceApi/serviceApi";
+import { Pagination } from "antd";
 import { useState } from "react";
 
 const AvailableServices = () => {
@@ -84,17 +85,27 @@ const AvailableServices = () => {
       {/* serch and filter end */}
 
       {/* services */}
-      {services.length == 0 ? (
-        <div className="lg:h-screen grid place-items-center font-sans font-semibold text-xl w-full">
-          <h1> No services Found </h1>
-        </div>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3  mx-5 place-items-center mt-3">
-          {services?.map((service: any) => (
-            <ServiceCard key="" service={service}></ServiceCard>
-          ))}
-        </div>
-      )}
+      <div>
+        {services.length == 0 ? (
+          <div className="lg:h-screen grid place-items-center font-sans font-semibold text-xl w-full">
+            <h1> No services Found </h1>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3  mx-5 place-items-center mt-3">
+            {services?.map((service: any) => (
+              <ServiceCard key="" service={service}></ServiceCard>
+            ))}
+          </div>
+        )}
+      </div>
+      <Pagination
+        showQuickJumper
+        defaultCurrent={2}
+        total={500}
+        onChange={(page, number) =>
+          console.log("page:", page, "number:", number)
+        }
+      />
     </div>
   );
 };
