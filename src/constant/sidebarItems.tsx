@@ -6,12 +6,12 @@ import Link from "next/link";
 export const sidebarItems = (role: string) => {
   const defaultSidebarItems: MenuProps["items"] = [
     {
-      label: "Manage Profile",
-      key: "Manage Profile",
+      label: "My Profile",
+      key: "My Profile",
 
       children: [
         {
-          label: <Link href={`/${role}`}>Profile</Link>,
+          label: <Link href={`/${role}`}>View Profile</Link>,
           key: `/${role}/profile`,
         },
         {
@@ -21,22 +21,18 @@ export const sidebarItems = (role: string) => {
       ],
     },
   ];
-
-  const super_adminSidebarItems: MenuProps["items"] = [
+  // user sidebar
+  const userSidebarItems: MenuProps["items"] = [
     ...defaultSidebarItems,
 
     {
-      label: "Manage admin",
-      key: "manage-admin",
+      label: "My bookings",
+      key: "My bookings",
 
       children: [
         {
-          label: <Link href={`/${role}/admin`}>All Admin</Link>,
-          key: `/${role}/admin`,
-        },
-        {
-          label: <Link href={`/${role}/admin/create`}>Create Admin</Link>,
-          key: `/${role}/admin/create`,
+          label: <Link href={`/${role}/booking`}>Handle booking</Link>,
+          key: `/${role}/booking`,
         },
       ],
     },
@@ -52,12 +48,12 @@ export const sidebarItems = (role: string) => {
 
       children: [
         {
-          label: <Link href={`/${role}/user`}>All user</Link>,
-          key: `/${role}/user`,
+          label: <Link href={`/admin/user`}>All user</Link>,
+          key: `/admin/user`,
         },
         {
-          label: <Link href={`/${role}/user/create`}>Create user</Link>,
-          key: `/${role}/user/create`,
+          label: <Link href={`/admin/user/create`}>Create user</Link>,
+          key: `/admin/user/create`,
         },
       ],
     },
@@ -92,24 +88,23 @@ export const sidebarItems = (role: string) => {
       ],
     },
   ];
-
-  // user sidebar
-  const userSidebarItems: MenuProps["items"] = [
-    ...defaultSidebarItems,
+  // super admin sidebar
+  const super_adminSidebarItems: MenuProps["items"] = [
+    ...adminSidebarItems,
 
     {
-      label: "My bookings",
-      key: "My bookings",
+      label: "Manage admin",
+      key: "manage-admin",
 
       children: [
         {
-          label: <Link href={`/${role}/booking`}>Handle booking</Link>,
-          key: `/${role}/booking`,
+          label: <Link href={`/super_admin/admin`}>All Admin</Link>,
+          key: `/super_admin/admin`,
         },
-        // {
-        //   label: <Link href={`/${role}/booking`}>Create booking</Link>,
-        //   key: `/${role}/Create booking`,
-        // },
+        {
+          label: <Link href={`/super_admin/admin/create`}>Create Admin</Link>,
+          key: `/super_admin/admin/create`,
+        },
       ],
     },
   ];
