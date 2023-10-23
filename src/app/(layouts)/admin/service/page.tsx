@@ -25,7 +25,7 @@ const Admin = () => {
   const [page, setPage] = useState<number>(1);
   const [size, setSize] = useState<number>(10);
   console.log(page, size);
-  const { data: data } = useGetAllServiceQuery({ ...query });
+  const { data: data, isLoading } = useGetAllServiceQuery({ ...query });
   const ServiceData = data?.data;
   const meta = data?.meta;
   console.log(data, meta);
@@ -34,7 +34,7 @@ const Admin = () => {
   query["page"] = page;
 
   const [deleteService, { error }] = useDeleteServiceMutation();
-  const [updateSingleService, { isLoading }] = useUpdateSingleServiceMutation();
+  const [updateSingleService] = useUpdateSingleServiceMutation();
 
   const handleDelete = async (id: string) => {
     const res = await deleteService(id);
@@ -152,6 +152,7 @@ const Admin = () => {
 
   return (
     <Table
+      loading={isLoading}
       columns={columns}
       dataSource={ServiceData}
       showPagination={true}

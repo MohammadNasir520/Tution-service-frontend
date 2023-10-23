@@ -8,10 +8,6 @@ import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import React from "react";
 
 const SuperAdmin = () => {
-  // const sideBarStatus = useAppSelector((state) => state.sidebar?.open);
-
-  // const dispatch = useAppDispatch();
-
   return (
     <div className="w-full">
       <ProfileDetails></ProfileDetails>

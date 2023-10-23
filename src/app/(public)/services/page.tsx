@@ -98,14 +98,14 @@ const AvailableServices = () => {
           </div>
         )}
       </div>
-      <Pagination
+      {/* <Pagination
         showQuickJumper
         defaultCurrent={2}
         total={500}
         onChange={(page, number) =>
           console.log("page:", page, "number:", number)
         }
-      />
+      /> */}
     </div>
   );
 };

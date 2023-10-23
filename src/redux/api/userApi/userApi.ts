@@ -4,7 +4,6 @@ import { api } from "../baseApi";
 const userUrl = "/users";
 const userApi = api.injectEndpoints({
   endpoints: (builder) => ({
-
     // createUser: builder.mutation({
     //   query: (data) => ({
     //     url: `${userUrl}`,
@@ -35,7 +34,7 @@ const userApi = api.injectEndpoints({
         method: "PATCH",
         data: data,
       }),
-      invalidatesTags: [tagsType.user],
+      invalidatesTags: [tagsType.user, tagsType.admin],
     }),
 
     deleteUser: builder.mutation({
@@ -53,5 +52,4 @@ export const {
   useGetSingleUserQuery,
   useDeleteUserMutation,
   useUpdateSingleUserMutation,
-
 } = userApi;

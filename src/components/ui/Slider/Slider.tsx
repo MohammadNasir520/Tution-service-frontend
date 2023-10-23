@@ -28,10 +28,47 @@ const ClientReview = () => {
     return <SmallSpinner></SmallSpinner>;
   }
 
-  console.log(Allreview);
+  // console.log(Allreview);
+  // const renderCustomDots = (i: number) => {
+  //   return (
+  //     <div>
+  //       <button
+  //         style={{
+  //           width: "10px",
+  //           height: "10px",
+  //           border: "1px solid black",
+
+  //           background: "red",
+  //           marginLeft: "5px",
+  //           marginRight: "5px",
+  //           cursor: "pointer",
+  //         }}
+  //       ></button>
+  //     </div>
+  //   );
+  // };
+  // const renderCustomDots = (i: number) => {
+  //   return (
+  //     <div style={{ display: "flex" }}>
+  //       <div
+  //         style={{
+  //           width: "20px",
+  //           height: "20px",
+  //           border: "none",
+  //           background: "red",
+  //           marginLeft: "5px",
+  //           marginRight: "5px",
+  //           cursor: "pointer",
+  //           display: "flex",
+  //           justifyContent: "center",
+  //           alignItems: "center",
+  //         }}
+  //       ></div>
+  //     </div>
+  //   );
+  // };
 
   const settings = {
-    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
@@ -43,6 +80,9 @@ const ClientReview = () => {
     pauseOnHover: true,
     nextArrow: <Arrow />,
     prevArrow: <Arrow />,
+    // customPaging: function (i: number) {
+    //   return renderCustomDots(i);
+    // },
 
     responsive: [
       {

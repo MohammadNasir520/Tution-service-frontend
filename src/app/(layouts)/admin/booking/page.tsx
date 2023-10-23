@@ -28,8 +28,8 @@ const Admin = () => {
 
   console.log(bookingData);
 
-  const { data: bookings } = useGetAllBookingQuery(undefined);
-  const [updateSingleBooking, { isLoading }] = useUpdateSingleBookingMutation();
+  const { data: bookings, isLoading } = useGetAllBookingQuery(undefined);
+  const [updateSingleBooking] = useUpdateSingleBookingMutation();
   const [deleteBooking, { error }] = useDeleteBookingMutation();
 
   const handleUpdateBookingPendingStatus = async (
@@ -129,12 +129,6 @@ const Admin = () => {
       render: function (data: any) {
         return (
           <>
-            {/* <DateTimePicker
-              bookingData={bookingData}
-              setBookingData={setBookingData}
-              startTime={data?.startTime}
-              endTime={data?.endTime}
-            ></DateTimePicker> */}
             <SingleDateTimePicker
               field={"endTime"}
               id={data?.id}
@@ -182,7 +176,9 @@ const Admin = () => {
     },
   ];
 
-  return <Table columns={columns} dataSource={bookings}></Table>;
+  return (
+    <Table columns={columns} dataSource={bookings} loading={isLoading}></Table>
+  );
 };
 
 export default Admin;

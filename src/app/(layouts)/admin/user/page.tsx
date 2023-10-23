@@ -1,12 +1,7 @@
 "use client";
 
-import FormSelectField from "@/components/Form/FormSelectField";
 import Table from "@/components/ui/Table/Table";
-import {
-  useDeleteAdminMutation,
-  useGetAllAdminQuery,
-  useUpdateSingleAdminMutation,
-} from "@/redux/api/adminApi/adminApi";
+
 import {
   useDeleteUserMutation,
   useGetAllUserQuery,
@@ -25,10 +20,9 @@ interface DataType {
 }
 
 const Admin = () => {
-  const { data: admins } = useGetAllUserQuery(undefined);
-
+  const { data: admins, isLoading } = useGetAllUserQuery(undefined);
   const [deleteUser, { error }] = useDeleteUserMutation();
-  const [updateSingleUser, { isLoading }] = useUpdateSingleUserMutation();
+  const [updateSingleUser] = useUpdateSingleUserMutation();
 
   const handleDelete = async (id: string) => {
     const res = await deleteUser(id);
@@ -123,31 +117,9 @@ const Admin = () => {
     },
   ];
 
-  const tableData: DataType[] = [
-    {
-      key: "1",
-      name: "John",
-      email: "Brown",
-      contactNo: 32,
-      profileImg: "New York No. 1 Lake Park",
-    },
-    {
-      key: "2",
-      name: "John",
-      email: "Brown",
-      contactNo: 32,
-      profileImg: "New York No. 1 Lake Park",
-    },
-    {
-      key: "3",
-      name: "John",
-      email: "Brown",
-      contactNo: 32,
-      profileImg: "New York No. 1 Lake Park",
-    },
-  ];
-
-  return <Table columns={columns} dataSource={admins}></Table>;
+  return (
+    <Table columns={columns} dataSource={admins} loading={isLoading}></Table>
+  );
 };
 
 export default Admin;

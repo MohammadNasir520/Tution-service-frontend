@@ -1,4 +1,3 @@
-
 import { api } from "../baseApi";
 import { tagsType } from "@/redux/tagsType";
 
@@ -12,49 +11,51 @@ const authApi = api.injectEndpoints({
         url: `${adminUrl}/`,
         method: "POST",
         data: data,
-       
-        
       }),
-      invalidatesTags:[tagsType.admin]
+      invalidatesTags: [tagsType.admin],
     }),
     // get all
-     getAllAdmin: builder.query({
+    getAllAdmin: builder.query({
       query: () => ({
         url: `${adminUrl}`,
-        method:"GET"
+        method: "GET",
       }),
-      providesTags:[tagsType.admin]
-    }),
-  
-    // get single
-     getSingleAdmin: builder.query({
-      query: (id) => ({
-        url: `${adminUrl}/${id}`,
-        method:"GET"
-      }),
-     providesTags:[tagsType.admin]
-    }),
-      //update single
-     updateSingleAdmin: builder.mutation({
-      query: ({data,id}) => ({
-        url: `${adminUrl}/${id}`,
-       method:"PATCH",
-       data:data,
-        
-      }),
-    invalidatesTags:[tagsType.admin]
+      providesTags: [tagsType.admin, tagsType.user],
     }),
 
-    //delete 
-      deleteAdmin: builder.mutation({
+    // get single
+    getSingleAdmin: builder.query({
+      query: (id) => ({
+        url: `${adminUrl}/${id}`,
+        method: "GET",
+      }),
+      providesTags: [tagsType.admin],
+    }),
+    //update single
+    updateSingleAdmin: builder.mutation({
+      query: ({ data, id }) => ({
+        url: `${adminUrl}/${id}`,
+        method: "PATCH",
+        data: data,
+      }),
+      invalidatesTags: [tagsType.admin],
+    }),
+
+    //delete
+    deleteAdmin: builder.mutation({
       query: (id) => ({
         url: `${adminUrl}/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags:[tagsType.admin]
+      invalidatesTags: [tagsType.admin],
     }),
-    
   }),
 });
 
-export const { useCreateAdminMutation ,useGetAllAdminQuery,useDeleteAdminMutation,useGetSingleAdminQuery,useUpdateSingleAdminMutation} = authApi;
+export const {
+  useCreateAdminMutation,
+  useGetAllAdminQuery,
+  useDeleteAdminMutation,
+  useGetSingleAdminQuery,
+  useUpdateSingleAdminMutation,
+} = authApi;

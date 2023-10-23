@@ -30,7 +30,7 @@ const Table = ({
     ? {
         pageSize: pageSize,
         total: totalPages,
-        pageSizeOptions: [5, 10, 15],
+        pageSizeOptions: [2, 3, 5, 10, 15],
         showSizeChanger: showSizeChanger,
         onChange: onPaginationChange,
       }
@@ -38,6 +38,7 @@ const Table = ({
 
   return (
     <AntdTable
+      loading={loading}
       dataSource={dataSource}
       columns={columns}
       pagination={paginationConfig}

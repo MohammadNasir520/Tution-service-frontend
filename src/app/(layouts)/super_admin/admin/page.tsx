@@ -1,6 +1,5 @@
 "use client";
 
-import FormSelectField from "@/components/Form/FormSelectField";
 import Table from "@/components/ui/Table/Table";
 import {
   useDeleteAdminMutation,
@@ -20,10 +19,10 @@ interface DataType {
 }
 
 const Admin = () => {
-  const { data: admins } = useGetAllAdminQuery(undefined);
+  const { data: admins, isLoading } = useGetAllAdminQuery(undefined);
 
   const [deleteAdmin, { error }] = useDeleteAdminMutation();
-  const [updateSingleAdmin, { isLoading }] = useUpdateSingleAdminMutation();
+  const [updateSingleAdmin] = useUpdateSingleAdminMutation();
 
   const handleDelete = async (id: string) => {
     const res = await deleteAdmin(id);
@@ -83,7 +82,7 @@ const Admin = () => {
     {
       title: "Manage Role",
       render: function (data: any) {
-        console.log(data);
+        // console.log(data);
         return (
           <div className="">
             <Select
@@ -118,31 +117,9 @@ const Admin = () => {
     },
   ];
 
-  const tableData: DataType[] = [
-    {
-      key: "1",
-      name: "John",
-      email: "Brown",
-      contactNo: 32,
-      profileImg: "New York No. 1 Lake Park",
-    },
-    {
-      key: "2",
-      name: "John",
-      email: "Brown",
-      contactNo: 32,
-      profileImg: "New York No. 1 Lake Park",
-    },
-    {
-      key: "3",
-      name: "John",
-      email: "Brown",
-      contactNo: 32,
-      profileImg: "New York No. 1 Lake Park",
-    },
-  ];
-
-  return <Table columns={columns} dataSource={admins}></Table>;
+  return (
+    <Table columns={columns} dataSource={admins} loading={isLoading}></Table>
+  );
 };
 
 export default Admin;
