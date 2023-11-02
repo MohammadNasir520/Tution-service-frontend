@@ -10,7 +10,7 @@ const Banner = () => {
   return (
     <div>
       <section
-        className="background-radial-gradient mb-4 mt-"
+        className="background-radial-gradient mb-14 "
         style={backgroundRadialGradientStyles}
       >
         <div className="px-6 py-12 text-center md:px-12 lg:text-left">

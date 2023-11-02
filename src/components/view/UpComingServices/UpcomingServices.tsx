@@ -1,6 +1,6 @@
 "use client";
 import { useGetAllServiceQuery } from "@/redux/api/serviceApi/serviceApi";
-import ServiceCard from "../../ServiceCard/ServiceCard";
+import ServiceCard from "../../ui/ServiceCard/ServiceCard";
 import { Button } from "antd";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -20,7 +20,8 @@ const UpComingServices = () => {
   const services = data?.data;
   console.log("service", services);
   return (
-    <div className="h-screen">
+    <div className="min-h-screen">
+      <h1 className="text-center text-2xl">Our Upcoming Services</h1>
       <div className="my-6 min-h-[500px] bg-slate-50">
         <div className="grid  lg:grid-cols-3 justify-center">
           {services?.map((service: any, i: number) => {

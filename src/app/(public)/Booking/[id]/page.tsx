@@ -1,7 +1,7 @@
 "use client";
 
 import DateTimePicker from "@/components/Form/DteTimePicker/DateTimePicker";
-import ServiceDetailsCard from "@/components/ServiceDetails/ServiceDetailsCard";
+import ServiceDetailsCard from "@/components/ui/ServiceDetails/ServiceDetailsCard";
 import { useCreateBookingMutation } from "@/redux/api/bookingApi/bookingApi";
 import { useGetSingleServiceQuery } from "@/redux/api/serviceApi/serviceApi";
 import { Button, message } from "antd";

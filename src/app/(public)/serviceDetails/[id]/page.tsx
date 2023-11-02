@@ -1,9 +1,9 @@
 "use client";
 
-import BookDetailsCard from "@/components/ServiceDetails/ServiceDetailsCard";
-import ReviewsSection from "@/components/ServiceDetails/ReviewsSectionCard";
+import BookDetailsCard from "@/components/ui/ServiceDetails/ServiceDetailsCard";
+import ReviewsSection from "@/components/ui/ServiceDetails/ReviewsSectionCard";
 import React from "react";
-import ServiceDetailsCard from "@/components/ServiceDetails/ServiceDetailsCard";
+import ServiceDetailsCard from "@/components/ui/ServiceDetails/ServiceDetailsCard";
 
 const ServiceDetailsPage = ({ params }: { params: { id: string } }) => {
   console.log(params);

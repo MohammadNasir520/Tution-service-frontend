@@ -13,11 +13,16 @@ const Faq = () => {
       children: faq?.answer,
     };
   });
-  console.log(data);
+  // console.log(data);
   return (
-    <div className="lg:w-9/12 mx-auto my-8">
-      <p className="font-bold"> FreQuently Asked Question</p>
-      <Collapse items={items} bordered={false} defaultActiveKey={["1"]} />
+    <div className="lg:w-9/12 mx-auto my-10">
+      <div>
+        <p className="font-bold my-3 text-lg text-center">
+          {" "}
+          FreQuently Asked Question
+        </p>
+        <Collapse items={items} bordered={false} defaultActiveKey={["1"]} />
+      </div>
     </div>
   );
 };
