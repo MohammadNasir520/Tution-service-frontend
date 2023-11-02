@@ -10,14 +10,6 @@ import { Button, Select, message } from "antd";
 import Image from "next/image";
 import Link from "next/link";
 
-interface DataType {
-  key: React.Key;
-  name: string;
-  email: string;
-  contactNo: number;
-  profileImg: string;
-}
-
 const Admin = () => {
   const { data: admins, isLoading } = useGetAllAdminQuery(undefined);
 

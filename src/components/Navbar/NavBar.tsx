@@ -112,7 +112,6 @@ const Navbar = () => {
           </div>
 
           {/* large screen Navbar options............... */}
-
           <div className="hidden  flex-1  flex justify-center items-center  text-white lg:flex lg:items-center lg:w-auto lg:space-x-4 text-lg    font-semibold ">
             {navItems?.map((navItem, i) => (
               <div key={i}>

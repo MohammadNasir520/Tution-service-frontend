@@ -22,6 +22,9 @@ const AvailableServices = () => {
   const services = data?.data;
   const meta = data?.meta;
   console.log("services", services);
+  const HandleSubmit = (event: any) => {
+    event.preventDefault();
+  };
 
   if (isLoading) {
     return <SmallSpinner></SmallSpinner>;
@@ -36,7 +39,7 @@ const AvailableServices = () => {
               <div className=" flex space-x-2 mt-2"></div>
 
               {/* search Input */}
-              <form>
+              <form onSubmit={HandleSubmit}>
                 <div className="relative flex h-10 w-full min-w-[200px] ">
                   <input
                     value={searchTerm}

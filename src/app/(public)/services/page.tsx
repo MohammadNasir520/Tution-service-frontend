@@ -11,9 +11,6 @@ const AvailableServices = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
 
   query["searchTerm"] = searchTerm;
-  //   const [searchText, setSearchText] = useState("");
-  const [genre, setGenre] = useState("");
-  const [publicationYear, setpublicationYear] = useState("");
 
   const { data, isLoading } = useGetAllServiceQuery({
     ...query,
@@ -23,6 +20,10 @@ const AvailableServices = () => {
   const services = data?.data;
   const meta = data?.meta;
   console.log("services", services);
+
+  const HandleSubmit = (event: any) => {
+    event.preventDefault();
+  };
 
   if (isLoading) {
     return <SmallSpinner></SmallSpinner>;
@@ -37,7 +38,7 @@ const AvailableServices = () => {
               <div className=" flex space-x-2 mt-2"></div>
 
               {/* search Input */}
-              <form>
+              <form onSubmit={HandleSubmit}>
                 <div className="relative flex h-10 w-full min-w-[200px] ">
                   <input
                     value={searchTerm}
@@ -51,7 +52,7 @@ const AvailableServices = () => {
                     required
                   />
                   <button
-                    className="   !absolute   right-1 top-1 z-10 select-none rounded bg-gray-900 py-2 px-4 text-center align-middle  text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none peer-placeholder-shown:pointer-events-none peer-placeholder-shown:bg-blue-gray-500 peer-placeholder-shown:opacity-50 peer-placeholder-shown:shadow-none cursor-pointer !important"
+                    className="   !absolute   right-1 top-1 z-10 select-none rounded bg-gray-900 py-2 px-4 text-center align-middle  text-xs font-bold uppercase text-white shadow-md  transition-all hover:shadow-lg  focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none peer-placeholder-shown:pointer-events-none peer-placeholder-shown:bg-blue-gray-500 peer-placeholder-shown:opacity-50 peer-placeholder-shown:shadow-none cursor-pointer !important"
                     type="submit"
                   >
                     search
