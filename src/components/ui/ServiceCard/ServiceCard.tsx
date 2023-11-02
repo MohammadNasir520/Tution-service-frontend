@@ -1,4 +1,6 @@
+import { useAddToCartMutation } from "@/redux/api/cartApi/cartApi";
 import { getUserInfo } from "@/services/authServices";
+import { message } from "antd";
 import Image from "next/image";
 import Link from "next/link";
 import { AiOutlineShoppingCart } from "react-icons/ai";
@@ -6,16 +8,23 @@ import { TbCurrencyTaka } from "react-icons/tb";
 
 const ServiceCard = ({ service }: any) => {
   const { userId } = getUserInfo() as any;
-  // console.log(userId);
+
+  const [AddToCart] = useAddToCartMutation();
+
   const { image, title, price, description, id, category, bookings } = service;
-  // console.log("bookings", bookings);
 
   const isBooked = bookings?.filter((bookedService: any) => {
-    // bookedService.userId = userId;
     return bookedService.userId == userId && bookedService.serviceId == id;
   });
 
-  console.log(isBooked[0]?.status);
+  const handleAddToCard = async (id: string) => {
+    console.log(id);
+    const res = await AddToCart({ serviceId: id }).unwrap();
+    console.log(res);
+    if (res?.id) {
+      message.success("service added to cart to successfully");
+    }
+  };
   return (
     <div>
       <div className="px-2 ">
@@ -61,8 +70,11 @@ const ServiceCard = ({ service }: any) => {
                 <TbCurrencyTaka className="w-5 h-5 " /> / month
               </h5>
 
-              <div className="flex gap-1">
-                <AiOutlineShoppingCart className="h-10 w-10  text-blue-500 font-semibold " />
+              <div
+                onClick={() => handleAddToCard(id)}
+                className="flex gap-1 cursor-pointer"
+              >
+                <AiOutlineShoppingCart className="h-8 w-8  text-blue-500 font-semibold " />
               </div>
             </div>
           </div>

@@ -36,6 +36,10 @@ export const sidebarItems = (role: string) => {
         },
       ],
     },
+    {
+      label: <Link href={`/${role}/cart`}>Handle Cart</Link>,
+      key: `/${role}/cart`,
+    },
   ];
 
   // admin sidebar
