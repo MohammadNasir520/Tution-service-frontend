@@ -8,7 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useGetAllReviewQuery } from "@/redux/api/reviewApi/reviewApi";
 import { MdStarRate } from "react-icons/md";
-import SmallSpinner from "@/components/Spinner/SmallSpinner";
+import SmallSpinner from "@/components/ui/Spinner/SmallSpinner";
 
 function Arrow(props: any) {
   const { className, style, onClick } = props;

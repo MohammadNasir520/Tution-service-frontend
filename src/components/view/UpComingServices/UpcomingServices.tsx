@@ -4,7 +4,7 @@ import ServiceCard from "../../ServiceCard/ServiceCard";
 import { Button } from "antd";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import SmallSpinner from "@/components/Spinner/SmallSpinner";
+import SmallSpinner from "@/components/ui/Spinner/SmallSpinner";
 
 const UpComingServices = () => {
   const query: Record<string, any> = {};
@@ -20,7 +20,7 @@ const UpComingServices = () => {
   const services = data?.data;
   console.log("service", services);
   return (
-    <div>
+    <div className="h-screen">
       <div className="my-6 min-h-[500px] bg-slate-50">
         <div className="grid  lg:grid-cols-3 justify-center">
           {services?.map((service: any, i: number) => {
@@ -32,7 +32,9 @@ const UpComingServices = () => {
           className="flex justify-center md:ml-7"
           href={"/upcoming-services"}
         >
-          <Button type="primary">See All</Button>
+          <Button type="primary" ghost>
+            <span className="text-black"> See All</span>
+          </Button>
         </Link>
       </div>
     </div>

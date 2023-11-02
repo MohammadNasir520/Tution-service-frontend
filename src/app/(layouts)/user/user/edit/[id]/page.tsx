@@ -1,7 +1,7 @@
 "use client";
 import FormInput from "@/components/Form/FormInput";
 import Form from "@/components/Form/page";
-import SmallSpinner from "@/components/Spinner/SmallSpinner";
+import SmallSpinner from "@/components/ui/Spinner/SmallSpinner";
 
 import {
   useGetSingleAdminQuery,

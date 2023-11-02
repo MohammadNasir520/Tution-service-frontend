@@ -1,6 +1,6 @@
 "use client";
 
-import Spinner from "@/components/Spinner/Spinner";
+import Spinner from "@/components/ui/Spinner/Spinner";
 import Contents from "@/components/ui/Content";
 import SideBar from "@/components/ui/Sidebar";
 import { useAppSelector } from "@/redux/hooks";

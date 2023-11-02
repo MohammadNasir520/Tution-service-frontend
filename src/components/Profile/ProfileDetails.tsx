@@ -8,7 +8,7 @@ import React from "react";
 import { AiOutlineMail } from "react-icons/ai";
 import { FiPhoneCall } from "react-icons/fi";
 import { FaUserCheck } from "react-icons/fa6";
-import SmallSpinner from "../Spinner/SmallSpinner";
+import SmallSpinner from "../ui/Spinner/SmallSpinner";
 import { useGetProfileQuery } from "@/redux/api/profleApi/profileApi";
 
 const ProfileDetails = () => {

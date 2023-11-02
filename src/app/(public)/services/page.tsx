@@ -1,7 +1,7 @@
 "use client";
 
 import ServiceCard from "@/components/ServiceCard/ServiceCard";
-import SmallSpinner from "@/components/Spinner/SmallSpinner";
+import SmallSpinner from "@/components/ui/Spinner/SmallSpinner";
 import { useGetAllServiceQuery } from "@/redux/api/serviceApi/serviceApi";
 import { Pagination } from "antd";
 import { useState } from "react";

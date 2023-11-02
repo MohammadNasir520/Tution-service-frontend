@@ -48,7 +48,7 @@ const ServiceCard = ({ service }: any) => {
               </h5>
             </div>
             <hr />
-            <div className="px-2 h-5 mb-2">
+            <div className="px-2 h-6 mb-2 hidden">
               <h4>
                 {" "}
                 {description.slice(0, 50)}{" "}
@@ -77,7 +77,7 @@ const ServiceCard = ({ service }: any) => {
           {isBooked.length <= 0 ? (
             <div className="mx-5 flex justify-center items-center">
               <Link href={`/Booking/${id}`}>
-                <button className="w-60 flex gap-2 justify-center items-center    font-semibold p-1   bg-white text-black hover:bg-blue-600 border border-blue-500 rounded-md hover:text-white mb-4">
+                <button className="w-60 flex gap-2 justify-center items-center    font-semibold p-1    text-white bg-blue-600 border border-blue-500 rounded-md hover:text-white mb-4">
                   Go For Booking
                 </button>
               </Link>
