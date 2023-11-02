@@ -9,6 +9,7 @@ import ClientReview from "@/components/ui/Slider/Slider";
 import { FloatButton } from "antd";
 import NewsCard from "@/components/ui/LatestUpdateCard/LatestUpdateCard";
 import LatestUpdate from "@/components/view/LatestUpdate/LatestUpdate";
+import ServiceByCategory from "@/components/ui/ServiceByCategory/ServiceByCategory";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <div className="px-3 lg:px-5 ">
         <Services></Services>
         <UpcomingServices></UpcomingServices>
+        <ServiceByCategory></ServiceByCategory>
         <LatestUpdate></LatestUpdate>
         <Faq></Faq>
         <ClientReview></ClientReview>
