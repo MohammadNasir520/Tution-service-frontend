@@ -28,46 +28,6 @@ const ClientReview = () => {
     return <SmallSpinner></SmallSpinner>;
   }
 
-  // console.log(Allreview);
-  // const renderCustomDots = (i: number) => {
-  //   return (
-  //     <div>
-  //       <button
-  //         style={{
-  //           width: "10px",
-  //           height: "10px",
-  //           border: "1px solid black",
-
-  //           background: "red",
-  //           marginLeft: "5px",
-  //           marginRight: "5px",
-  //           cursor: "pointer",
-  //         }}
-  //       ></button>
-  //     </div>
-  //   );
-  // };
-  // const renderCustomDots = (i: number) => {
-  //   return (
-  //     <div style={{ display: "flex" }}>
-  //       <div
-  //         style={{
-  //           width: "20px",
-  //           height: "20px",
-  //           border: "none",
-  //           background: "red",
-  //           marginLeft: "5px",
-  //           marginRight: "5px",
-  //           cursor: "pointer",
-  //           display: "flex",
-  //           justifyContent: "center",
-  //           alignItems: "center",
-  //         }}
-  //       ></div>
-  //     </div>
-  //   );
-  // };
-
   const settings = {
     infinite: true,
     speed: 500,
@@ -80,9 +40,6 @@ const ClientReview = () => {
     pauseOnHover: true,
     nextArrow: <Arrow />,
     prevArrow: <Arrow />,
-    // customPaging: function (i: number) {
-    //   return renderCustomDots(i);
-    // },
 
     responsive: [
       {
@@ -133,7 +90,7 @@ const ClientReview = () => {
     return starArray;
   };
   return (
-    <div id="reviews" className="mx-10 py-24">
+    <div id="reviews" className="mx-10 my-36">
       <div className="flex flex-col justify-center items-center my-5 ">
         <h6 className="   text-black text-3xl font-bold uppercase mb-0  ">
           Students Review
