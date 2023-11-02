@@ -1,31 +1,16 @@
 "use client";
 
-import DateTimePicker from "@/components/Form/DteTimePicker/DateTimePicker";
-import FormSelectField from "@/components/Form/FormSelectField";
 import SingleDateTimePicker from "@/components/Form/SingleDateTimePicker/SingleDateTimePicker";
-
 import Table from "@/components/ui/Table/Table";
-import { useUpdateSingleAdminMutation } from "@/redux/api/adminApi/adminApi";
 import {
   useDeleteBookingMutation,
   useGetAllBookingQuery,
   useUpdateSingleBookingMutation,
 } from "@/redux/api/bookingApi/bookingApi";
-import {
-  useDeleteUserMutation,
-  useGetAllUserQuery,
-} from "@/redux/api/userApi/userApi";
 import { Button, Select, message } from "antd";
 import Image from "next/image";
-import Link from "next/link";
-import { useState } from "react";
 
-const Admin = () => {
-  const [bookingData, setBookingData] = useState({
-    serviceId: "",
-    field: "",
-  });
-
+const Booking = () => {
   const { data: bookings, isLoading } = useGetAllBookingQuery(undefined);
   const [updateSingleBooking] = useUpdateSingleBookingMutation();
   const [deleteBooking, { error }] = useDeleteBookingMutation();
@@ -106,12 +91,6 @@ const Admin = () => {
       render: function (data: any) {
         return (
           <>
-            {/* <DateTimePicker
-              bookingData={bookingData}
-              setBookingData={setBookingData}
-              startTime={data?.startTime}
-              endTime={data?.endTime}
-            ></DateTimePicker> */}
             <SingleDateTimePicker
               field={"startTime"}
               id={data?.id}
@@ -177,4 +156,4 @@ const Admin = () => {
   );
 };
 
-export default Admin;
+export default Booking;

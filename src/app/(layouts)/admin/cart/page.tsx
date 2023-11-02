@@ -11,7 +11,6 @@ import Image from "next/image";
 
 const Cart = () => {
   const { data: cart } = useGetAllCartQuery(undefined);
-
   const [deletecart, { error }] = useDeletecartMutation();
 
   const handleDelete = async (id: string) => {
@@ -29,7 +28,23 @@ const Cart = () => {
 
   const columns = [
     {
-      title: "Image",
+      title: "User ",
+      render: function (data: any) {
+        return (
+          <>
+            <Image
+              width={60}
+              height={60}
+              src={data?.user?.profileImg}
+              alt="pic"
+            ></Image>
+            <p>{data.user.name}</p>
+          </>
+        );
+      },
+    },
+    {
+      title: "ServiceImage",
       render: function (data: any) {
         return (
           <>
@@ -44,7 +59,7 @@ const Cart = () => {
       },
     },
     {
-      title: "Service",
+      title: "ServiceName",
       render: function (data: any) {
         return (
           <>

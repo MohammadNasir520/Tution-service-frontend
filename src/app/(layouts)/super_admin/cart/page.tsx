@@ -29,6 +29,22 @@ const Cart = () => {
 
   const columns = [
     {
+      title: "User ",
+      render: function (data: any) {
+        return (
+          <>
+            <Image
+              width={60}
+              height={60}
+              src={data?.user?.profileImg}
+              alt="pic"
+            ></Image>
+            <p>{data.user.name}</p>
+          </>
+        );
+      },
+    },
+    {
       title: "Image",
       render: function (data: any) {
         return (
