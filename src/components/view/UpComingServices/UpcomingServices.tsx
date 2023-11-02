@@ -23,7 +23,7 @@ const UpComingServices = () => {
     <div className="min-h-screen">
       <h1 className="text-center text-2xl">Our Upcoming Services</h1>
       <div className="my-6 min-h-[500px] bg-slate-50">
-        <div className="grid  lg:grid-cols-3 justify-center">
+        <div className="grid  md:grid-cols-2   lg:grid-cols-3 justify-center">
           {services?.map((service: any, i: number) => {
             return <ServiceCard key={i} service={service}></ServiceCard>;
           })}
