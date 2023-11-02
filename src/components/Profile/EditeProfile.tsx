@@ -33,7 +33,6 @@ const EditProfilePage = () => {
         router.push(`/${role}`);
       }
     } catch (error) {
-      console.log(error);
       //@ts-ignore
       message.error(error.message);
     }

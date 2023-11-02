@@ -26,9 +26,7 @@ const EditPage = ({ params }: any) => {
         message.success(res?.data.message);
         // router.push("/super_admin/admin");
       }
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
 
   if (isLoading) {

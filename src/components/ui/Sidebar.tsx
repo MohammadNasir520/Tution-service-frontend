@@ -1,21 +1,19 @@
 "use client";
 
-import { useState } from "react";
-import { Drawer, Layout, Menu, Space } from "antd";
+import { Drawer, Layout, Menu } from "antd";
 import { sidebarItems } from "@/constant/sidebarItems";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { closeSidebar } from "@/redux/features/sideBarslice";
-import { DrawerClassNames, DrawerStyles } from "antd/es/drawer/DrawerPanel";
+import { DrawerStyles } from "antd/es/drawer/DrawerPanel";
 import Link from "next/link";
 import { getUserInfo } from "@/services/authServices";
-import dynamic from "next/dynamic";
 
 const { Sider } = Layout;
 
 const SideBar = () => {
   const { role } = getUserInfo() as any;
-  console.log(role);
+
   const sidebarStatus = useAppSelector((state) => state.sidebar.open);
 
   const dispatch = useAppDispatch();
@@ -29,16 +27,14 @@ const SideBar = () => {
     },
     header: {
       borderBottom: `1px solid white`,
-      // background: "black",
+
       color: "white",
     },
     body: {
       background: "black",
       color: "white",
     },
-    footer: {
-      // borderTop: `1px solid ${token.colorBorder}`,
-    },
+    footer: {},
   };
 
   return (

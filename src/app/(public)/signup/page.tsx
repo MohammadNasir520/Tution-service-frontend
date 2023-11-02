@@ -24,16 +24,14 @@ const Login = () => {
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     try {
       const res = await createUser({ ...data }).unwrap();
-      // console.log(res);
+
       if (res?.id) {
         message.success("Account Creation Success, Please login First ");
         router.push(`/login`);
       }
     } catch (error) {
-      console.log(error);
       // @ts-ignore
       message.error(error?.data.message);
-      console.log(error);
     }
   };
   const { role } = getUserInfo() as any;

@@ -85,11 +85,11 @@ export const sidebarItems = (role: string) => {
           label: <Link href={`/admin/booking`}>Bookings</Link>,
           key: `/admin/booking`,
         },
-        // {
-        //   label: <Link href={`/admin/service/create`}>Create services</Link>,
-        //   key: `/admin/service/create`,
-        // },
       ],
+    },
+    {
+      label: <Link href={`/${role}/cart`}>Manage Cart</Link>,
+      key: `/${role}/cart`,
     },
   ];
   // super admin sidebar

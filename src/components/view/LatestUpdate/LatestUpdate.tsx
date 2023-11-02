@@ -5,7 +5,6 @@ import React from "react";
 
 const LatestUpdate = () => {
   const { data: latestUpdates } = useGetAlllatestUpdateQuery(undefined);
-  console.log(latestUpdates);
 
   return (
     <div className="my-12">

@@ -21,7 +21,7 @@ const AvailableServices = () => {
 
   const services = data?.data;
   const meta = data?.meta;
-  console.log("services", services);
+
   const HandleSubmit = (event: any) => {
     event.preventDefault();
   };

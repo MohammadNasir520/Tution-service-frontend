@@ -6,7 +6,6 @@ import React from "react";
 import ServiceDetailsCard from "@/components/ui/ServiceDetails/ServiceDetailsCard";
 
 const ServiceDetailsPage = ({ params }: { params: { id: string } }) => {
-  console.log(params);
   return (
     <div className="min-h-screen ">
       <ServiceDetailsCard params={params}></ServiceDetailsCard>

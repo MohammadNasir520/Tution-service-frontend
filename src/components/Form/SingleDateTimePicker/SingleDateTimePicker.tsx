@@ -16,8 +16,7 @@ const SingleDateTimePicker = ({
 
   const handleUpdateDate = async (value: any, field: string, id: string) => {
     const res = await updateSingleBooking({ data: { [field]: value }, id: id });
-    console.log("func", value, field, id);
-    console.log("res", res);
+
     // @ts-ignore
     if (res?.data?.id) {
       message.success("date time updated successfully");
@@ -32,12 +31,9 @@ const SingleDateTimePicker = ({
     if (Array.isArray(value)) {
       const start = dayjs(value[0]).format("YYYY-MM-DDTHH:mm:ss") + "Z";
       const end = dayjs(value[1]).format("YYYY-MM-DDTHH:mm:ss") + "Z";
-      console.log("Selected Time: ", { start, end });
     } else {
       const formattedValue = dayjs(value).format("YYYY-MM-DDTHH:mm:ss") + "Z";
-      console.log("Selected Time: ", formattedValue);
     }
-    console.log("Formatted Selected Time: ", dateString);
   };
 
   const onOk = (
@@ -46,11 +42,9 @@ const SingleDateTimePicker = ({
     if (Array.isArray(value)) {
       const start = dayjs(value[0]).format("YYYY-MM-DDTHH:mm:ss") + "Z";
       const end = dayjs(value[1]).format("YYYY-MM-DDTHH:mm:ss") + "Z";
-      console.log("onOk: ", { start, end });
     } else {
       const formattedValue = dayjs(value).format("YYYY-MM-DDTHH:mm:ss") + "Z";
       handleUpdateDate(formattedValue, field, id);
-      console.log("onOk: ", formattedValue);
     }
   };
 

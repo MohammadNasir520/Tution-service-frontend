@@ -16,22 +16,21 @@ import React from "react";
 
 const EditDetails = ({ params }: any) => {
   const { data, error } = useGetSingleServiceQuery(params?.id);
-  // console.log(data.title);
+
   const [updateSingleService] = useUpdateSingleServiceMutation();
-  // console.log(data);
+
   const router = useRouter();
 
   const onSubmit = async (data: any) => {
     try {
       message.loading("creating");
       const res = await updateSingleService({ data, id: params?.id });
-      console.log("resService", res);
+
       if (res) {
         message.success("service created successfully");
         router.push("/admin/service");
       }
     } catch (error) {
-      console.log(error);
       // @ts-ignore
       message.error(error?.data?.message);
     }

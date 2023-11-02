@@ -1,7 +1,4 @@
 const SingleReviewCard = ({ review }: any) => {
-  console.log("review", review);
-  const { name } = review?.user;
-  const fullname = name.firstName + " " + name.lastName;
   return (
     <div>
       <div className="mt-5">

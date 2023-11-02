@@ -18,7 +18,7 @@ const UpComingServices = () => {
   }
 
   const services = data?.data;
-  console.log("service", services);
+
   return (
     <div className="min-h-screen">
       <h1 className="text-center text-2xl">Our Upcoming Services</h1>

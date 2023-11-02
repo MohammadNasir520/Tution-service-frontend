@@ -11,7 +11,7 @@ const Booking = ({ params }: any) => {
   const { data: service } = useGetSingleServiceQuery(params?.id);
 
   const [createBooking, { error }] = useCreateBookingMutation();
-  console.log(error);
+
   const router = useRouter();
   const [bookingData, setBookingData] = useState({
     serviceId: params?.id,
@@ -34,10 +34,8 @@ const Booking = ({ params }: any) => {
       message.success("booking successfull");
       router.push("/");
     }
-    console.log("res", res);
-    console.log("bookin");
   };
-  console.log("bookingdata", bookingData);
+
   return (
     <div className="text-lg h-screen w-full flex  flex-col justify-center items-center">
       <ServiceDetailsCard params={params}></ServiceDetailsCard>

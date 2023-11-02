@@ -35,7 +35,6 @@ const Admin = () => {
     }
   };
   const handleUpdateRole = async (value: string, id: string) => {
-    console.log(value, id);
     const res = await updateSingleUser({ data: { role: value }, id });
     if (res) {
       message.success("role updated successfully");
@@ -82,7 +81,6 @@ const Admin = () => {
     {
       title: "Manage Role",
       render: function (data: any) {
-        console.log(data);
         return (
           <div className="">
             <Select
@@ -102,7 +100,7 @@ const Admin = () => {
         return (
           <div className="space-x-2">
             <Link href={`/admin/user/edit/${data.id}`}>
-              <Button onClick={() => console.log(data)}>edit</Button>
+              <Button>edit</Button>
             </Link>
             <Button
               onClick={() => handleDelete(data?.id)}

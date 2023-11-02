@@ -13,7 +13,6 @@ const CreateAdmin = () => {
   const router = useRouter();
 
   const onSubmit = async (data: any) => {
-    console.log(data);
     try {
       message.loading("creating");
       const res = await createAdmin(data);
@@ -21,9 +20,7 @@ const CreateAdmin = () => {
         message.success("admin created successfully");
         router.push("/super_admin/admin");
       }
-      console.log(res);
     } catch (error) {
-      console.log(error);
       // @ts-ignore
       message.error(error?.data?.message);
     }

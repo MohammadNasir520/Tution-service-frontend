@@ -5,14 +5,13 @@ import {
   useDeletecartMutation,
   useGetAllCartQuery,
 } from "@/redux/api/cartApi/cartApi";
-import { getUserInfo } from "@/services/authServices";
 
 import { Button, message } from "antd";
 import Image from "next/image";
 
 const Cart = () => {
-  const { role } = getUserInfo() as any;
   const { data: cart } = useGetAllCartQuery(undefined);
+
   const [deletecart, { error }] = useDeletecartMutation();
 
   const handleDelete = async (id: string) => {

@@ -16,7 +16,7 @@ const Booking = ({ params }: any) => {
   const { data: booking } = useGetSingleBookingQuery(params?.id);
 
   const [updateSingleBooking, { error }] = useUpdateSingleBookingMutation();
-  console.log(error);
+
   const router = useRouter();
   const [bookingData, setBookingData] = useState({
     serviceId: params?.id,
@@ -25,8 +25,6 @@ const Booking = ({ params }: any) => {
   });
 
   const handleBooking = async () => {
-    // console.log(booking?.startTime, booking?.endTime);
-    console.log("bookingdata", bookingData);
     // @ts-ignore
     if (!bookingData.startTime) {
       message.error("startTime is required");
@@ -44,10 +42,8 @@ const Booking = ({ params }: any) => {
       message.success("booking successfull");
       router.push("/admin/booking");
     }
-    console.log("res", res);
-    console.log("bookin");
   };
-  console.log("bookingdata", bookingData);
+
   return (
     <div className="text-lg  lg:min-h-[500px] w-full flex  flex-col justify-center items-center">
       <div className=" min-h-[100px] lg:min-w-[300px] justify-center bg-slate-30 flex flex-col ">

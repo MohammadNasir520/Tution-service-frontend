@@ -16,7 +16,7 @@ const Services = () => {
   }
 
   const services = data?.data;
-  // console.log("service", services);
+
   return (
     <div className="min-h-screen">
       <h1 className="text-center text-2xl my-3">Our Available Services</h1>

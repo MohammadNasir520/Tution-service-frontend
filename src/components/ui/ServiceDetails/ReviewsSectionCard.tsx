@@ -19,14 +19,10 @@ const ReviewsSection = ({ params }: any) => {
     params?.id
   );
 
-  // console.log("service", service);
-
   const [createReview, { error: createReviewError }] =
     useCreateReviewMutation();
-  // console.log(createReviewError);
 
   const { data: reviews, error } = useGetAllReviewQuery({});
-  // console.log("review", reviews);
 
   const handleRatingChange = (event: any) => {
     setRating(event.target.value);
@@ -44,7 +40,7 @@ const ReviewsSection = ({ params }: any) => {
       return message.error("please type your review to review");
     }
     const rate = Number(rating);
-    console.log(rate);
+
     if (rate < 1) {
       return message.error("select rating first");
     }
@@ -59,17 +55,13 @@ const ReviewsSection = ({ params }: any) => {
       message.success("review added");
     }
     event.target.elements.review.value = "";
-    // console.log(res);
   };
 
   const isBooked = service?.bookings?.filter((bookedService: any) => {
-    // bookedService.userId = userId;
     return (
       bookedService.userId == userId && bookedService.serviceId == params.id
     );
   });
-
-  // console.log(isBooked[0]?.status);
 
   return (
     <div className="mt-7">

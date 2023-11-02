@@ -18,11 +18,15 @@ const ServiceCard = ({ service }: any) => {
   });
 
   const handleAddToCard = async (id: string) => {
-    console.log(id);
-    const res = await AddToCart({ serviceId: id }).unwrap();
-    console.log(res);
-    if (res?.id) {
-      message.success("service added to cart to successfully");
+    try {
+      const res = await AddToCart({ serviceId: id }).unwrap();
+
+      if (res?.id) {
+        message.success("service added to cart to successfully");
+      }
+    } catch (error) {
+      // @ts-ignore
+      message.error(error?.data?.message);
     }
   };
   return (

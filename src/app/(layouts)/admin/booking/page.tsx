@@ -26,8 +26,6 @@ const Admin = () => {
     field: "",
   });
 
-  console.log(bookingData);
-
   const { data: bookings, isLoading } = useGetAllBookingQuery(undefined);
   const [updateSingleBooking] = useUpdateSingleBookingMutation();
   const [deleteBooking, { error }] = useDeleteBookingMutation();
@@ -36,7 +34,6 @@ const Admin = () => {
     value: string,
     id: string
   ) => {
-    console.log(value, id);
     const res = await updateSingleBooking({ data: { status: value }, id });
     if (res) {
       message.success("status updated successfully");
@@ -142,7 +139,6 @@ const Admin = () => {
     {
       title: "Manage status",
       render: function (data: any) {
-        console.log(data);
         return (
           <div className="">
             <Select

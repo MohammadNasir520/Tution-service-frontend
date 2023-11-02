@@ -17,13 +17,10 @@ const DateTimePicker = ({
     if (Array.isArray(value)) {
       const start = dayjs(value[0]).format("YYYY-MM-DDTHH:mm:ss") + "Z";
       const end = dayjs(value[1]).format("YYYY-MM-DDTHH:mm:ss") + "Z";
-      console.log("Selected Time: ", { start, end });
+
       setBookingData({ ...bookingData, startTime: start, endTime: end });
-      console.log("Formatted Selected Time: ", dateString);
     } else {
       const formattedValue = dayjs(value).format("YYYY-MM-DDTHH:mm:ss") + "Z";
-      console.log("Selected Time: ", formattedValue);
-      console.log("Formatted Selected Time: ", dateString);
     }
   };
 
@@ -33,15 +30,13 @@ const DateTimePicker = ({
     if (Array.isArray(value)) {
       const start = dayjs(value[0]).format("YYYY-MM-DDTHH:mm:ss") + "Z";
       const end = dayjs(value[1]).format("YYYY-MM-DDTHH:mm:ss") + "Z";
-      console.log("onOk: ", { start, end });
     } else {
       const formattedValue = dayjs(value).format("YYYY-MM-DDTHH:mm:ss") + "Z";
-      console.log("onOk: ", formattedValue);
     }
   };
   const defaultStartDate = dayjs(startTime);
   const defaultEndDate = dayjs(endTime);
-  console.log();
+
   return (
     <Space direction="horizontal" size={8}>
       <RangePicker

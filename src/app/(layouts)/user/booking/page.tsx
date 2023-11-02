@@ -19,13 +19,10 @@ const Admin = () => {
     field: "",
   });
 
-  console.log(bookingData);
-
   const { data: bookings, error: allBookingError } =
     useGetAllBookingQuery(undefined);
 
   if (allBookingError) {
-    console.log(allBookingError);
     // @ts-ignore
     message.error(allBookingError?.data?.message);
   }
@@ -36,7 +33,6 @@ const Admin = () => {
     value: string,
     id: string
   ) => {
-    console.log(value, id);
     const res = await updateSingleBooking({ data: { status: value }, id });
     if (res) {
       message.success("status updated successfully");
@@ -148,7 +144,6 @@ const Admin = () => {
     {
       title: "Booking status",
       render: function (data: any) {
-        console.log(data);
         return <div className="">{data?.status}</div>;
       },
     },

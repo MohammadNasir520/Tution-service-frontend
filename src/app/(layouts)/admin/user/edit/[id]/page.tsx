@@ -1,23 +1,16 @@
 "use client";
 import FormInput from "@/components/Form/FormInput";
 import Form from "@/components/Form/page";
-import SmallSpinner from "@/components/ui/Spinner/SmallSpinner";
 
-import {
-  useGetSingleAdminQuery,
-  useUpdateSingleAdminMutation,
-} from "@/redux/api/adminApi/adminApi";
+import { useGetSingleAdminQuery } from "@/redux/api/adminApi/adminApi";
 import { useUpdateSingleUserMutation } from "@/redux/api/userApi/userApi";
 
 import { Button, Col, Row, message } from "antd";
-import { useRouter } from "next/navigation";
+
 import React from "react";
 
 const EditPage = ({ params }: any) => {
-  const router = useRouter();
   const { data: user, isLoading } = useGetSingleAdminQuery(params?.id);
-
-  console.log("get updated2:", user);
 
   const [updateSingleUser, { error }] = useUpdateSingleUserMutation();
 
@@ -27,11 +20,8 @@ const EditPage = ({ params }: any) => {
       if (res) {
         // @ts-ignore
         message.success("user information updated successfully");
-        // router.push("/super_admin/admin");
       }
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
 
   // if (isLoading) {

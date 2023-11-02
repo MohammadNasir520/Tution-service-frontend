@@ -13,7 +13,7 @@ const Faq = () => {
       children: faq?.answer,
     };
   });
-  // console.log(data);
+
   return (
     <div className="lg:w-9/12 mx-auto my-10">
       <div>

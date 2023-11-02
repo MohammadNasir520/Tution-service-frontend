@@ -18,13 +18,12 @@ const CreateAdmin = () => {
     try {
       message.loading("creating");
       const res = await createService(data);
-      console.log("resService", res);
+
       if (res) {
         message.success("service created successfully");
         router.push("/admin/service");
       }
     } catch (error) {
-      console.log(error);
       // @ts-ignore
       message.error(error?.data?.message);
     }

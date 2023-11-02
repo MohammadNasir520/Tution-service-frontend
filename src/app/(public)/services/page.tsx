@@ -19,7 +19,6 @@ const AvailableServices = () => {
 
   const services = data?.data;
   const meta = data?.meta;
-  console.log("services", services);
 
   const HandleSubmit = (event: any) => {
     event.preventDefault();
@@ -104,7 +103,7 @@ const AvailableServices = () => {
         defaultCurrent={2}
         total={500}
         onChange={(page, number) =>
-          console.log("page:", page, "number:", number)
+          
         }
       /> */}
     </div>

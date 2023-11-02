@@ -8,14 +8,12 @@ const ServiceDetailsCard = ({ params }: any) => {
   const [showModal, setShowModal] = useState(false);
 
   const { data: service } = useGetSingleServiceQuery(params?.id);
-  console.log(service);
 
   return (
     <>
       <div className="w-full  lg:h-[350px] flex  justify-center mt-2 ">
         <div className="relative flex  flex-col w-full justify-center max-w-[48rem] md:flex-row rounded-sm bg-white bg-clip-border text-gray-700 shadow-md">
           <div className="relative m-0 md:w-3/5  flex justify-center shrink-0 overflow-hidden rounded-sm rounded-r-none bg-white bg-clip-border text-gray-700">
-            {/* <img src={data?.data?.image} alt="image" className="  max-w-full  " /> */}
             <Image
               src={service?.image}
               width={600}

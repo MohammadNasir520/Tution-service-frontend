@@ -24,11 +24,10 @@ const Admin = () => {
 
   const [page, setPage] = useState<number>(1);
   const [size, setSize] = useState<number>(10);
-  console.log(page, size);
+
   const { data: data, isLoading } = useGetAllServiceQuery({ ...query });
   const ServiceData = data?.data;
   const meta = data?.meta;
-  console.log(data, meta);
 
   query["size"] = size;
   query["page"] = page;
@@ -38,7 +37,7 @@ const Admin = () => {
 
   const handleDelete = async (id: string) => {
     const res = await deleteService(id);
-    console.log(res);
+
     if (res) {
       message.success("deleted successfully");
     }
@@ -48,9 +47,8 @@ const Admin = () => {
     }
   };
   const handleUpdateCategory = async (value: string, id: string) => {
-    console.log(value, id);
     const res = await updateSingleService({ data: { category: value }, id });
-    console.log(res);
+
     if (res) {
       message.success("Category updated successfully");
     }
@@ -60,7 +58,6 @@ const Admin = () => {
     }
   };
   const handleUpdateStatus = async (value: string, id: string) => {
-    console.log(value, id);
     const res = await updateSingleService({ data: { status: value }, id });
     if (res) {
       message.success("status updated successfully");
@@ -129,7 +126,7 @@ const Admin = () => {
         return (
           <div className="space-x-2">
             <Link href={`/admin/service/edit/${data.id}`}>
-              <Button onClick={() => console.log(data)}>edit</Button>
+              <Button>edit</Button>
             </Link>
             <Button
               onClick={() => handleDelete(data?.id)}
@@ -145,7 +142,6 @@ const Admin = () => {
   ];
 
   const onPaginationChange = (page: number, pageSize: number) => {
-    console.log("Page:", page, "PageSize:", pageSize);
     setPage(page);
     setSize(pageSize);
   };

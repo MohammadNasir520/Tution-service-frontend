@@ -23,7 +23,6 @@ const CreateAdmin = () => {
         router.push("/admin/user");
       }
     } catch (error) {
-      console.log(error);
       // @ts-ignore
       message.error(error?.data?.message);
     }
