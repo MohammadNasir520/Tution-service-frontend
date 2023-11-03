@@ -2,6 +2,15 @@
 
 ## live-link: https://tuitionmedia.vercel.app/ <br>
 
-### super_admin: super_admin@gmail.com    password: aaaaaa   (6 times a) <br>
-###       admin: admin@gmail.com   password: aaaaaa   (6 times a) <br>
-###         user: user@gmail.com    password: aaaaaa   (6 times a) <br>
+### super_admin:  <br>  <br>
+ super_admin@gmail.com    <br>
+ password: aaaaaa    <br>
+
+### admin:
+ admin@gmail.com  <br>  <br>
+ password: aaaaaa   <br> <br>
+ 
+### user: user@gmail.com  <br>
+  password: aaaaaa  <br>
+
+  Note: password (6 times a)
