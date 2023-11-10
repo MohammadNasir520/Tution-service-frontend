@@ -4,6 +4,7 @@ import Image from "next/image";
 
 import React from "react";
 import SmallSpinner from "../Spinner/SmallSpinner";
+import Link from "next/link";
 
 const LatestUpdateDetailsCard = ({ params }: any) => {
   const id = params?.id;
@@ -39,9 +40,12 @@ const LatestUpdateDetailsCard = ({ params }: any) => {
                 <h5 className="block  text-xl font-bold leading-snug  text-black antialiased">
                   {latestUpdate?.title}
                 </h5>
-                <h5 className="block  text-base font-normal leading-relaxed  text-black antialiased">
+                <h5 className="block  text-base font-normal leading-relaxed  text-black antialiased text-justify">
                   {latestUpdate?.text}
                 </h5>
+                <Link href={`/#latestUpdate`}>
+                  <p className="text-blue-600 mt-7">Back </p>
+                </Link>
               </div>
             </div>
           </div>

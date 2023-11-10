@@ -31,6 +31,10 @@ const Navbar = () => {
       title: "Upcoming-services",
       href: "/upcoming-services",
     },
+    {
+      title: "latestUpdate",
+      href: "/#latestUpdate",
+    },
 
     {
       title: "DashBoard",
