@@ -33,7 +33,7 @@ const Header = () => {
       key: "1",
       label: (
         <Button type="primary" onClick={() => removeUserInfo(authKey)}>
-          Logout
+          SignOut
         </Button>
       ),
 

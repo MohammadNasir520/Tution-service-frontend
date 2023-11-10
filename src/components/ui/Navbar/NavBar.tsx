@@ -42,23 +42,25 @@ const Navbar = () => {
     },
   ];
 
+  const handleSignOut = () => {
+    removeUserInfo(authKey);
+    // router.push("/login");
+    router.push(`/login`);
+  };
+
   const signOption = (
     <div className=" lg:flex">
       {role ? (
-        <Link
-          href={"/"}
-          onClick={() => {
-            removeUserInfo(authKey);
-            router.push("/signup");
-          }}
-          className={`${
+        <div
+          onClick={() => handleSignOut()}
+          className={`cursor-pointer ${
             isMenuOpen
               ? "block px-1 py-1 mb-2 leading-loose text-center text-white  bg-blue-600 hover:bg-blue-700  rounded-xl  text-base   font-semibold"
-              : "     hidden lg:inline-block py-1 px-1 bg-blue-500 hover:bg-blue-600  text-white font-semibold rounded-sm transition duration-200 "
+              : "hidden lg:inline-block py-1 px-1 bg-blue-500 hover:bg-blue-600  text-white font-semibold rounded-sm transition duration-200 "
           }`}
         >
           SignOut
-        </Link>
+        </div>
       ) : (
         <>
           <Link
@@ -238,5 +240,5 @@ const Navbar = () => {
   );
 };
 
-// export default Navbar;
-export default dynamic(() => Promise.resolve(Navbar), { ssr: false });
+export default Navbar;
+// export default dynamic(() => Promise.resolve(Navbar), { ssr: false });
