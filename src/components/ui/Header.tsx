@@ -1,22 +1,11 @@
 "use client";
-import {
-  Avatar,
-  Button,
-  Drawer,
-  Dropdown,
-  Layout,
-  Menu,
-  MenuProps,
-  Row,
-  Space,
-} from "antd";
-import { UserOutlined } from "@ant-design/icons";
-import { AiOutlineMenuFold, AiOutlineMenuUnfold } from "react-icons/ai";
+import { Button, Layout, Menu, Row, Space } from "antd";
+
+import { AiOutlineMenuUnfold } from "react-icons/ai";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { closeSidebar, showSideBar } from "@/redux/features/sideBarslice";
+import { showSideBar } from "@/redux/features/sideBarslice";
 import { DrawerStyles } from "antd/es/drawer/DrawerPanel";
 import Link from "next/link";
-import { headerItems } from "@/constant/headerItems";
 import { usePathname } from "next/navigation";
 import { removeUserInfo } from "@/services/authServices";
 import { authKey } from "@/constant/storage-key";
@@ -25,8 +14,6 @@ const { Header: AntHeader } = Layout;
 const Header = () => {
   const dispatch = useAppDispatch();
   const sideBarStatus = useAppSelector((state) => state.sidebar.open);
-  const role = "user";
-  // const NavItems = headerItems(role);
 
   const NavItems = [
     {
@@ -42,13 +29,6 @@ const Header = () => {
   ];
 
   const pathName = usePathname();
-
-  const drawerStyles: DrawerStyles = {
-    body: {
-      background: "black",
-      color: "white",
-    },
-  };
 
   return (
     <div>

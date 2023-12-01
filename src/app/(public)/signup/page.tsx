@@ -34,7 +34,7 @@ const Login = () => {
       message.error(error?.data.message);
     }
   };
-  const { role } = getUserInfo() as any;
+
   return (
     <div>
       <Row justify={"center"} align={"middle"} className="h-screen ">

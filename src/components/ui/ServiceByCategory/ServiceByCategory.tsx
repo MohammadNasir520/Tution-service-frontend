@@ -91,7 +91,7 @@ const ServiceByCategory = () => {
         check Our Services By Category
       </h1>
       <Tabs tabPosition={tabPosition}>
-        {filteredCategoryArray?.map((category: any, i: number) => (
+        {filteredCategoryArray?.map((category: string, i: number) => (
           <Tabs.TabPane tab={category} key={i}>
             <div
               key={i}

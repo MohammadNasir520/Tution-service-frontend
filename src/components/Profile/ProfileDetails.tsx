@@ -13,7 +13,9 @@ import { useGetProfileQuery } from "@/redux/api/profleApi/profileApi";
 
 const ProfileDetails = () => {
   const { userId } = getUserInfo() as any;
+  console.log(userId);
   const { data, isLoading } = useGetProfileQuery(userId);
+  console.log(data);
 
   const { role } = getUserInfo() as any;
 

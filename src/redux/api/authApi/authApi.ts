@@ -1,34 +1,16 @@
 import { tagsType } from "@/redux/tagsType";
 import { api } from "../baseApi";
 
-// const authUrl = "/auth"
-
-// const authApi = api.injectEndpoints({
-//     endpoints: (builder) => ({
-
-//         login: builder.mutation({
-//             query: (data) =>({
-//                 url:`${authUrl}/signin`,
-//                 method:"POST",
-//                 body:data,
-//             })
-//         })
-//     }),
-// })
-
-// export const { useLoginMutation } = authApi
-
 const AUTH_URL = "/auth";
 
 export const authApi = api.injectEndpoints({
   endpoints: (build) => ({
-    login: build.mutation({
+    sendVerificationEmail: build.mutation({
       query: (data) => ({
-        url: `${AUTH_URL}/signin`,
+        url: `${AUTH_URL}/signup-send-verification-email`,
         method: "POST",
         data: data,
       }),
-      invalidatesTags: [tagsType.user],
     }),
     createUser: build.mutation({
       query: (data) => ({
@@ -38,7 +20,19 @@ export const authApi = api.injectEndpoints({
       }),
       invalidatesTags: [tagsType.user],
     }),
+    login: build.mutation({
+      query: (data) => ({
+        url: `${AUTH_URL}/signin`,
+        method: "POST",
+        data: data,
+      }),
+      invalidatesTags: [tagsType.user],
+    }),
   }),
 });
 
-export const { useLoginMutation, useCreateUserMutation } = authApi;
+export const {
+  useSendVerificationEmailMutation,
+  useLoginMutation,
+  useCreateUserMutation,
+} = authApi;

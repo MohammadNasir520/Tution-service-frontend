@@ -11,6 +11,7 @@ type IInput = {
   placeHolder?: string;
   validation?: object;
   label?: string;
+  defaultValue?: string;
 };
 
 const FormInput = ({
@@ -21,6 +22,7 @@ const FormInput = ({
   id,
   placeHolder,
   validation,
+  defaultValue,
   label,
 }: IInput) => {
   const {
@@ -36,6 +38,7 @@ const FormInput = ({
       <Controller
         control={control}
         name={name}
+        defaultValue={defaultValue}
         render={({ field }) =>
           type === "password" ? (
             <Input.Password
@@ -43,7 +46,7 @@ const FormInput = ({
               type={type}
               size={size}
               placeholder={placeHolder}
-              value={value ? value : field.value}
+              value={value || field.value}
             />
           ) : (
             <Input
@@ -51,7 +54,7 @@ const FormInput = ({
               type={type}
               size={size}
               placeholder={placeHolder}
-              value={value ? value : field.value}
+              value={value || field.value}
             />
           )
         }
