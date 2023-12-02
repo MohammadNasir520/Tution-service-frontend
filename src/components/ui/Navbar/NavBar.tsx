@@ -127,10 +127,10 @@ const Navbar = () => {
                   className={`  hover:border-b-2 border-[#c0c2c7]
                                          ${
                                            pathname === navItem.href
-                                             ? "text-teal-500 border-b-2   border-[#c0c2c7] font-semibold "
+                                             ? "text-teal-500 border-b-2   border-[#c0c2c7] "
                                              : `${
                                                  isMenuOpen
-                                                   ? "lg:block p-4 text-lg   font-semibold text-white hover:bg-blue-50  rounded"
+                                                   ? "lg:block p-4 text-lg   text-white hover:bg-blue-50  rounded"
                                                    : "  text-white  "
                                                }  `
                                          }`}
@@ -143,17 +143,6 @@ const Navbar = () => {
           <div className="hidden lg:block  text-lg   font-semibold">
             {signOption}
           </div>
-          {/* <div className="flex items-center gap-2  ml-3">
-            <div className="rounded-full border-2 border-blue-gray-600">
-              <Image
-                src={"/"}
-                height={40}
-                width={40}
-                alt="pp"
-                className="rounded-full  object-cover object-center"
-              ></Image>
-            </div>
-          </div> */}
         </nav>
 
         {/* small screen................................ */}

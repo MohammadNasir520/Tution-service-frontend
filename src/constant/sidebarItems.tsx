@@ -42,6 +42,32 @@ export const sidebarItems = (role: string) => {
     },
   ];
 
+  // parents sidebar
+
+  const parentsSidebarItems: MenuProps["items"] = [
+    ...defaultSidebarItems,
+
+    {
+      label: "Tuition",
+      key: "Tuition",
+
+      children: [
+        {
+          label: <Link href={`/parents/post-tuition`}>Post Tuition</Link>,
+          key: `/parents/post-tuition`,
+        },
+        {
+          label: <Link href={`/`}>Manage Tuition</Link>,
+          key: `/`,
+        },
+      ],
+    },
+    {
+      label: <Link href={`/${role}/cart`}>Handle Cart</Link>,
+      key: `/${role}/cart`,
+    },
+  ];
+
   // admin sidebar
   const adminSidebarItems: MenuProps["items"] = [
     ...defaultSidebarItems,
@@ -119,6 +145,8 @@ export const sidebarItems = (role: string) => {
     return adminSidebarItems;
   } else if (role === "user") {
     return userSidebarItems;
+  } else if (role === "parents") {
+    return parentsSidebarItems;
   } else {
     return defaultSidebarItems;
   }
