@@ -20,7 +20,7 @@ const PostTuition = () => {
       value: "female",
     },
     {
-      label: "Any",
+      label: "Male/Female Any",
       value: "Any",
     },
   ];
@@ -31,8 +31,39 @@ const PostTuition = () => {
       value: "bangla",
     },
     {
-      label: "Bangla",
-      value: "bangla",
+      label: "English",
+      value: "english",
+    },
+  ];
+
+  const daysPerWeekOptions = [
+    {
+      label: "1 day",
+      value: "1",
+    },
+    {
+      label: "2 day",
+      value: "2",
+    },
+    {
+      label: "3 day",
+      value: "3",
+    },
+    {
+      label: "4 day",
+      value: "4",
+    },
+    {
+      label: "5 day",
+      value: "5",
+    },
+    {
+      label: "6 day",
+      value: "6",
+    },
+    {
+      label: "7 day",
+      value: "7",
     },
   ];
 
@@ -74,6 +105,14 @@ const PostTuition = () => {
                   options={mediumOptions}
                   name="Medium"
                   label="medium"
+                  size="large"
+                ></FormSelectField>
+              </div>
+              <div className="mt-2">
+                <FormSelectField
+                  options={daysPerWeekOptions}
+                  name="days"
+                  label="Days per week"
                   size="large"
                 ></FormSelectField>
               </div>
