@@ -27,7 +27,11 @@ const Services = () => {
       </h1>
       <div className="grid  md:grid-cols-2 lg:grid-cols-3 justify-center ">
         {services?.map((service: any, i: number) => {
-          return <ServiceCard key={i} service={service}></ServiceCard>;
+          return (
+            <div key={i}>
+              <ServiceCard service={service}></ServiceCard>;
+            </div>
+          );
         })}
       </div>
 

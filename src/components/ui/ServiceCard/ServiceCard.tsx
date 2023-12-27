@@ -31,11 +31,8 @@ const ServiceCard = ({ service }: any) => {
   };
   return (
     <div>
-      <div className="px-2 ">
-        <div
-          id="skills"
-          className="relative flex w-full md:min-h-[350px] my-3  md:max-w-[18rem] lg:max-w-[20rem]  lg:min-h-[450px] flex-col rounded-lg bg-gray-100 border text-gray-700  "
-        >
+      <div className="px-2 flex justify-center">
+        <div className="relative flex w-full md:min-h-[350px] my-3  md:max-w-[18rem] lg:max-w-[20rem]  lg:min-h-[450px] flex-col rounded-lg bg-gray-100 border text-gray-700  ">
           <div className="relative    overflow-hidden  bg-blue-gray-500 bg-clip-border text-white  ">
             <div className="flex justify-center   h-[200px] w-full">
               <Image
