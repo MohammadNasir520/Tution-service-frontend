@@ -9,7 +9,10 @@ import SmallSpinner from "../../ui/Spinner/SmallSpinner";
 const Services = () => {
   const query: Record<string, any> = {};
 
-  const { data, isLoading } = useGetAllServiceQuery({ status: "available" });
+  const { data, isLoading, error } = useGetAllServiceQuery({
+    status: "available",
+  });
+  console.log(data, "error", error);
 
   if (isLoading) {
     return <SmallSpinner></SmallSpinner>;

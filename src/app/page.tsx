@@ -6,7 +6,7 @@ import Footer from "@/components/ui/Footer/Footer";
 import Navbar from "@/components/ui/Navbar/NavBar";
 import UpcomingServices from "@/components/view/UpComingServices/UpcomingServices";
 import ClientReview from "@/components/ui/Slider/Slider";
-import { FloatButton } from "antd";
+
 import NewsCard from "@/components/ui/LatestUpdateCard/LatestUpdateCard";
 import LatestUpdate from "@/components/view/LatestUpdate/LatestUpdate";
 import ServiceByCategory from "@/components/ui/ServiceByCategory/ServiceByCategory";

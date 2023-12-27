@@ -80,7 +80,18 @@ const PostTuition = () => {
           <Row gutter={{ xs: 24, sm: 24, md: 24, lg: 20 }}>
             <Col span={20}>
               <div className="mt-2">
-                <FormInput name="title" label="Title" size="large"></FormInput>
+                <FormInput
+                  name="subject"
+                  label="Subject"
+                  size="large"
+                ></FormInput>
+              </div>
+              <div className="mt-2">
+                <FormInput
+                  name="location"
+                  label="Location"
+                  size="large"
+                ></FormInput>
               </div>
 
               <div className="mt-2">
@@ -98,6 +109,7 @@ const PostTuition = () => {
                   label="salary"
                   type="number"
                   size="large"
+                  placeHolder="Ex: 500/1000/1500/2000 .."
                 ></FormInput>
               </div>
               <div className="mt-2">

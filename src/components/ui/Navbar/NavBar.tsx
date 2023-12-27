@@ -94,6 +94,7 @@ const Navbar = () => {
     <div className="sticky inset-0 z-50 shadow-sm">
       <div className=" bg-black w-full text-white ">
         <nav className=" py-2  w-full flex justify-between items-center">
+          {/*title text */}
           <div>
             <Link href={"/"} className="text-xl font-semibold leading-none">
               <h4 className=" block   text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
@@ -118,7 +119,7 @@ const Navbar = () => {
           </div>
 
           {/* large screen Navbar options............... */}
-          <div className="hidden  flex-1  flex justify-center items-center  text-white lg:flex lg:items-center lg:w-auto lg:space-x-4 text-lg    font-semibold ">
+          <div className="hidden  flex-1  flex justify-center items-center  text-white lg:flex lg:items-center lg:w-auto lg:space-x-4 text-lg    font-normal ">
             {navItems?.map((navItem, i) => (
               <div key={i}>
                 <Link
