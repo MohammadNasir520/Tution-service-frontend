@@ -48,6 +48,7 @@ const Navbar = () => {
     router.push(`/login`);
   };
 
+  // sign in option start
   const signOption = (
     <div className=" lg:flex">
       {role ? (
@@ -68,8 +69,8 @@ const Navbar = () => {
             onClick={() => removeUserInfo(authKey)}
             className={`${
               isMenuOpen
-                ? "block px-1 py-1 mb-2 leading-loose text-center text-white  bg-blue-600 hover:bg-blue-700  rounded-xl  text-base   font-semibold"
-                : "     hidden lg:inline-block py-1 px-1 bg-blue-500 hover:bg-blue-600  text-white font-semibold rounded-sm transition duration-200 "
+                ? "block px-4 py-1 mb-2 leading-loose text-center text-white  bg-blue-600 hover:bg-blue-700  rounded-xl  text-base   font-semibold"
+                : "     hidden lg:inline-block py-1 px-4 bg-blue-500 hover:bg-blue-600  text-white font-semibold rounded-sm transition duration-200 "
             }`}
           >
             login
@@ -79,8 +80,8 @@ const Navbar = () => {
             onClick={() => removeUserInfo(authKey)}
             className={`${
               isMenuOpen
-                ? "block mx-3  px-1 py-1 mb-2 leading-loose text-center text-white  bg-blue-600 hover:bg-blue-700  rounded-xl  text-base   font-semibold"
-                : "     mx-3 hidden lg:inline-block py-1 px-1 bg-blue-500 hover:bg-blue-600  text-white font-semibold rounded-sm transition duration-200 "
+                ? "block mx-3  px-3 py-1 mb-2 leading-loose text-center text-white  bg-blue-600 hover:bg-blue-700  rounded-xl  text-base   font-semibold"
+                : "     mx-3 hidden lg:inline-block py-1 px-3 bg-blue-500 hover:bg-blue-600  text-white font-semibold rounded-sm transition duration-200 "
             }`}
           >
             SignUp

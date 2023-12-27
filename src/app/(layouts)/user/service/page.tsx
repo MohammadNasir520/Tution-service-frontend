@@ -74,7 +74,7 @@ const Admin = () => {
       render: function (data: any) {
         return (
           <>
-            <Image width={60} height={60} src={data.image} alt="pic"></Image>
+            <Image width={60} height={60} src={data?.image} alt="pic"></Image>
           </>
         );
       },

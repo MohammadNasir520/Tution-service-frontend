@@ -59,7 +59,7 @@ const Admin = () => {
             <Image
               width={60}
               height={60}
-              src={data.profileImg}
+              src={data?.profileImg}
               alt="pic"
             ></Image>
           </>
