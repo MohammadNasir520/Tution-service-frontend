@@ -32,7 +32,7 @@ const Navbar = () => {
       href: "/upcoming-services",
     },
     {
-      title: "latestUpdate",
+      title: "LatestUpdate",
       href: "/#latestUpdate",
     },
 
