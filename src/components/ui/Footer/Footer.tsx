@@ -13,36 +13,15 @@ const Footer = () => {
     <footer className="flex justify-center  bg-black">
       <div className="flex  md:w-full flex-col md:flex-row  md:justify-between  text-white min-h-[250px]  md:px-20 py-14 ">
         <div>
-          {/* left introduction and contact information */}
-          {/* <div className='flex items-center space-x-2'>
-                        <Image
-                            src={rahtulGoniImage}
-                            height={70}
-                            width={80}
-                            alt="pp"
-                            className='rounded-lg'
-                        >
-
-                        </Image>
-
-                        <div>
-                            <h4 className=" block   text-lg font-semibold tracking-normal text-blue-gray-900 antialiased">
-                                RAHATUL GONI
-                            </h4>
-                            <h4 className="mb-2 block   text-lg md:text-xl font-semibold tracking-normal text-blue-gray-900 antialiased">
-                                BSC in Chemistry, HSTU
-                            </h4>
-                        </div>
-                    </div> */}
           <div>
-            <p className="my-2 flex items-center gap-2    font-semibold text-lg ">
+            <p className="my-2 flex items-center gap-2   font-normal text-lg ">
               <AiOutlineMail className="w-10 h-w-10" /> TutionMedia@gmail.com
             </p>
-            <p className="flex items-center gap-2   font-semibold text-lg">
+            <p className="flex items-center gap-2  font-normal text-lg">
               <FiPhoneCall className="w-10 h-w-10" />
               01729678295
             </p>
-            <p className="mt-2 flex items-center gap-2   font-semibold text-lg ml-[6px]">
+            <p className="mt-2 flex items-center gap-2  font-normal text-lg ml-[6px]">
               <MdLocationPin className="w-8 h-8" />
               Dinajpur , Bangladesh
             </p>
@@ -54,26 +33,26 @@ const Footer = () => {
         <div className="flex space-y-3 text-white flex-col items-start gap-3 hidden lg:block">
           <Link
             href="#Award&Achivements"
-            className=" link-hover no-underline text-white  block   text-xl font-semibold tracking-normal text-blue-gray-900 antialiased"
+            className=" link-hover no-underline text-white  block   text-xl font-normal tracking-normal text-blue-gray-900 antialiased"
           >
             About
           </Link>
           <Link
             href="#Award&Achivements"
-            className="link link-hover no-underline text-white  block   text-xl font-semibold tracking-normal text-blue-gray-900 antialiased"
+            className="link link-hover no-underline text-white  block   text-xl font-normal tracking-normal text-blue-gray-900 antialiased"
           >
             Our Award & Achivements
           </Link>
           <Link
             href="#Award&Achivements"
-            className="link link-hover no-underline  text-white block   text-xl font-semibold tracking-normal text-blue-gray-900 antialiased"
+            className="link link-hover no-underline  text-white block   text-xl font-normal tracking-normal text-blue-gray-900 antialiased"
           >
             our Extra-curricular Activities
           </Link>
 
           <Link
             href="#Award&Achivements"
-            className="link link-hover no-underline  text-white  block   text-xl font-semibold tracking-normal text-blue-gray-900 antialiased"
+            className="link link-hover no-underline  text-white  block   text-xl font-normal tracking-normal text-blue-gray-900 antialiased"
           >
             Services
           </Link>
