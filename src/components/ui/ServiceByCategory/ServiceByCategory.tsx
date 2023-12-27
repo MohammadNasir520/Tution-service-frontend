@@ -88,7 +88,7 @@ const ServiceByCategory = () => {
   return (
     <>
       <h1 className="font-bold text-xl text-center my-4">
-        check Our Services By Category
+        Check Our Services By Category
       </h1>
       <Tabs tabPosition={tabPosition}>
         {filteredCategoryArray?.map((category: string, i: number) => (

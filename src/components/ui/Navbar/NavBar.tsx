@@ -56,8 +56,8 @@ const Navbar = () => {
           onClick={() => handleSignOut()}
           className={`cursor-pointer ${
             isMenuOpen
-              ? "block px-1 py-1 mb-2 leading-loose text-center text-white  bg-blue-600 hover:bg-blue-700  rounded-xl  text-base   font-semibold"
-              : "hidden lg:inline-block py-1 px-1 bg-blue-500 hover:bg-blue-600  text-white font-semibold rounded-sm transition duration-200 "
+              ? "block px-3 py-1 mb-2 leading-loose text-center text-white  bg-blue-600 hover:bg-blue-700  rounded-xl  text-base   font-semibold"
+              : "hidden lg:inline-block py-1 px-3 bg-blue-500 hover:bg-blue-600  text-white font-semibold rounded-sm transition duration-200 "
           }`}
         >
           SignOut
