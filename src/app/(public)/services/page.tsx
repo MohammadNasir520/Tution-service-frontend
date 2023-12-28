@@ -86,7 +86,7 @@ const AvailableServices = () => {
 
       {/* services */}
       <div>
-        {services.length == 0 ? (
+        {services?.length == 0 ? (
           <div className="lg:h-screen grid place-items-center   font-semibold text-xl w-full">
             <h1> No services Found </h1>
           </div>

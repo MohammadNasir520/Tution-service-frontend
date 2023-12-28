@@ -7,9 +7,11 @@ import { getUserInfo, storeUserInfo } from "@/services/authServices";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import { Button, Col, Row, message } from "antd";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { SubmitHandler } from "react-hook-form";
+import lockImage from "../../../../public/lock.jpg";
 
 type FormValues = {
   name: string;
@@ -38,6 +40,15 @@ const Login = () => {
   return (
     <div>
       <Row justify={"center"} align={"middle"} className="h-screen ">
+        <Col>
+          <Image
+            className="hidden md:block"
+            src={lockImage}
+            height={600}
+            width={300}
+            alt=""
+          ></Image>
+        </Col>
         <Col sm={12} md={16} lg={10}>
           <div>
             <h1 className="text-2xl text-center">Login Here</h1>
