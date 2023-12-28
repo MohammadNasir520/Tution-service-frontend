@@ -41,13 +41,15 @@ const Login = () => {
     <div>
       <Row justify={"center"} align={"middle"} className="h-screen ">
         <Col>
-          <Image
-            className="hidden md:block"
-            src={lockImage}
-            height={600}
-            width={300}
-            alt=""
-          ></Image>
+          <div className="h-screen flex items-center">
+            <Image
+              className="hidden md:block "
+              src={lockImage}
+              height={500}
+              width={500}
+              alt=""
+            ></Image>
+          </div>
         </Col>
         <Col sm={12} md={16} lg={10}>
           <div>
