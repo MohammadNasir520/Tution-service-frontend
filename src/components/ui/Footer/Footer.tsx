@@ -10,8 +10,8 @@ import { BsFacebook, BsLinkedin, BsTwitter, BsYoutube } from "react-icons/bs";
 
 const Footer = () => {
   return (
-    <footer className="flex justify-center  bg-black">
-      <div className="flex  md:w-full flex-col md:flex-row  md:justify-between  text-white min-h-[250px]  md:px-20 py-14 ">
+    <footer className="flex justify-center  p-2 bg-black">
+      <div className="flex  md:w-full flex-col md:flex-row  md:justify-between  text-white   md:px-20 py-2 ">
         <div>
           <div>
             <p className="my-2 flex items-center gap-2   font-normal text-lg ">
@@ -60,31 +60,19 @@ const Footer = () => {
 
         {/* social icons and links................. */}
 
-        <div className="flex md:flex-col  items-center gap-4 py-11">
-          <div className="flex gap-3 ">
-            <Link
-              className="flex items-center gap-4 my-0"
-              href={""}
-              target="_blank"
-            >
+        <div className="my-2">
+          <div className="flex md:flex-col gap-3 justify-center">
+            <Link className="" href={""} target="_blank">
               <BsYoutube className="w-10 h-10 text-white" />
             </Link>
             <Link className="flex  my-0" href={""} target="_blank">
               <BsFacebook className="w-10 h-8 text-white" />
             </Link>
-            <Link className="flex items-center  my-0" href={""} target="_blank">
-              <AiFillInstagram className="w-10 h-10 text-white" />
-            </Link>
-          </div>
-          <div className="flex gap-3 w-full justify-start ">
-            <Link className="flex  my-0" href={""} target="_blank">
-              <BsTwitter className="w-10 h-10 text-white" />
-            </Link>
             <Link className="flex " href={"/"} target="_blank">
-              {/* <Image src={linkedIn} width={40} height={70} alt='yt-logo' /> */}
               <BsLinkedin className="w-10 h-8 text-white" />
             </Link>
           </div>
+          <div className="flex gap-3 w-full justify-start "></div>
         </div>
 
         {/* contact me  button */}
