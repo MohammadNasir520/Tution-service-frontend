@@ -17,7 +17,7 @@ type FormValues = {
   role: string;
 };
 
-const App = () => {
+const SignUp = () => {
   const [sendVerificationEmail, { data }] = useSendVerificationEmailMutation();
   const router = useRouter();
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
@@ -134,4 +134,4 @@ const App = () => {
     </>
   );
 };
-export default App;
+export default SignUp;

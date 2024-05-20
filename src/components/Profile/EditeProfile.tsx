@@ -49,46 +49,51 @@ const EditProfilePage = () => {
     profileImg: admin?.profileImg || "",
   };
   return (
-    <div className="flex justify-center items-center w-full">
+    <div className="flex justify-center items-center w-full my-6">
       <div>
-        <h1 className="font-bold text-2xl"> Update Your Information</h1>
-        <Form submitHandler={onSubmit} defaultValues={defaultValues}>
-          <Row gutter={{ xs: 8, sm: 16, md: 24 }}>
-            <Col className="gutter-row mb-2" span={20} lg={8}>
-              <FormInput
-                name="name"
-                type="text"
-                size="large"
-                label="Name"
-              ></FormInput>
+        <h1 className="font-bold text-2xl text-center">
+          {" "}
+          Update Your Information
+        </h1>
+        <div className="flex justify-center items-center w-full">
+          <Form submitHandler={onSubmit} defaultValues={defaultValues}>
+            <Row className="mx-4" gutter={{ xs: 8, sm: 16, md: 8 }}>
+              <Col className="gutter-row mb-2">
+                <FormInput
+                  name="name"
+                  type="text"
+                  size="large"
+                  label="Name"
+                ></FormInput>
 
-              <FormInput
-                name="email"
-                type="text"
-                size="large"
-                label="Email"
-              ></FormInput>
+                <FormInput
+                  name="email"
+                  type="text"
+                  size="large"
+                  label="Email"
+                ></FormInput>
 
-              <FormInput
-                name="contactNo"
-                type="text"
-                size="large"
-                label="Contact No"
-              ></FormInput>
+                <FormInput
+                  name="contactNo"
+                  type="text"
+                  size="large"
+                  label="Contact No"
+                ></FormInput>
 
-              <FormInput
-                name="profileImg"
-                type="text"
-                size="large"
-                label="Profile Image"
-              ></FormInput>
-            </Col>
-          </Row>
+                <FormInput
+                  name="profileImg"
+                  type="text"
+                  size="large"
+                  label="Profile Image"
+                ></FormInput>
+              </Col>
+            </Row>
 
-          <Button type="primary" htmlType="submit">
-            Update
-          </Button>
-        </Form>
+            <Button type="primary" htmlType="submit">
+              Update
+            </Button>
+          </Form>
+        </div>
       </div>
     </div>
   );

@@ -17,11 +17,12 @@ type FormValues = {
   password: string;
 };
 
-const Login = () => {
+const SignUp = () => {
   const [createUser, { data }] = useCreateUserMutation();
   const router = useRouter();
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
+    console.log("signup data", data);
     try {
       const res = await createUser({ ...data }).unwrap();
 
@@ -60,14 +61,7 @@ const Login = () => {
                     label="password"
                   />
                 </div>
-                <div className="my-1">
-                  <FormInput
-                    name="profileImg"
-                    type="text"
-                    size="large"
-                    label="profileImg"
-                  />
-                </div>
+
                 <FormInput
                   name="contactNo"
                   type="text"
@@ -98,4 +92,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;

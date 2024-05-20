@@ -3,7 +3,7 @@ import React from "react";
 
 const EditProfile = () => {
   return (
-    <div>
+    <div className="flex justify-center items-center">
       <EditProfilePage></EditProfilePage>
     </div>
   );
