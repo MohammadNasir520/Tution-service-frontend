@@ -57,8 +57,8 @@ export const sidebarItems = (role: string) => {
           key: `/parents/post-tuition`,
         },
         {
-          label: <Link href={`/`}>Manage Tuition</Link>,
-          key: `/`,
+          label: <Link href={`/manage-tuition`}>Manage Tuition</Link>,
+          key: `/manage-tuition`,
         },
       ],
     },
@@ -84,6 +84,21 @@ export const sidebarItems = (role: string) => {
         {
           label: <Link href={`/admin/user/create`}>Create user</Link>,
           key: `/admin/user/create`,
+        },
+      ],
+    },
+    {
+      label: "Mange  TuitionPost",
+      key: "Mange  TuitionPost",
+
+      children: [
+        {
+          label: <Link href={`/admin/tuition-post`}> TuitionPost</Link>,
+          key: `/admin/tuition-post`,
+        },
+        {
+          label: <Link href={`/admin/service/create`}>Create tuitionPost</Link>,
+          key: `/admin/service/create`,
         },
       ],
     },

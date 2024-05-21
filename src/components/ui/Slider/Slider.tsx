@@ -93,13 +93,13 @@ const ClientReview = () => {
     <div id="reviews" className="mx-10 my-36">
       <div className="flex flex-col justify-center items-center my-5 ">
         <h6 className="   text-black text-3xl font-bold uppercase mb-0  ">
-          Students Review
+          Parents Review
         </h6>
         <h6
           style={{ lineHeight: "12px" }}
           className="   text-green-700 text-lg font-bold mt-0  "
         >
-          Here are Students Reviews
+          Here are Parents Reviews
         </h6>
       </div>
 
