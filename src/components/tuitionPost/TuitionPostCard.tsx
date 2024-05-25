@@ -4,9 +4,9 @@ import { Button, Radio } from "antd";
 import React from "react";
 import { MdLocationPin } from "react-icons/md";
 
-const TuitionPost = () => {
+const TuitionPostCard = () => {
   return (
-    <div className="h-[350px] lg:w-10/12 w-full  bg-slate-200 p-8 mt-7 space-y-4  mx-auto rounded-sm">
+    <div className="h-[350px]  lg:w-10/12 w-full  bg-slate-200 py-3 px-8 mt-7 space-y-4  mx-auto rounded-sm">
       <div className="space-y-2">
         <div className="flex justify-between mt-2">
           <div className="">
@@ -76,4 +76,4 @@ const TuitionPost = () => {
   );
 };
 
-export default TuitionPost;
+export default TuitionPostCard;

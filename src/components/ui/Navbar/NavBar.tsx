@@ -24,6 +24,10 @@ const Navbar = () => {
       href: "/",
     },
     {
+      title: "Tuition-Post",
+      href: "/tuition-post",
+    },
+    {
       title: "Available-services",
       href: "/services",
     },

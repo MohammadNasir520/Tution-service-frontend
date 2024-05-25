@@ -10,6 +10,7 @@ import ClientReview from "@/components/ui/Slider/Slider";
 import NewsCard from "@/components/ui/LatestUpdateCard/LatestUpdateCard";
 import LatestUpdate from "@/components/view/LatestUpdate/LatestUpdate";
 import ServiceByCategory from "@/components/ui/ServiceByCategory/ServiceByCategory";
+import TuitionPost from "@/components/view/TuitionPost/TuitionPost";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <Banner></Banner>
 
       <div className="px-3 lg:px-5 ">
+        <TuitionPost></TuitionPost>
         <Services></Services>
         <UpcomingServices></UpcomingServices>
         <ServiceByCategory></ServiceByCategory>
