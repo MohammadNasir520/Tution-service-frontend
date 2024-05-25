@@ -1,6 +1,7 @@
 "use client";
 
 import { Button, Radio } from "antd";
+import Link from "next/link";
 import React from "react";
 import { MdLocationPin } from "react-icons/md";
 
@@ -68,9 +69,9 @@ const TuitionPostCard = () => {
       </div>
       <div className="flex justify-between my-6">
         <div>Date and Time</div>
-        <div>
+        <Link href={`/tuitionPostDetails/8`}>
           <Button type="primary">View Details</Button>
-        </div>
+        </Link>
       </div>
     </div>
   );

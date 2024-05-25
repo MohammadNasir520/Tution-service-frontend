@@ -1,4 +1,6 @@
 import TuitionPostCard from "@/components/tuitionPost/TuitionPostCard";
+import { Button } from "antd";
+import Link from "next/link";
 import React from "react";
 
 const TuitionPost = () => {
@@ -8,6 +10,14 @@ const TuitionPost = () => {
       <TuitionPostCard></TuitionPostCard>
       <TuitionPostCard></TuitionPostCard>
       <TuitionPostCard></TuitionPostCard>
+
+      <div className="flex justify-center items-center my-4 w-full">
+        {" "}
+        <Link href={`/tuition-post`}>
+          {" "}
+          <Button type="primary">View All Tuition Post</Button>
+        </Link>
+      </div>
     </div>
   );
 };
