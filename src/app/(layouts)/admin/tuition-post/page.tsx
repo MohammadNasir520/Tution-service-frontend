@@ -1,12 +1,27 @@
+"use client";
 import TuitionPostCard from "@/components/tuitionPost/TuitionPostCard";
+import { useGetAllTuitionPostQuery } from "@/redux/api/tuitionPostApi/tuitionPostApi";
 import React from "react";
 
-const page = () => {
+const TuitionPost = () => {
+  const {
+    data: AllTuitionPost,
+    isLoading,
+    isError,
+  } = useGetAllTuitionPostQuery(undefined);
+
+  console.log(AllTuitionPost);
   return (
     <div>
-      <TuitionPostCard></TuitionPostCard>
+      {AllTuitionPost?.map((tuitionPost: any) => {
+        return (
+          <div key={tuitionPost?.id}>
+            <TuitionPostCard tuitionPost={tuitionPost}></TuitionPostCard>
+          </div>
+        );
+      })}
     </div>
   );
 };
 
-export default page;
+export default TuitionPost;

@@ -4,10 +4,6 @@ import Form from "@/components/Form/page";
 import SmallSpinner from "@/components/ui/Spinner/SmallSpinner";
 
 import {
-  useGetSingleAdminQuery,
-  useUpdateSingleAdminMutation,
-} from "@/redux/api/adminApi/adminApi";
-import {
   useGetProfileQuery,
   useUpdateProfileMutation,
 } from "@/redux/api/profleApi/profileApi";
@@ -16,7 +12,7 @@ import { Button, Col, Row, message } from "antd";
 import { useRouter } from "next/navigation";
 import React from "react";
 
-const EditProfilePage = () => {
+const CreateTuitionPost = () => {
   const { userId, role } = getUserInfo() as any;
 
   const router = useRouter();
@@ -53,12 +49,12 @@ const EditProfilePage = () => {
       <div>
         <h1 className="font-bold text-2xl text-center">
           {" "}
-          Update Your Information
+          Input Details For Tuition Post
         </h1>
         <div className=" flex justify-center items-center lg:w-2/4 mx-auto">
           <Form submitHandler={onSubmit} defaultValues={defaultValues}>
-            <Row className="mx-4" gutter={{ xs: 8, sm: 16, md: 8 }}>
-              <Col className="gutter-row mb-2">
+            <Row className="mx-4 " gutter={{ xs: 8, sm: 16, md: 8 }}>
+              <Col className="gutter-row  mb-4">
                 <FormInput
                   name="name"
                   type="text"
@@ -99,4 +95,4 @@ const EditProfilePage = () => {
   );
 };
 
-export default EditProfilePage;
+export default CreateTuitionPost;

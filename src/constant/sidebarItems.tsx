@@ -97,8 +97,10 @@ export const sidebarItems = (role: string) => {
           key: `/admin/tuition-post`,
         },
         {
-          label: <Link href={`/admin/service/create`}>Create tuitionPost</Link>,
-          key: `/admin/service/create`,
+          label: (
+            <Link href={`/admin/tuition-post/create`}>Create tuitionPost</Link>
+          ),
+          key: `/admin/tuition-post/create`,
         },
       ],
     },

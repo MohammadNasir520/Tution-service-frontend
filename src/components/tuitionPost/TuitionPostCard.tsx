@@ -5,7 +5,25 @@ import Link from "next/link";
 import React from "react";
 import { MdLocationPin } from "react-icons/md";
 
-const TuitionPostCard = () => {
+const TuitionPostCard = ({ tuitionPost }: { tuitionPost: any }) => {
+  const {
+    id,
+    medium,
+    jobId,
+    location,
+    createdAt,
+    salary,
+    tuitionType,
+    numberOfStudent,
+    tutorGender,
+    tutoringStartTime,
+    tutoringEndTime,
+
+    subject,
+    days,
+    studentGender,
+    className,
+  } = tuitionPost;
   return (
     <div className="h-[350px]  lg:w-10/12 w-full  bg-slate-200 py-3 px-8 mt-7 space-y-4  mx-auto rounded-sm">
       <div className="space-y-2">
@@ -13,18 +31,20 @@ const TuitionPostCard = () => {
           <div className="">
             <p className=" flex items-center gap-2  font-normal text-lg ">
               <MdLocationPin className="w-8 h-8" />
-              Dinajpur , Bangladesh
+              {location}, Bangladesh
             </p>
           </div>
           <div>
-            <Radio.Button value="default">Job Id:123842</Radio.Button>
+            <Radio.Button value="default">Job Id:{jobId}</Radio.Button>
           </div>
         </div>
         <div>
-          <h1 className="text-2xl font-bold">Tuition Post Title</h1>
+          <h1 className="text-2xl font-bold">
+            Tutor Needed For {medium} Medium
+          </h1>
         </div>
         <div className="flex  gap-5">
-          <Button type="primary">Home Tutoring </Button>
+          <Button type="primary">{tuitionType} Tutoring </Button>
           <Button type="primary">4 Hours ago</Button>
         </div>
       </div>
@@ -34,24 +54,24 @@ const TuitionPostCard = () => {
           <div>
             {" "}
             <h1>Medium</h1>
-            <h1 className="text-xl font-normal">Medium Name</h1>
+            <h1 className="text-xl font-normal">{medium}</h1>
           </div>
           <div>
             {" "}
             <h1>Preferred Days</h1>
-            <h1 className="text-xl font-normal">7 Days Per week</h1>
+            <h1 className="text-xl font-normal">{days} Days Per week</h1>
           </div>
         </div>
         <div className="space-y-4">
           <div>
             {" "}
             <h1>Class</h1>
-            <h1 className="text-xl font-normal">Class Name</h1>
+            <h1 className="text-xl font-normal">{className}</h1>
           </div>
           <div>
             {" "}
             <h1>Subject </h1>
-            <h1 className="text-xl font-normal">Subject Name</h1>
+            <h1 className="text-xl font-normal">{subject}</h1>
           </div>
         </div>
         <div className="space-y-4">
@@ -63,13 +83,13 @@ const TuitionPostCard = () => {
           <div>
             {" "}
             <h1>Salary </h1>
-            <h1 className="text-xl font-normal">1000 Tk</h1>
+            <h1 className="text-xl font-normal">{salary} Tk/Month</h1>
           </div>
         </div>
       </div>
       <div className="flex justify-between my-6">
-        <div>Date and Time</div>
-        <Link href={`/tuitionPostDetails/8`}>
+        <div>{createdAt}</div>
+        <Link href={`/tuitionPostDetails/${id}`}>
           <Button type="primary">View Details</Button>
         </Link>
       </div>
