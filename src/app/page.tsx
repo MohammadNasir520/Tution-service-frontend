@@ -11,6 +11,7 @@ import NewsCard from "@/components/ui/LatestUpdateCard/LatestUpdateCard";
 import LatestUpdate from "@/components/view/LatestUpdate/LatestUpdate";
 import ServiceByCategory from "@/components/ui/ServiceByCategory/ServiceByCategory";
 import TuitionPost from "@/components/view/TuitionPost/TuitionPost";
+import Tutor from "@/components/view/tutor/Tutor";
 
 export default function Home() {
   return (
@@ -20,6 +21,8 @@ export default function Home() {
 
       <div className="px-3 lg:px-5 ">
         <TuitionPost></TuitionPost>
+
+        <Tutor></Tutor>
         <Services></Services>
         <UpcomingServices></UpcomingServices>
         <ServiceByCategory></ServiceByCategory>
