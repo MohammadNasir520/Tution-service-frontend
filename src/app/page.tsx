@@ -12,6 +12,7 @@ import LatestUpdate from "@/components/view/LatestUpdate/LatestUpdate";
 import ServiceByCategory from "@/components/ui/ServiceByCategory/ServiceByCategory";
 import TuitionPost from "@/components/view/TuitionPost/TuitionPost";
 import Tutor from "@/components/view/tutor/Tutor";
+import HomePageTutorStatics from "@/components/ui/HomePageTutorStatistics/HomePageTutorStatics";
 
 export default function Home() {
   return (
@@ -23,6 +24,8 @@ export default function Home() {
         <TuitionPost></TuitionPost>
 
         <Tutor></Tutor>
+
+        <HomePageTutorStatics></HomePageTutorStatics>
         <Services></Services>
         <UpcomingServices></UpcomingServices>
         <ServiceByCategory></ServiceByCategory>

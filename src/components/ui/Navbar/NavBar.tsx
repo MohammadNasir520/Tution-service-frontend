@@ -84,7 +84,7 @@ const Navbar = () => {
             onClick={() => removeUserInfo(authKey)}
             className={`${
               isMenuOpen
-                ? "block mx-3  px-3 py-1 mb-2 leading-loose text-center text-white  bg-blue-600 hover:bg-blue-700  rounded-xl  text-base   font-semibold"
+                ? "block mx-3  px-3 py-1 mb-2 font-serif leading-loose text-center text-white  bg-blue-600 hover:bg-blue-700  rounded-xl  text-base   font-semibold"
                 : "     mx-3 hidden lg:inline-block py-1 px-3 bg-blue-500 hover:bg-blue-600  text-white font-semibold rounded-sm transition duration-200 "
             }`}
           >

@@ -1,4 +1,5 @@
 import TutorCard from "@/components/ui/TutorCard/TutorCard";
+import { Button } from "antd";
 
 const Tutor = () => {
   return (
@@ -14,6 +15,11 @@ const Tutor = () => {
         <TutorCard></TutorCard>
         <TutorCard></TutorCard>
         <TutorCard></TutorCard>
+        <TutorCard></TutorCard>
+      </div>
+
+      <div className="flex justify-end">
+        <Button type="primary">View More Teacher</Button>
       </div>
     </div>
   );
