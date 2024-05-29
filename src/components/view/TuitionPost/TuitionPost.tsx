@@ -1,6 +1,7 @@
 "use client";
 
 import TuitionPostCard from "@/components/tuitionPost/TuitionPostCard";
+import SmallSpinner from "@/components/ui/Spinner/SmallSpinner";
 import { useGetAllTuitionPostQuery } from "@/redux/api/tuitionPostApi/tuitionPostApi";
 import { Button } from "antd";
 import Link from "next/link";
@@ -13,9 +14,17 @@ const TuitionPost = () => {
     isError,
   } = useGetAllTuitionPostQuery(undefined);
 
+  if (isLoading) {
+    return (
+      <div>
+        <SmallSpinner></SmallSpinner>
+      </div>
+    );
+  }
+
   console.log(AllTuitionPost);
   return (
-    <div className="my-10">
+    <div id="tuitionPost" className="my-10">
       <h1 className="text-center text-2xl font-bold">Tuition Post </h1>
       <div>
         {AllTuitionPost?.map((tuitionPost: any) => {
