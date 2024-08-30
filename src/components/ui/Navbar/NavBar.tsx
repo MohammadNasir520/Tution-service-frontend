@@ -24,7 +24,7 @@ const Navbar = () => {
       href: "/",
     },
     {
-      title: "Tuition-Post",
+      title: "Tuition-Posts",
       href: "/tuition-post",
     },
     {

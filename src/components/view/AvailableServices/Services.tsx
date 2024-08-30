@@ -12,7 +12,6 @@ const Services = () => {
   const { data, isLoading, error } = useGetAllServiceQuery({
     status: "available",
   });
-  console.log(data, "error", error);
 
   if (isLoading) {
     return <SmallSpinner></SmallSpinner>;
@@ -43,7 +42,5 @@ const Services = () => {
     </div>
   );
 };
-
-// export default Services;
 
 export default dynamic(() => Promise.resolve(Services), { ssr: false });

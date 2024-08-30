@@ -1,7 +1,7 @@
 "use client";
+import TuitionPostDetailsCard from "@/app/(public)/tuitionPostDetails/[id]/TuitionPostDetailsCard";
 import SmallSpinner from "@/components/ui/Spinner/SmallSpinner";
 import { useGetSingleTuitionPostQuery } from "@/redux/api/tuitionPostApi/tuitionPostApi";
-import TuitionPostDetailsCard from "./TuitionPostDetailsCard";
 
 const TuitionPostDetails = ({ params }: { params: { id: string } }) => {
   console.log(params.id);

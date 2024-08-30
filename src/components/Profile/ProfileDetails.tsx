@@ -41,7 +41,7 @@ const ProfileDetails = () => {
                           width={300}
                           height={200}
                           layout="responsive"
-                          alt=""
+                          alt="Profile Pic"
                         />
                       </div>
                     </div>

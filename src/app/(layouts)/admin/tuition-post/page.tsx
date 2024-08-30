@@ -13,6 +13,7 @@ const TuitionPost = () => {
   console.log(AllTuitionPost);
   return (
     <div>
+      <h1 className="text-center font-bold">Total: {AllTuitionPost?.length}</h1>
       {AllTuitionPost?.map((tuitionPost: any) => {
         return (
           <div key={tuitionPost?.id}>

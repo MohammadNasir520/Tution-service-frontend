@@ -1,6 +1,8 @@
 "use client";
 import FormInput from "@/components/Form/FormInput";
+import FormSelectField from "@/components/Form/FormSelectField";
 import Form from "@/components/Form/page";
+import { RoleSelectOptions } from "@/constant/options";
 import { useCreateAdminMutation } from "@/redux/api/adminApi/adminApi";
 import { useCreateUserMutation } from "@/redux/api/authApi/authApi";
 
@@ -29,7 +31,7 @@ const CreateAdmin = () => {
   };
   return (
     <div>
-      create Admin Page
+      <h1 className="text-center font-bold text-xl"> create User</h1>
       <Form submitHandler={onSubmit} resolver={yupResolver(adminSchema)}>
         <Row gutter={{ xs: 8, sm: 16, md: 24 }}>
           <Col className="gutter-row mb-2" span={20} lg={8}>
@@ -72,6 +74,14 @@ const CreateAdmin = () => {
               size="large"
               label="Profile Image"
             ></FormInput>
+          </Col>
+          <Col className="gutter-row mb-2" span={20} lg={8}>
+            <FormSelectField
+              options={RoleSelectOptions}
+              name="role"
+              size="large"
+              label="Select Role"
+            ></FormSelectField>
           </Col>
         </Row>
 

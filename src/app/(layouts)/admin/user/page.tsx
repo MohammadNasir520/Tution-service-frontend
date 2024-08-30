@@ -1,6 +1,7 @@
 "use client";
 
 import Table from "@/components/ui/Table/Table";
+import { RoleSelectOptions } from "@/constant/options";
 
 import {
   useDeleteUserMutation,
@@ -45,11 +46,6 @@ const Admin = () => {
     }
   };
 
-  const SelectOptions = [
-    { label: "admin", value: "admin" },
-    { label: "user", value: "user" },
-  ];
-
   const columns = [
     {
       title: "Image",
@@ -88,7 +84,7 @@ const Admin = () => {
               defaultValue={data.role}
               style={{ width: 120 }}
               loading={isLoading}
-              options={SelectOptions}
+              options={RoleSelectOptions}
             />
           </div>
         );

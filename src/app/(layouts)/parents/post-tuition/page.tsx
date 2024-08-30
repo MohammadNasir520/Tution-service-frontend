@@ -1,143 +1,53 @@
 "use client";
-import FormInput from "@/components/Form/FormInput";
-import FormSelectField from "@/components/Form/FormSelectField";
-import Form from "@/components/Form/page";
-import { Button, Col, Row } from "antd";
+
+import TuitionPostForm from "@/components/Form/TuitionPostForm";
+
+import SmallSpinner from "@/components/ui/Spinner/SmallSpinner";
+
+import { useCreateTuitionPostMutation } from "@/redux/api/tuitionPostApi/tuitionPostApi";
+import { getUserInfo } from "@/services/authServices";
+import { message } from "antd";
+import { useRouter } from "next/navigation";
 import React from "react";
 
-const PostTuition = () => {
-  const onsubmit = async (data: any) => {
-    console.log(data);
+const CreateTuitionPost = () => {
+  const { userId, role } = getUserInfo() as any;
+  const [createTuitionPost, { error, isLoading }] =
+    useCreateTuitionPostMutation();
+  const router = useRouter();
+
+  const onSubmit = async (data: any) => {
+    console.log("tuition Data", data);
+    try {
+      message.loading("Creating");
+      const res = await createTuitionPost(data).unwrap();
+      //@ts-ignore
+      if (res.id) {
+        message.success("Tuition Post Created successfully");
+        router.push(`/admin/tuition-post`);
+      }
+    } catch (error) {
+      //@ts-ignore
+      message.error(error.message);
+      console.log(error);
+    }
   };
 
-  const TutorsGenderOptions = [
-    {
-      label: "Male",
-      value: "male",
-    },
-    {
-      label: "Female",
-      value: "female",
-    },
-    {
-      label: "Male/Female Any",
-      value: "Any",
-    },
-  ];
-
-  const mediumOptions = [
-    {
-      label: "Bangla",
-      value: "bangla",
-    },
-    {
-      label: "English",
-      value: "english",
-    },
-  ];
-
-  const daysPerWeekOptions = [
-    {
-      label: "1 day",
-      value: "1",
-    },
-    {
-      label: "2 day",
-      value: "2",
-    },
-    {
-      label: "3 day",
-      value: "3",
-    },
-    {
-      label: "4 day",
-      value: "4",
-    },
-    {
-      label: "5 day",
-      value: "5",
-    },
-    {
-      label: "6 day",
-      value: "6",
-    },
-    {
-      label: "7 day",
-      value: "7",
-    },
-  ];
+  if (isLoading) {
+    return <SmallSpinner />;
+  }
 
   return (
-    <div className="grid justify-center  ">
+    <div className="flex justify-center items-center w-full my-6">
       <div>
-        <h1 className="text-xl  text-center font-semibold">
-          Post a Tuition For Getting The Best Tutor
+        <h1 className="font-bold text-2xl text-center">
+          {" "}
+          Input Details For Tuition Post
         </h1>
-      </div>
-
-      <div className="lg:w-[600px]">
-        <Form submitHandler={onsubmit}>
-          <Row gutter={{ xs: 24, sm: 24, md: 24, lg: 20 }}>
-            <Col span={20}>
-              <div className="mt-2">
-                <FormInput
-                  name="subject"
-                  label="Subject"
-                  size="large"
-                ></FormInput>
-              </div>
-              <div className="mt-2">
-                <FormInput
-                  name="location"
-                  label="Location"
-                  size="large"
-                ></FormInput>
-              </div>
-
-              <div className="mt-2">
-                <FormSelectField
-                  options={TutorsGenderOptions}
-                  name="tutorGender"
-                  label="Tutors' Gender"
-                  size="large"
-                ></FormSelectField>
-              </div>
-
-              <div className="mt-2">
-                <FormInput
-                  name="salary"
-                  label="salary"
-                  type="number"
-                  size="large"
-                  placeHolder="Ex: 500/1000/1500/2000 .."
-                ></FormInput>
-              </div>
-              <div className="mt-2">
-                <FormSelectField
-                  options={mediumOptions}
-                  name="Medium"
-                  label="medium"
-                  size="large"
-                ></FormSelectField>
-              </div>
-              <div className="mt-2">
-                <FormSelectField
-                  options={daysPerWeekOptions}
-                  name="days"
-                  label="Days per week"
-                  size="large"
-                ></FormSelectField>
-              </div>
-            </Col>
-          </Row>
-
-          <Button className="mt-2" type="primary" htmlType="submit">
-            Submit
-          </Button>
-        </Form>
+        <TuitionPostForm onSubmit={onSubmit}></TuitionPostForm>
       </div>
     </div>
   );
 };
 
-export default PostTuition;
+export default CreateTuitionPost;

@@ -1,5 +1,7 @@
 "use client";
 
+import { EnumUserRole } from "@/constant/enums";
+import { getUserInfo } from "@/services/authServices";
 import { Button, Radio } from "antd";
 import Link from "next/link";
 import React from "react";
@@ -24,6 +26,8 @@ const TuitionPostCard = ({ tuitionPost }: { tuitionPost: any }) => {
     studentGender,
     className,
   } = tuitionPost;
+
+  const { role } = getUserInfo() as any;
   return (
     <div className="h-[350px]  lg:w-10/12 w-full  bg-slate-200 py-3 px-8 mt-7 space-y-4  mx-auto rounded-sm">
       <div className="space-y-2">
@@ -45,7 +49,7 @@ const TuitionPostCard = ({ tuitionPost }: { tuitionPost: any }) => {
         </div>
         <div className="flex  gap-5">
           <Button type="primary">{tuitionType} Tutoring </Button>
-          <Button type="primary">4 Hours ago</Button>
+          {/* <Button type="primary">4 Hours ago</Button> */}
         </div>
       </div>
 
@@ -75,21 +79,32 @@ const TuitionPostCard = ({ tuitionPost }: { tuitionPost: any }) => {
           </div>
         </div>
         <div className="space-y-4">
-          <div>
+          {/* <div>
             {" "}
             <h1>Preferred tutor</h1>
             <h1 className="text-xl font-normal">Preferred tutor Name</h1>
-          </div>
+          </div> */}
           <div>
             {" "}
             <h1>Salary </h1>
             <h1 className="text-xl font-normal">{salary} Tk/Month</h1>
           </div>
+          <div>
+            {" "}
+            <h1>Tutor Gender </h1>
+            <h1 className="text-xl font-normal">{tutorGender}</h1>
+          </div>
         </div>
       </div>
       <div className="flex justify-between my-6">
         <div>{createdAt}</div>
-        <Link href={`/tuitionPostDetails/${id}`}>
+        <Link
+          href={`/${
+            role == EnumUserRole.Admin
+              ? "admin/tuition-post/details"
+              : "tuitionPostDetails"
+          }/${id}`}
+        >
           <Button type="primary">View Details</Button>
         </Link>
       </div>

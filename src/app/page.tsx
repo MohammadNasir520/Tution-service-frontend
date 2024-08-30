@@ -22,9 +22,7 @@ export default function Home() {
 
       <div className="px-3 lg:px-5 ">
         <TuitionPost></TuitionPost>
-
         <Tutor></Tutor>
-
         <HomePageTutorStatics></HomePageTutorStatics>
         <Services></Services>
         <UpcomingServices></UpcomingServices>

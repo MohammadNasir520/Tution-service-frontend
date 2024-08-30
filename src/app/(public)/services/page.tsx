@@ -9,7 +9,7 @@ import { useState } from "react";
 const AvailableServices = () => {
   const query: Record<string, any> = {};
   const [searchTerm, setSearchTerm] = useState<string>("");
-
+  console.log(query);
   query["searchTerm"] = searchTerm;
 
   const { data, isLoading } = useGetAllServiceQuery({

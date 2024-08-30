@@ -27,7 +27,7 @@ const TuitionPost = () => {
     <div id="tuitionPost" className="my-10">
       <h1 className="text-center text-2xl font-bold">Tuition Post </h1>
       <div>
-        {AllTuitionPost?.map((tuitionPost: any) => {
+        {AllTuitionPost?.slice(0, 3)?.map((tuitionPost: any) => {
           return (
             <div key={tuitionPost?.id}>
               <TuitionPostCard tuitionPost={tuitionPost}></TuitionPostCard>
