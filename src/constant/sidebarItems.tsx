@@ -64,6 +64,14 @@ export const sidebarItems = (role: string) => {
           ),
           key: `/parents/manage-tuition-posts`,
         },
+        {
+          label: (
+            <Link href={`/parents/manage-applications`}>
+              Manage Applications
+            </Link>
+          ),
+          key: `/parents/manage-applications`,
+        },
       ],
     },
     {
