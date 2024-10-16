@@ -47,8 +47,8 @@ const TuitionPostCard = ({ tuitionPost }: { tuitionPost: any }) => {
             Tutor Needed For {medium} Medium
           </h1>
         </div>
-        <div className="flex  gap-5">
-          <Button type="primary">{tuitionType} Tutoring </Button>
+        <div className="flex  gap-5 z-0">
+          <div className="border border-white">{tuitionType} Tutoring </div>
           {/* <Button type="primary">4 Hours ago</Button> */}
         </div>
       </div>
@@ -56,41 +56,41 @@ const TuitionPostCard = ({ tuitionPost }: { tuitionPost: any }) => {
       <div className="flex justify-between">
         <div className="space-y-4">
           <div>
-            {" "}
+            
             <h1>Medium</h1>
             <h1 className="text-xl font-normal">{medium}</h1>
           </div>
           <div>
-            {" "}
+            
             <h1>Preferred Days</h1>
             <h1 className="text-xl font-normal">{days} Days Per week</h1>
           </div>
         </div>
         <div className="space-y-4">
           <div>
-            {" "}
+            
             <h1>Class</h1>
             <h1 className="text-xl font-normal">{className}</h1>
           </div>
           <div>
-            {" "}
+            
             <h1>Subject </h1>
             <h1 className="text-xl font-normal">{subject}</h1>
           </div>
         </div>
         <div className="space-y-4">
           {/* <div>
-            {" "}
+            
             <h1>Preferred tutor</h1>
             <h1 className="text-xl font-normal">Preferred tutor Name</h1>
           </div> */}
           <div>
-            {" "}
+            
             <h1>Salary </h1>
             <h1 className="text-xl font-normal">{salary} Tk/Month</h1>
           </div>
           <div>
-            {" "}
+            
             <h1>Tutor Gender </h1>
             <h1 className="text-xl font-normal">{tutorGender}</h1>
           </div>

@@ -35,18 +35,28 @@ const TuitionPost = () => {
 
   return (
     <div className="min-h-screen ">
+    {
+      isOpen ===false &&  <div className="lg:hidden   w-10 h-10 p-5 flex justify-center items-center border border-black rounded-full ">
       <h1
-        className="lg:hidden flex justify-end"
+        className=" flex justify-end"
         onClick={() => setIsOpen(!isOpen)}
+        // onBlur={() => setIsOpen(!isOpen)}
       >
         Filter
       </h1>
-      <div className="flex">
+    </div>
+    }
+      <div className="flex relative">
+       
+        {/* left side bar column */}
         <div
-          className={`w-64 ${
-            isOpen ? "block absolute top-0 left-0 bottom-0 z-50 " : "hidden"
-          } lg:block sticky top-10 `}
+          className={`h-[70vh] w-64 lg:block lg:sticky  lg:top-16 bg-white  ${
+            isOpen ? "fixed   left-0 top-15 h-[100vh] " : "hidden"
+          } `}
         >
+           <div onClick={()=>setIsOpen(false)} className="text-2xl text-red-500 md:hidden">
+          X
+        </div>
           <h1>Advance Filter</h1>
           <hr />
           <div className="flex flex-col-reverse ">
@@ -126,7 +136,9 @@ const TuitionPost = () => {
             </form>
           </div>
         </div>
-        <div className="flex-1 sticky top-0">
+
+        {/* Tuition Posts in right */}
+        <div className="lg:flex-1 ">
           <h1 className="text-center font-bold">
             Total: {allTuitionPost?.length}
           </h1>
